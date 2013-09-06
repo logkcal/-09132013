@@ -34,6 +34,4 @@ Job-Specific Options:
   --test_set_fraction (-tf) test_set_fraction             Fraction of data to hold out for testing
   --max_doc_topic_iters (-mipd) max_doc_topic_iters       max # of iterations per doc for p(topic|doc) learning              
   --backfill_perplexity                                   enable backfilling of missing perplexity values                
-  --help (-h)                                             Print out help        
-  --tempDir tempDir                                       Intermediate output directory             
 ```
