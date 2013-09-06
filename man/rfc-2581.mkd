@@ -1,0 +1,9 @@
+http://www.ietf.org/rfc/rfc2581.txt
+http://msdn.microsoft.com/en-us/library/ms819737.aspx
+
+Slow Start: When a connection is established, TCP starts slowly at first so as to assess the bandwidth of the connection and to avoid overflowing the receiving host or any other devices or links in the connection path. If TCP segments are acknowledged, the window size is incremented again, and so on until the amount of data being sent per burst reaches the size of the receive window on the remote host.
+
+Congestion Avoidance: If the need to retransmit data happens, the TCP stack acts under the assumption that network congestion is the cause. The congestion avoidance algorithm resets the receive window to half the size of the send window at the point when congestion occurred. TCP then enlarges the receive window back to the currently advertised size more slowly than the slow start algorithm.
+
+Fast Retransmit & Recovery: To help make the sender aware of the apparently dropped data as quickly as possible, the receiver immediately sends an acknowledgment (ACK), with the ACK number set to the sequence number that seems to be missing. The receiver sends another ACK for that sequence number for each additional TCP segment in the incoming stream that arrives with a sequence number higher than the missing one.
+

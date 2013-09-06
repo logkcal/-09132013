@@ -1,0 +1,82 @@
+##### [Labeled LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant in http://github.com/twitter/mahout
+
+* In 0.7, we can specify for training a seed model to start with (i.e. a matrix of latent topic to term counts);  
+  we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or a random one if unspecified. 
+* This twitter fork http://github.com/twitter/mahout allows you to specify priors on the document/topic distribution:  
+  you take your set of input documents, and if each one has some known set of labels associated with it;  
+  you take as a prior for p(topic) for this document to be not random (or uniform across all topics) but uniform across the known labels.
+  * L-LDA futher constraints that while training it forces p(topic | doc(i)) = 0 for all topics outside the labeled set for doc(i),  
+    whereas this fork allows drifting freely after the initial prior is applied, which leads to an intermediate algorithm between regular LDA and L-LDA.
+* TODO to get "true" L-LDA: 
+  * modify [CVB0PriorMapper.java](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java).
+  * before the train() is called (line 108), you'd want to keep a copy of the docTopicPrior vector, 
+  * keeping note of which topics had zero probability, and then 
+  * before the final line in the map() method, you'd want to zero-out the entries
+  * in the updated docTopicPrior vector that should be zero and renormalize it before emitting.
+
+```bash
+svn checkout http://svn.apache.org/repos/asf/mahout/trunk /workspace/mahout-trunk
+svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/mahout-tags/0.8
+git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
+git clone git@github.com:henry4j/mahout-0.8.git /workspace/gits/mahout-0.8
+
+```
+
+```bash
+opendiff /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+```
+
+```bash
+cp /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/* \
+   /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb/
+```
+
+```bash
+# no difference 09/04/2013
+diff -wr -x .svn \
+  /workspace/mahout-tags/0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/mahout-trunk/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+```
+
+```bash
+cd /workspace/mahout-tags/0.8
+mvn install -DskipTests # skips running tests, or
+# mvn install -Dmaven.test.skip=true # skips compiling tests
+```
+
+```bash
+# MAHOUT-971 Use FileSystem.get(URI, Configuration) across the board to make it (more likely to) work with S3
+git checkout e34ea29 .
+svn update -r r1241649
+```
+
+```bash
+git log --after={2012-02-08} # 24 commits
+svn log -r HEAD:{2012-02-08} # 19 commits
+```
+
+```bash
+git diff 16ea0f3^!
+svn diff -r r1338501
+```
+
+* CVB0Driver.java - /workspace/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb 
+  * added
+     * pidt: persist and update intermediate p(topic|doc): false
+     * pdt: path to prior values of p(topic|doc) matrix: no default.
+     * int: max number of iterations per doc for p(topic|doc) inference: default 100.
+     * ol: only use docs with non-null doc/topic priors: false.
+  * changed
+     * public static final int MAX_ITERATIONS_DEFAULT = 30;
+     * public static final int MAX_ITERATIONS_PER_DOC_DEFAULT = 10;
+     * public static final int MAX_INFERENCE_ITERATIONS_PER_DOC_DEFAULT = 100;
+
+##### Patch Mahout Core w/ Labeled LDA
+
+```bash
+for e in core-0.8-job core-0.8 examples-0.8-job; do mv $MAHOUT_BASE/mahout-$e.jar $MAHOUT_BASE/mahout-$e.jar.bak; done
+curl -o $MAHOUT_BASE/mahout-core-0.8.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-core-0.8-patched.jar
+curl -o $MAHOUT_BASE/mahout-core-0.8-job.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-core-0.8-patched-job.jar
+curl -o $MAHOUT_BASE/mahout-examples-0.8-job.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-examples-0.8-patched-job.jar
+```

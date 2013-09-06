@@ -1,0 +1,13 @@
+//dict
+A
+B
+C
+D
+WX
+YZ
+AJK
+COP
+WMNQ
+CRWOG
+//secret
+1 23 145 2678 1924X

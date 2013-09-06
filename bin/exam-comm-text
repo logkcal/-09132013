@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+%w{optparse open-uri csv json open3}.each { |e| require e }
+
+$options = {}
+OptionParser.new do |p|
+  p.on('-s', '--skip-lines INTEGER', Integer, 'Skips processing as many lines as specified (default: 1).') { |v| $options[:skip_count] = v }
+  p.on('-n', '--max-lines INTEGER',  Integer, 'Processes as many lines as specified.') { |v| $options[:max_lines] = v }
+  p.on('-i', '--id-field INTEGER',   Integer, 'Specifies required comm. text id field.') { |v| $options[:id_field] = v }
+  p.on('-q', '--q-field INTEGER',    Integer, 'Specifies required FAQ field.') { |v| $options[:q_field] = v }
+  p.on('-f', '--fields i,j,k',       Array,   'Specifies required field indices to put into computation.') { |v| $options[:fields] = v }
+  p.on('-m', '--model_id STRING',    String,  'Specifies optional model id.') { |v| $options[:model_id] = v }
+end.parse!
+
+max_lines = $options[:max_lines]
+q_fields = ($options[:q_fields] || ['8']).map { |e| e.to_i }
+fields = ($options[:fields] || ['1', '3']).map { |e| e.to_i }
+model_id = $options[:model_id] || 'unigram-rrc-pro-22k'
+docs = ARGV
+if docs.empty?
+  docs = ["#{ENV['MAHOUT_WORK']}/test-set-2285-labeled.csv"]
+  # system "curl -o #{docs[0]} -kL http://tiny/171x9677u/s3amaztextresorrc_csv" unless File.exists?(docs[0]) # rrc_pro_1241_labeled
+  system "curl -o #{docs[0]} -kL http://tiny/4onnbu8p/s3amaztextresorrc_csv" unless File.exists?(docs[0]) # rrc_pro_1241_labeled
+end
+
+q2cc = docs.reduce({}) do |h, e| # comm. texts keyed by FAQ.
+  open(e, 'r:windows-1250') do |f|
+    skip_count = $options[:skip_count] || 1
+    CSV.new(f).each do |line|
+      next if (skip_count -= 1) >= 0
+      break unless max_lines.nil? || (max_lines -= 1) >= 0
+      q = q_fields.map { |f| line[f] }.compact.map { |e| e.gsub(/\A\s+|\s+\Z/, '') }.join('; ')
+      (h[q] ||= []) << c = fields.map { |f| line[f] }.join('; ') unless q.empty?
+    end
+  end
+  h
+end
+
+puts "INFO: " + p_topics = "jruby #{%x(which p-topics).chomp} -m #{model_id}"
+i, o, e = Open3.popen3(p_topics)
+2.times { puts e.gets }
+z2qf = q2cc.reduce({}) do |h, (q, cc)| # topic frequencies keyed by FAQ.
+  cc.map { |c| i.puts c.tr("\n", '  '); putc '.'; JSON[o.readline] }.
+    map { |p| p[0].nan?? -1 : p.each_with_index.max[1] }.
+    reduce({}) { |zf, z| zf[z] = (zf[z] || 0) + 1 unless z == -1; zf }.
+    reduce(h) { |h, (z, f)| (h[z] ||= {})[q] = f; h }
+end
+i.close
+1.times { puts e.gets }
+
+z2qf_max = z2qf.reduce({}) { |h, (z, qf)| h[z] = qf.values.max; h }
+z2qf_sum = z2qf.reduce({}) { |h, (z, qf)| h[z] = qf.values.reduce(:+); h }
+
+puts '### Frequences keyed by topic & FAQ: '
+jj z2qf
+
+puts '### Frequency max keyed by topic: '
+jj z2qf_max
+
+puts '### Frequency sum keyed by topic: '
+jj z2qf_sum
+
+puts '### Frequency sum keyed by FAQ: '
+jj q2cc.reduce({}) { |h, (l, cc)| h[l] = cc.size; h }
+
+puts '### Overall topic modeling accuracy: '
+p (100.0 * z2qf_max.values.reduce(:+) / z2qf_sum.values.reduce(:+)).round(1)

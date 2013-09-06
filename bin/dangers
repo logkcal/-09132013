@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+require 'rexml/document'
+
+permission_defines = ARGV[0]
+package_exceptions = ARGV[1]
+
+levels_by_permission = {} # levels keyed by permission; key is permission, and value is level.
+xml = open(permission_defines) { |f| f.read }
+doc = REXML::Document.new xml
+doc.elements.each('//permission') do |p|
+  levels_by_permission[p.attributes['name']] = p.attributes['protectionLevel'].to_i
+end
+
+exceptions = {}
+File.open(package_exceptions) do |f|
+  f.readlines.each do |l|
+    exceptions[l.chomp.chomp] = nil
+  end
+end
+
+packages = `adb shell pm list packages -f`
+packages = packages.split /\r\r\n|\r\n|\r|\n/
+packages.each do |pkg|
+  next if exceptions.has_key? pkg
+  apk_name = pkg.split(/[:=]/)[1]
+  apk_base = File.basename apk_name
+  `adb pull #{apk_name}` unless File.exists? apk_base
+  permissions = `aapt dump permissions #{apk_base}`
+  puts "aapt dump permissions #{apk_base} failed; #{$?.to_s}." if 0 != $?
+  permissions = permissions.split /\r\r\n|\r\n|\r|\n/
+  permissions.each do |permission|
+    permission = permission.split(': ')[-1]
+    level = levels_by_permission[permission] || -1
+    puts "#{apk_base} has permission '#{permission}' at level '#{level}'." if level >= 2 # || level == -1
+  end
+end
+

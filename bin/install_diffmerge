@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+curl -o /tmp/diffmerge-3.3.2.zip -kL http://dl.dropbox.com/u/47820156/bin/diffmerge-3.3.2.zip
+unzip -o /tmp/diffmerge-3.3.2.zip -d /tmp/
+
+cp -R /tmp/DiffMerge.app /Applications/
+cp /tmp/Extras/diffmerge.sh /usr/local/bin/diffmerge && chmod 755 /usr/local/bin/diffmerge
+cp /tmp/Extras/diffmerge.1 /usr/local/share/man/man1/diffmerge.1 && chmod 644 /usr/local/share/man/man1/diffmerge.1

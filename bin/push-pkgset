@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+packages = ARGV[0]
+packages.each do |apk|
+  `adb push #{apk} #{File.join '/', apk}`
+end

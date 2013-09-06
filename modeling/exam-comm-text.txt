@@ -1,0 +1,269 @@
+DEBUG: openning model files
+DEBUG: opened model files
+DEBUG: begins reading lines
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................DEBUG: ends reading lines
+### Frequences keyed by topic & FAQ: 
+{
+  "8": {
+    "How do I cancel a refund?": 62,
+    "How do I process a refund?": 72,
+    "How do I process a return?": 14,
+    "How do I recharge an order?": 30,
+    "How do I verify if a refund has been processed?": 69,
+    "I'm concerned about negative feedback; what can I do?": 7,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 5,
+    "What do I do if a customer requests a return or refund under false pretenses?": 6,
+    "What do I do if a customer returns an item they have opened/used?": 10,
+    "What do I do if an order is returned as undeliverable?": 15,
+    "What do I do if I suspect customer fraud?": 8,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 3,
+    "What is your return policy?": 11
+  },
+  "12": {
+    "How do I cancel a refund?": 3,
+    "How do I process a refund?": 5,
+    "How do I process a return?": 2,
+    "How do I recharge an order?": 14,
+    "How do I verify if a refund has been processed?": 9,
+    "I'm concerned about negative feedback; what can I do?": 24,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 4,
+    "What do I do if a customer requests a return or refund under false pretenses?": 2,
+    "What do I do if a customer returns an item they have opened/used?": 9,
+    "What do I do if an order is returned as undeliverable?": 8,
+    "What do I do if I suspect customer fraud?": 9,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 6
+  },
+  "1": {
+    "How do I cancel a refund?": 2,
+    "How do I recharge an order?": 1,
+    "What do I do if a customer returns an item they have opened/used?": 1,
+    "What do I do if an order is returned as undeliverable?": 1,
+    "What do I do if I suspect customer fraud?": 2
+  },
+  "3": {
+    "How do I cancel a refund?": 2,
+    "How do I process a refund?": 5,
+    "How do I process a return?": 57,
+    "How do I verify if a refund has been processed?": 1,
+    "I'm concerned about negative feedback; what can I do?": 24,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 12,
+    "What do I do if a customer requests a return or refund under false pretenses?": 11,
+    "What do I do if a customer returns an item they have opened/used?": 37,
+    "What do I do if an order is returned as undeliverable?": 1,
+    "What do I do if I suspect customer fraud?": 17,
+    "What is your return policy?": 49
+  },
+  "14": {
+    "How do I cancel a refund?": 2,
+    "How do I process a refund?": 4,
+    "How do I process a return?": 7,
+    "How do I recharge an order?": 6,
+    "How do I verify if a refund has been processed?": 1,
+    "I'm concerned about negative feedback; what can I do?": 2,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 2,
+    "What do I do if a customer requests a return or refund under false pretenses?": 3,
+    "What do I do if a customer returns an item they have opened/used?": 11,
+    "What do I do if an order is returned as undeliverable?": 45,
+    "What do I do if I suspect customer fraud?": 12,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 16,
+    "What is your return policy?": 5
+  },
+  "10": {
+    "How do I cancel a refund?": 7,
+    "How do I process a refund?": 7,
+    "How do I process a return?": 1,
+    "How do I recharge an order?": 13,
+    "How do I verify if a refund has been processed?": 9,
+    "I'm concerned about negative feedback; what can I do?": 2,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 2,
+    "What do I do if a customer requests a return or refund under false pretenses?": 2,
+    "What do I do if a customer returns an item they have opened/used?": 2,
+    "What do I do if an order is returned as undeliverable?": 1,
+    "What do I do if I suspect customer fraud?": 2,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 1,
+    "What is your return policy?": 4
+  },
+  "18": {
+    "How do I cancel a refund?": 3,
+    "How do I process a refund?": 2,
+    "How do I recharge an order?": 13,
+    "How do I verify if a refund has been processed?": 1,
+    "I'm concerned about negative feedback; what can I do?": 20,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 13,
+    "What do I do if a customer requests a return or refund under false pretenses?": 16,
+    "What do I do if a customer returns an item they have opened/used?": 9,
+    "What do I do if an order is returned as undeliverable?": 13,
+    "What do I do if I suspect customer fraud?": 20,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 58,
+    "What is your return policy?": 2
+  },
+  "4": {
+    "How do I cancel a refund?": 1,
+    "How do I process a refund?": 4,
+    "How do I process a return?": 3,
+    "How do I recharge an order?": 7,
+    "How do I verify if a refund has been processed?": 2,
+    "I'm concerned about negative feedback; what can I do?": 10,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 47,
+    "What do I do if a customer requests a return or refund under false pretenses?": 9,
+    "What do I do if a customer returns an item they have opened/used?": 12,
+    "What do I do if an order is returned as undeliverable?": 5,
+    "What do I do if I suspect customer fraud?": 18,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 8,
+    "What is your return policy?": 5
+  },
+  "7": {
+    "How do I process a refund?": 1,
+    "How do I process a return?": 2,
+    "How do I recharge an order?": 3,
+    "I'm concerned about negative feedback; what can I do?": 1,
+    "What do I do if a customer requests a return or refund under false pretenses?": 1,
+    "What do I do if a customer returns an item they have opened/used?": 3,
+    "What do I do if an order is returned as undeliverable?": 1,
+    "What do I do if I suspect customer fraud?": 1,
+    "What is your return policy?": 1
+  },
+  "0": {
+    "How do I process a refund?": 1,
+    "How do I process a return?": 1,
+    "How do I recharge an order?": 1,
+    "How do I verify if a refund has been processed?": 1,
+    "I'm concerned about negative feedback; what can I do?": 2,
+    "What do I do if a customer requests a return or refund under false pretenses?": 1,
+    "What do I do if a customer returns an item they have opened/used?": 4,
+    "What do I do if I suspect customer fraud?": 1,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 2
+  },
+  "2": {
+    "How do I process a refund?": 2,
+    "How do I process a return?": 3,
+    "How do I recharge an order?": 2,
+    "How do I verify if a refund has been processed?": 2,
+    "I'm concerned about negative feedback; what can I do?": 2,
+    "What do I do if an order is returned as undeliverable?": 2,
+    "What do I do if I suspect customer fraud?": 1,
+    "What is your return policy?": 1
+  },
+  "6": {
+    "How do I process a return?": 7,
+    "How do I recharge an order?": 1,
+    "I'm concerned about negative feedback; what can I do?": 1,
+    "What do I do if a customer requests a return or refund under false pretenses?": 3,
+    "What do I do if a customer returns an item they have opened/used?": 2,
+    "What do I do if I suspect customer fraud?": 3,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 1,
+    "What is your return policy?": 8
+  },
+  "15": {
+    "How do I process a return?": 1,
+    "How do I recharge an order?": 1,
+    "How do I verify if a refund has been processed?": 2,
+    "What do I do if an order is returned as undeliverable?": 1,
+    "What do I do if I suspect customer fraud?": 1,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 1,
+    "What is your return policy?": 1
+  },
+  "9": {
+    "How do I process a return?": 1,
+    "How do I recharge an order?": 5,
+    "How do I verify if a refund has been processed?": 2,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 1,
+    "What do I do if a customer requests a return or refund under false pretenses?": 3,
+    "What do I do if a customer returns an item they have opened/used?": 1,
+    "What do I do if an order is returned as undeliverable?": 5,
+    "What do I do if I suspect customer fraud?": 2,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 4,
+    "What is your return policy?": 1
+  },
+  "5": {
+    "How do I recharge an order?": 1,
+    "What do I do if an order is returned as undeliverable?": 3,
+    "What do I do if I suspect customer fraud?": 1
+  },
+  "16": {
+    "How do I recharge an order?": 1,
+    "How do I verify if a refund has been processed?": 1,
+    "What do I do if an order is returned as undeliverable?": 1
+  },
+  "17": {
+    "How do I recharge an order?": 1,
+    "How do I verify if a refund has been processed?": 1,
+    "What do I do if a customer returns an item they have opened/used?": 1,
+    "What do I do if I suspect customer fraud?": 2,
+    "What is your return policy?": 1
+  },
+  "11": {
+    "I'm concerned about negative feedback; what can I do?": 2,
+    "What do I do if a customer requests a return or refund under false pretenses?": 2
+  },
+  "19": {
+    "I'm concerned about negative feedback; what can I do?": 3,
+    "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 2,
+    "What do I do if a customer returns an item they have opened/used?": 1,
+    "What do I do if an order is returned as undeliverable?": 2,
+    "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 2,
+    "What is your return policy?": 11
+  }
+}
+### Frequency max keyed by topic: 
+{
+  "8": 72,
+  "12": 24,
+  "1": 2,
+  "3": 57,
+  "14": 45,
+  "10": 13,
+  "18": 58,
+  "4": 47,
+  "7": 3,
+  "0": 4,
+  "2": 3,
+  "6": 8,
+  "15": 2,
+  "9": 5,
+  "5": 3,
+  "16": 1,
+  "17": 2,
+  "11": 2,
+  "19": 11
+}
+### Frequency sum keyed by topic: 
+{
+  "8": 312,
+  "12": 95,
+  "1": 7,
+  "3": 216,
+  "14": 116,
+  "10": 53,
+  "18": 170,
+  "4": 131,
+  "7": 14,
+  "0": 14,
+  "2": 15,
+  "6": 26,
+  "15": 8,
+  "9": 25,
+  "5": 5,
+  "16": 3,
+  "17": 6,
+  "11": 4,
+  "19": 21
+}
+### Frequency sum keyed by FAQ: 
+{
+  "How do I cancel a refund?": 82,
+  "How do I process a refund?": 103,
+  "How do I process a return?": 99,
+  "How do I recharge an order?": 100,
+  "How do I verify if a refund has been processed?": 101,
+  "I'm concerned about negative feedback; what can I do?": 100,
+  "My product cannot be resold in the condition it was returned; am I still obligated to approve the return or refund?": 88,
+  "What do I do if a customer requests a return or refund under false pretenses?": 59,
+  "What do I do if a customer returns an item they have opened/used?": 103,
+  "What do I do if an order is returned as undeliverable?": 104,
+  "What do I do if I suspect customer fraud?": 100,
+  "What do I do if my customer claims they never received their item, but I have delivery confirmation?": 102,
+  "What is your return policy?": 100
+}
+### Overall topic modeling accuracy: 
+29.2

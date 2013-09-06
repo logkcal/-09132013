@@ -1,0 +1,80 @@
+##### Keywords
+
+* LDA topic-probability distribution per document (p(z|d))
+
+##### Hadoop on Mac OS X - [ [Ubuntu](http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/) | [Mac OS X](http://wiki.apache.org/hadoop/Running_Hadoop_On_OS_X_10.5_64-bit_\(Single-Node_Cluster\)) ]
+
+***
+
+***
+
+###### Deep Dive into Output
+
+* `comm-text-vector` by `seq2sparse`
+  * tokenized-documents -- tokens (string tuples) keyed by docs.
+     * `mahout seqdumper -i $WORK_DIR/comm-text-bigram/tokenized-documents -o token_vectors.txt`
+     * e.g. key: /reut2-010.sgm-92.txt: value: [26, mar, 1987, 14, 39, 20.76, dexter, dex, units, sets, license, toyota, unit, dexter, corp's, hysol, aerospace, industrial, products, division, said, agreed, license, its, engineering, adhesives, toyota, motor, co's, toyoda, gosei, unit, two, units, jointly, develop, line, structural, adhesive, application, techniques, automotive, certain, other, industries, reuter, 3]
+  * df-count
+     * `mahout seqdumper -i $WORK_DIR/comm-text-bigram/frequency.file-0 -q | grep 13707` # shows `amazon` occurs in 4 documents.
+  * tf-vectors
+     * `mahout vectordump -i $WORK_DIR/comm-text-bigram/tf-vectors/part-r-00000 -o tf-vectors.txt` # returns 21,578 docs.
+     * `grep -o '13707:[[:digit:]]\+' tf-vectors.txt | paste -s -d, -` # 13707:1,13707:3,13707:1,13707:1
+  * tfidf-vectors
+     * `mahout vectordump -i $WORK_DIR/comm-text-bigram/tfidf-vectors -o tfidf_vectors.txt` # returns 21,578 docs.
+     * `grep -o '13707:[[:digit:]]\+' tfidf_vectors.txt | paste -s -d, -` # 13707:9,13707:16,13707:9,13707:9
+* `comm-text-matrix` by `rowid`
+  * docIndex
+     * `mahout seqdumper -i $WORK_DIR/comm-text-matrix/docIndex -q | head`
+     * e.g. key: 1: value: /reut2-000.sgm-1.txt; key: 21577: value: /reut2-021.sgm-99.txt
+  * matrix
+     * `mahout seqdumper -i $WORK_DIR/comm-text-matrix/matrix -o matrix.txt`
+     * `grep -o '31707:[^,]\+' matrix.txt | paste -s -d, -` # see  
+       31707:12.5864839553833,31707:8.899988174438477,31707:8.899988174438477,31707:8.899988174438477,  
+       31707:15.415231704711914,31707:19.900978088378906,31707:15.415231704711914
+
+##### Make a doc-topic inference for a new doc by [TopicModel#trainDocTopicModel](https://builds.apache.org/job/Mahout-Quality/javadoc/org/apache/mahout/clustering/lda/cvb/TopicModel.html#trainDocTopicModel(org.apache.mahout.math.Vector, org.apache.mahout.math.Vector, org.apache.mahout.math.Matrix\))?
+
+* [My Hello LDA! app -- to be updated w/ feedback from Jake M. (Principal SDE)](http://mahout.markmail.org/message/gjrfbjykwbjjm5gp)
+
+```java
+public class TopicModelingTest
+```
+
+##### How-To: Spawn Up a text taming app Java project
+
+```bash
+echo | mvn archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DarchetypeVersion=1.1 \
+  -DgroupId=com.henry4j \
+  -DartifactId=text \
+  -Dversion=1.0-SNAPSHOT \
+  -DpackageName=com.henry4j \
+  -DinteractiveMode=false
+```
+
+* add dependencies to pom.xml -- see [head revision](https://github.com/henry4j/-/blob/master/sources/text/pom.xml)
+  * [google-guava-14.0.1.jar](http://search.maven.org/#artifactdetails%7Ccom.google.guava%7Cguava%7C14.0.1%7Cbundle)
+  * [opencsv-2.3.jar](http://search.maven.org/#artifactdetails%7Cnet.sf.opencsv%7Copencsv%7C2.3%7Cjar)
+  * [porter-stemmer-1.4.jar](http://search.maven.org/#artifactdetails%7Cgov.sandia.foundry%7Cporter-stemmer%7C1.4%7Cjar)
+
+```
+org.apache.mahout:mahout-examples:jar:0.8:compile
++- org.apache.lucene:lucene-benchmark:jar:4.3.0:compile
+|  +- org.apache.lucene:lucene-highlighter:jar:4.3.0:compile
+|  |  \- org.apache.lucene:lucene-queries:jar:4.3.0:compile
+|  +- org.apache.lucene:lucene-memory:jar:4.3.0:compile
+|  +- org.apache.lucene:lucene-queryparser:jar:4.3.0:compile
+|  |  \- org.apache.lucene:lucene-sandbox:jar:4.3.0:compile
+|  |     \- jakarta-regexp:jakarta-regexp:jar:1.4:compile
+|  +- org.apache.lucene:lucene-facet:jar:4.3.0:compile
+|  +- com.ibm.icu:icu4j:jar:49.1:compile
+|  +- net.sourceforge.nekohtml:nekohtml:jar:1.9.17:compile
+|  +- org.apache.commons:commons-compress:jar:1.4.1:compile
+|  \- xerces:xercesImpl:jar:2.9.1:compile
++- org.apache.lucene:lucene-analyzers-common:jar:4.3.0:compile
++- org.slf4j:slf4j-api:jar:1.7.5:compile
+\- org.slf4j:slf4j-jcl:jar:1.7.5:runtime
+   \- commons-logging:commons-logging:jar:1.1.1:compile
+```

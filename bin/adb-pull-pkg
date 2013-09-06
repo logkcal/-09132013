@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+packages = ARGV[0]
+
+# prints all system packages
+packages = `adb shell pm list packages -f #{packages}`
+packages = packages.split /\r\r\n|\r\n|\r|\n/
+packages.each do |pkg|
+  apk_in = pkg.split(/[:=]/)[1]
+  apk_out = File.join '.', apk_in
+  FileUtils.mkdir_p File.dirname(apk_out) # unless Dir.exists? File.dirname apk_out
+  puts "`adb pull #{apk_in} #{apk_out}` unless File.exists? #{apk_out}"
+  `adb pull #{apk_in} #{apk_out}` unless File.exists? apk_out
+end

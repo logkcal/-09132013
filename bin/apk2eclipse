@@ -1,0 +1,79 @@
+#!/usr/bin/env ruby
+in_apk = ARGV[0]
+
+raise "`in_apk` must end with .apk." unless in_apk.end_with?(".apk")
+
+basename = File.basename(in_apk, ".apk")
+out_proj = "%s/%s" % [ File.dirname(in_apk), basename ]
+
+classpath = <<HERE
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="classes_dex2jar.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
+HERE
+
+project = <<HERE
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>%s</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.android.ide.eclipse.adt.ResourceManagerBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.android.ide.eclipse.adt.PreCompilerBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.android.ide.eclipse.adt.ApkBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>
+HERE
+
+system "rm -rf #{out_proj}; mkdir #{out_proj};" 
+system "unzip -o #{in_apk} -d #{out_proj};"
+
+system "rm -rf /tmp/apk; mkdir /tmp/apk;"
+system "apktool decode -s -f #{in_apk} /tmp/apk;"
+system "cp -R /tmp/apk/ #{out_proj};"
+
+system "dex2jar #{out_proj}/classes.dex" if File.exists? "#{out_proj}/classes.dex"
+system "rm -f #{out_proj}/classes.dex"
+
+# system "mkdir #{out_proj}/classes; pushd #{out_proj}/classes; pwd; jar xvf ../classes_dex2jar.jar; popd;"
+# system "jadretro #{out_proj}/classes"
+# system "jad -o -r -sjava -d#{out_proj}/src #{out_proj}/classes/**/*.class"
+# system "pushd #{out_proj}; jar cvf classes_dex2jar-sources.jar src; popd"
+# system "rm -rf #{out_proj}/classes"
+
+File.open("#{out_proj}/.classpath", "w") {|f| f.write(classpath) }
+File.open("#{out_proj}/.project", "w") {|f| f.write(project % basename) }
+
+system "mkdir #{out_proj}/src"
+system "pushd #{out_proj}/src; jar xvf ../classes_dex2jar.jar; popd;" if File.exists? "#{out_proj}/classes_dex2jar.jar"
+system "find  #{out_proj}/src -name *.class -exec fernflower {} \\;"
+system "find  #{out_proj}/src -name *.class -exec rm {} \\;"
+system "pushd #{out_proj}/src; jar cvf ../classes_dex2jar-sources.jar .; popd"
+

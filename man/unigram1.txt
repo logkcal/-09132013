@@ -1,0 +1,71 @@
+$MAHOUT cvb \
+>   -i ${WORK_DIR}/comm-text-unigram-tf-matrix/matrix \
+>   -dict ${WORK_DIR}/comm-text-unigram/dictionary.file-0 \
+>   -ow -o ${WORK_DIR}/comm-text-unigram-lda \
+>   -dt ${WORK_DIR}/comm-text-unigram-topics \
+>   -mt ${WORK_DIR}/comm-text-unigram-model \
+>   -k 20 -x 35 -cd 1e-3 -block 2 -tf 0.25 -seed 777
+Running on hadoop, using /usr/local/bin/hadoop and HADOOP_CONF_DIR=
+MAHOUT-JOB: /workspace/mahout/mahout-examples-0.8-job.jar
+13/08/03 00:15:13 WARN driver.MahoutDriver: No cvb.props found on classpath, will use command-line arguments only
+13/08/03 00:15:13 INFO common.AbstractJob: Command line arguments: {--convergenceDelta=[1e-3], --dictionary=[/tmp/mahout-work-hylee/comm-text-unigram/dictionary.file-0], --doc_topic_output=[/tmp/mahout-work-hylee/comm-text-unigram-topics], --doc_topic_smoothing=[1.0E-4], --endPhase=[2147483647], --input=[/tmp/mahout-work-hylee/comm-text-unigram-tf-matrix/matrix], --iteration_block_size=[2], --maxIter=[35], --max_doc_topic_iters=[10], --num_reduce_tasks=[10], --num_topics=[20], --num_train_threads=[4], --num_update_threads=[1], --output=[/tmp/mahout-work-hylee/comm-text-unigram-lda], --overwrite=null, --random_seed=[777], --startPhase=[0], --tempDir=[temp], --term_topic_smoothing=[1.0E-4], --test_set_fraction=[0.25], --topic_model_temp_dir=[/tmp/mahout-work-hylee/comm-text-unigram-model]}
+13/08/03 00:15:14 INFO cvb.CVB0Driver: Will run Collapsed Variational Bayes (0th-derivative approximation) learning for LDA on /tmp/mahout-work-hylee/comm-text-unigram-tf-matrix/matrix (numTerms: 441), finding 20-topics, with document/topic prior 1.0E-4, topic/term prior 1.0E-4.  Maximum iterations to run will be 35, unless the change in perplexity is less than 0.0010.  Topic model output (p(term|topic) for each topic) will be stored /tmp/mahout-work-hylee/comm-text-unigram-lda.  Random initialization seed is 777, holding out 0.25 of the data for perplexity check
+
+13/08/03 00:15:14 INFO cvb.CVB0Driver: Dictionary to be used located /tmp/mahout-work-hylee/comm-text-unigram/dictionary.file-0
+p(topic|docId) will be stored /tmp/mahout-work-hylee/comm-text-unigram-topics
+
+00:15:14 INFO cvb.CVB0Driver: Current iteration number: 0
+00:16:59 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:16:59 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:16:59 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 246922.9632650465 and model weight 4435.0
+00:16:59 INFO cvb.CVB0Driver: Current perplexity = 55.67597818828557
+00:16:59 INFO cvb.CVB0Driver: (p_2 - p_0) / p_0 = 1.7976931348623157E308; target = 0.0010
+00:18:41 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:18:41 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:18:41 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 234330.2319600538 and model weight 4435.0
+00:18:41 INFO cvb.CVB0Driver: Current perplexity = 52.83657992334922
+00:18:41 INFO cvb.CVB0Driver: (p_4 - p_2) / p_0 = 0.05099862377512335; target = 0.0010
+00:20:24 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:20:24 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:20:24 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 228663.73940802793 and model weight 4435.0
+00:20:24 INFO cvb.CVB0Driver: Current perplexity = 51.5589040378868
+00:20:24 INFO cvb.CVB0Driver: (p_6 - p_4) / p_0 = 0.02294842276756351; target = 0.0010
+00:22:06 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:22:06 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:22:06 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 225780.2574795975 and model weight 4435.0
+00:22:06 INFO cvb.CVB0Driver: Current perplexity = 50.90873900329143
+00:22:06 INFO cvb.CVB0Driver: (p_8 - p_6) / p_0 = 0.011677658044850749; target = 0.0010
+00:23:50 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:23:50 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:23:50 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 224276.3423569528 and model weight 4435.0
+00:23:50 INFO cvb.CVB0Driver: Current perplexity = 50.569637510023185
+00:23:50 INFO cvb.CVB0Driver: (p_10 - p_8) / p_0 = 0.006090624795517171; target = 0.0010
+00:25:36 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:25:36 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:25:36 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 223441.93493303677 and model weight 4435.0
+00:25:36 INFO cvb.CVB0Driver: Current perplexity = 50.381496039016184
+00:25:36 INFO cvb.CVB0Driver: (p_12 - p_10) / p_0 = 0.0033792216523029325; target = 0.0010
+00:27:18 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:27:18 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:27:18 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 222936.2158862084 and model weight 4435.0
+00:27:18 INFO cvb.CVB0Driver: Current perplexity = 50.26746694164789
+00:27:18 INFO cvb.CVB0Driver: (p_14 - p_12) / p_0 = 0.0020480843099454924; target = 0.0010
+00:29:01 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:29:01 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:29:01 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 222591.58341074362 and model weight 4435.0
+00:29:01 INFO cvb.CVB0Driver: Current perplexity = 50.18975950636835
+00:29:01 INFO cvb.CVB0Driver: (p_16 - p_14) / p_0 = 0.001395708487002251; target = 0.0010
+00:30:44 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:30:44 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:30:44 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 222314.06671589118 and model weight 4435.0
+00:30:44 INFO cvb.CVB0Driver: Current perplexity = 50.12718527979508
+00:30:44 INFO cvb.CVB0Driver: (p_18 - p_16) / p_0 = 0.0011238999045810052; target = 0.0010
+00:32:30 INFO mapred.JobClient:   org.apache.mahout.clustering.lda.cvb.CachingCVB0PerplexityMapper$Counters
+00:32:30 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+00:32:30 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 222089.50606594858 and model weight 4435.0
+00:32:30 INFO cvb.CVB0Driver: Current perplexity = 50.07655153685425
+00:32:30 INFO cvb.CVB0Driver: (p_20 - p_18) / p_0 = 9.094360725840901E-4; target = 0.0010
+00:32:30 INFO cvb.CVB0Driver: Convergence achieved at iteration 20 with perplexity 50.07655153685425 and delta 9.094360725840901E-4
+00:32:30 INFO cvb.CVB0Driver: Completed 20 iterations in 1035 seconds
+00:32:30 INFO cvb.CVB0Driver: Perplexities: (55.67597818828557, 52.83657992334922, 51.5589040378868, 50.90873900329143, 50.569637510023185, 50.381496039016184, 50.26746694164789, 50.18975950636835, 50.12718527979508, 50.07655153685425)
+00:33:06 INFO driver.MahoutDriver: Program took 1072427 ms (Minutes: 17.873783333333332)

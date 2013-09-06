@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+`adb pull /system/bin/app_process /tmp/app_process` unless File.exists? '/tmp/app_process' 
+`gdb /tmp/app_process`

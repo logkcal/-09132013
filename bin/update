@@ -1,0 +1,2 @@
+#! /bin/bash
+adb shell cat /data/data/com.android.experimental/shared_prefs/com.android.experimental_preferences.xml

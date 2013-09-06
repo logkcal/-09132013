@@ -1,0 +1,10 @@
+*.class
+*.jar
+*.p4config
+*.prefs
+.DS_Store
+.settings/
+apollo-overrides/
+bin/
+build/
+target/

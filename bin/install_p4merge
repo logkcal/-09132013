@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+[ ! -e /tmp/p4merge-mac-osx-01-2013.zip ] && curl  -o /tmp/p4merge-mac-osx-01-2013.zip -kL http://dl.dropbox.com/u/47820156/bin/p4merge-mac-osx-2013-08.zip
+unzip -o /tmp/p4merge-mac-osx-01-2013.zip  -d /Applications/
+
+curl  -o /usr/local/bin/p4merge -kL https://github.com/henry4j/-/raw/master/bin/p4merge && chmod +x /usr/local/bin/p4merge
+curl  -o /usr/local/bin/p4diff  -kL https://github.com/henry4j/-/raw/master/bin/p4diff  && chmod +x /usr/local/bin/p4diff

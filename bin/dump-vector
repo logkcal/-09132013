@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+ARGV.each do |e|
+  system %Q(mahout vectordump -i #{e} -o #{File.basename(e)}.txt)
+end

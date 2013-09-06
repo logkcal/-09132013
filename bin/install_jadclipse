@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+wget -P /tmp/ http://www.varaneckas.com/jad/jad158g.mac.intel.zip
+unzip -o /tmp/jad158g.mac.intel.zip -d /usr/local/bin/
+
+wget -P /tmp/ http://dl.dropbox.com/u/47820156/jadretro-1_6-jre.tar
+tar xvf /tmp/jadretro-1_6-jre.tar -C /tmp/
+mv /tmp/jadretro/jadretro.jar /usr/local/bin/
+
+cat <<EOF > /usr/local/bin/jadretro
+#!/bin/bash
+java -jar \`dirname \$0\`/jadretro.jar \$@
+EOF
+
+chmod +x /usr/local/bin/jadretro

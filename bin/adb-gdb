@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+raise 'ARGV[0] must be non-null.' if ARGV[0].nil?
+pids = `adb shell ps | grep gdbserver | awk '{print $2}'`.split /\r\r\n|\r\n|\r|\n/
+pids.each do |pid|
+  `adb shell kill -9 #{pid}`
+end
+
+pids = `adb shell ps | grep #{ARGV[0]} | awk '{print $2}'`.split /\r\r\n|\r\n|\r|\n/
+unless pids.empty?
+  gdbserver = '/data/local/tmp/gdbserver'
+  if `adb shell ls #{File.join(File.dirname(gdbserver), '*')} | grep -o '#{gdbserver}'`.empty?
+    `wget -P /tmp/ http://dl.dropbox.com/u/47820156/gdbserver`
+    `adb push /tmp/gdbserver #{gdbserver}`
+    `adb shell chmod 755 #{gdbserver}`
+  end
+  `adb root`
+  sleep 1
+  puts "adb forward tcp:5039 tcp:5039"
+  `adb forward tcp:5039 tcp:5039`
+  puts "adb shell #{gdbserver} tcp:5039 --attach #{pids[0]}"
+  puts "gdb /tmp/app_process -ex 'target remote :5039'"
+  `adb shell #{gdbserver} tcp:5039 --attach #{pids[0]}`
+end

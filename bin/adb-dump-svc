@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+IO.popen("adb shell dumpsys") do |f|
+  until f.eof? || f.readline =~ /Currently running services:/ do end
+  until f.eof? || f.readline =~ /-------------/ do puts $_.strip end
+end

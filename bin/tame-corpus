@@ -1,0 +1,9 @@
+#!/bin/bash # called `tame-corpus`
+[ ! -e ${MAHOUT_WORK}/corpus.csv ] && curl -o ${MAHOUT_WORK}/corpus.csv -kL http://tiny/18czoddbd/s3amaztextresorrc_csv # rrc_pro_22110
+# [ ! -e ${MAHOUT_WORK}/corpus.csv ] && curl -o ${MAHOUT_WORK}/corpus.csv -kL http://tiny/148k8mzy0/s3amaztextresorrc_csv # rrc_ind_31771
+
+rm -rf ${MAHOUT_WORK}/comm-text-ext
+prep-comm-text $3 ${MAHOUT_WORK}/corpus.csv -d ${MAHOUT_WORK}/comm-text-ext
+$HADOOP dfs -rmr ${MAHOUT_WORK}/comm-text-ext ${MAHOUT_WORK}/comm-text-seq
+$HADOOP dfs -put ${MAHOUT_WORK}/comm-text-ext ${MAHOUT_WORK}/comm-text-ext
+$MAHOUT seqdirectory -i ${MAHOUT_WORK}/comm-text-ext -o ${MAHOUT_WORK}/comm-text-seq -ow -chunk 5

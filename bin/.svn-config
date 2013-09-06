@@ -1,0 +1,3 @@
+[helpers]
+diff-cmd = p4diff
+diff3-cmd = p4diff

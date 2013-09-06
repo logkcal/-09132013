@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+%w{optparse open-uri json}.each { |e| require e }
+
+# Usage:
+# pp-w,z https://dl.dropboxusercontent.com/u/47820156/mahout/unigram/unigram-w,z.txt
+
+$options = {}
+OptionParser.new do |p|
+  p.on('-f', '--max-fields INTEGER', Integer, 'Yields as many fields as specified (default: 12).') { |v| $options[:max_fields] = v }
+  p.on('-k', '--min-value FLOAT',    Float,   'Yields fields of values no smaller than specified (default 30).') { |v| $options[:min_value] = v }
+end.parse!
+max_fields = $options[:max_fields] || 12
+min_value = $options[:min_value] || 2.0
+
+open(ARGV[0]).each do |l|
+  t, l = l.chomp.split(%Q(\t))
+  h = JSON[l.gsub(%r(([^,{]+)\s*:), %q("\1":))].
+    sort_by { |e| -e[1] }.
+    reduce({}) { |h, e| e[1] *= 100; h[e[0]] = e[1].round(1) unless e[1] < min_value || h.size >= max_fields; h }
+  j [t.to_i, h]
+end

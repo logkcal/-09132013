@@ -1,0 +1,60 @@
+$MAHOUT cvb \
+>   -i ${WORK_DIR}/comm-text-unigram-tf-matrix/matrix \
+>   -dict ${WORK_DIR}/comm-text-unigram/dictionary.file-0 \
+>   -ow -o ${WORK_DIR}/comm-text-unigram-lda \
+>   -dt ${WORK_DIR}/comm-text-unigram-topics \
+>   -mt ${WORK_DIR}/comm-text-unigram-model \
+>   -k 20 -x 35 -cd 6e-4 -block 2 -tf 0.25 -seed 777
+Running on hadoop, using /usr/local/bin/hadoop and HADOOP_CONF_DIR=
+MAHOUT-JOB: /workspace/mahout/mahout-examples-0.8-job.jar
+13/08/03 15:25:45 WARN driver.MahoutDriver: No cvb.props found on classpath, will use command-line arguments only
+13/08/03 15:25:45 INFO common.AbstractJob: Command line arguments: {--convergenceDelta=[6e-4], --dictionary=[/tmp/mahout-work-hylee/comm-text-unigram/dictionary.file-0], --doc_topic_output=[/tmp/mahout-work-hylee/comm-text-unigram-topics], --doc_topic_smoothing=[1.0E-4], --endPhase=[2147483647], --input=[/tmp/mahout-work-hylee/comm-text-unigram/tfidf-matrix/matrix], --iteration_block_size=[2], --maxIter=[35], --max_doc_topic_iters=[10], --num_reduce_tasks=[10], --num_topics=[20], --num_train_threads=[4], --num_update_threads=[1], --output=[/tmp/mahout-work-hylee/comm-text-unigram-model], --overwrite=null, --random_seed=[777], --startPhase=[0], --tempDir=[temp], --term_topic_smoothing=[1.0E-4], --test_set_fraction=[0.25], --topic_model_temp_dir=[/tmp/mahout-work-hylee/comm-text-unigram-modeling]}
+13/08/03 15:25:45 INFO cvb.CVB0Driver: Will run Collapsed Variational Bayes (0th-derivative approximation) learning for LDA on /tmp/mahout-work-hylee/comm-text-unigram/tfidf-matrix/matrix (numTerms: 398), finding 20-topics, with document/topic prior 1.0E-4, topic/term prior 1.0E-4.  Maximum iterations to run will be 35, unless the change in perplexity is less than 6.0E-4.  Topic model output (p(term|topic) for each topic) will be stored /tmp/mahout-work-hylee/comm-text-unigram-model.  Random initialization seed is 777, holding out 0.25 of the data for perplexity check
+13/08/03 15:25:45 INFO cvb.CVB0Driver: Dictionary to be used located /tmp/mahout-work-hylee/comm-text-unigram/dictionary.file-0
+p(topic|docId) will be stored /tmp/mahout-work-hylee/comm-text-unigram-topics
+
+13/08/03 15:25:45 INFO cvb.CVB0Driver: Current iteration number: 0
+13/08/03 15:27:26 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:27:26 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 854997.9447978096 and model weight 166596.7102305889
+13/08/03 15:27:26 INFO cvb.CVB0Driver: Current perplexity = 5.132141826896789
+13/08/03 15:27:26 INFO cvb.CVB0Driver: (p_2 - p_0) / p_0 = 1.7976931348623157E308; target = 6.0E-4
+13/08/03 15:28:56 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:28:56 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 806748.4718696367 and model weight 166596.7102305889
+13/08/03 15:28:56 INFO cvb.CVB0Driver: Current perplexity = 4.842523425300563
+13/08/03 15:28:56 INFO cvb.CVB0Driver: (p_4 - p_2) / p_0 = 0.05643226772852995; target = 6.0E-4
+13/08/03 15:30:27 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:30:27 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 786034.4260842521 and model weight 166596.7102305889
+13/08/03 15:30:27 INFO cvb.CVB0Driver: Current perplexity = 4.718186961773077
+13/08/03 15:30:27 INFO cvb.CVB0Driver: (p_6 - p_4) / p_0 = 0.024227012370518764; target = 6.0E-4
+13/08/03 15:32:03 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:32:03 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 776690.2592953435 and model weight 166596.7102305889
+13/08/03 15:32:03 INFO cvb.CVB0Driver: Current perplexity = 4.662098418512079
+13/08/03 15:32:03 INFO cvb.CVB0Driver: (p_8 - p_6) / p_0 = 0.010928876315741527; target = 6.0E-4
+13/08/03 15:33:35 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:33:35 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 771611.5240055718 and model weight 166596.7102305889
+13/08/03 15:33:35 INFO cvb.CVB0Driver: Current perplexity = 4.6316132109546055
+13/08/03 15:33:35 INFO cvb.CVB0Driver: (p_10 - p_8) / p_0 = 0.005940055552967118; target = 6.0E-4
+13/08/03 15:35:09 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:35:09 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 768713.7455788109 and model weight 166596.7102305889
+13/08/03 15:35:09 INFO cvb.CVB0Driver: Current perplexity = 4.614219239472515
+13/08/03 15:35:09 INFO cvb.CVB0Driver: (p_12 - p_10) / p_0 = 0.0033892226810512786; target = 6.0E-4
+13/08/03 15:36:43 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:36:43 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 766924.6098206579 and model weight 166596.7102305889
+13/08/03 15:36:43 INFO cvb.CVB0Driver: Current perplexity = 4.6034799172153305
+13/08/03 15:36:43 INFO cvb.CVB0Driver: (p_14 - p_12) / p_0 = 0.002092561472269017; target = 6.0E-4
+13/08/03 15:38:16 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:38:16 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 765783.0237511981 and model weight 166596.7102305889
+13/08/03 15:38:16 INFO cvb.CVB0Driver: Current perplexity = 4.596627524584769
+13/08/03 15:38:16 INFO cvb.CVB0Driver: (p_16 - p_14) / p_0 = 0.0013351915947935982; target = 6.0E-4
+13/08/03 15:39:53 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:39:53 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 765019.0342667545 and model weight 166596.7102305889
+13/08/03 15:39:53 INFO cvb.CVB0Driver: Current perplexity = 4.592041662814833
+13/08/03 15:39:53 INFO cvb.CVB0Driver: (p_18 - p_16) / p_0 = 8.935571004491926E-4; target = 6.0E-4
+13/08/03 15:41:33 INFO mapred.JobClient:     SAMPLED_DOCUMENTS=3627
+13/08/03 15:41:33 INFO cvb.CVB0Driver: Read 1 entries with total perplexity 764521.456506686 and model weight 166596.7102305889
+13/08/03 15:41:33 INFO cvb.CVB0Driver: Current perplexity = 4.589054942612617
+13/08/03 15:41:33 INFO cvb.CVB0Driver: (p_20 - p_18) / p_0 = 5.819636913701537E-4; target = 6.0E-4
+13/08/03 15:41:33 INFO cvb.CVB0Driver: Convergence achieved at iteration 20 with perplexity 4.589054942612617 and delta 5.819636913701537E-4
+13/08/03 15:41:33 INFO cvb.CVB0Driver: Completed 20 iterations in 947 seconds
+13/08/03 15:41:33 INFO cvb.CVB0Driver: Perplexities: (5.132141826896789, 4.842523425300563, 4.718186961773077, 4.662098418512079, 4.6316132109546055, 4.614219239472515, 4.6034799172153305, 4.596627524584769, 4.592041662814833, 4.589054942612617)
+13/08/03 15:42:06 INFO driver.MahoutDriver: Program took 981055 ms (Minutes: 16.350916666666667)

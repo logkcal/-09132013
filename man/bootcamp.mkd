@@ -1,0 +1,6 @@
+####
+
+* ML bootcamp: https://github.com/henry4j/-/blob/master/man/ml-sde-bootcamp.mkd
+
+sudo mdutil -a -i off; sudo mdutil -a -E
+

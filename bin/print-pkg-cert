@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+raise "`ARGV[0]` must end with .apk." if ARGV[0].nil? && !ARGV[0].end_with?('.apk') && !ARGV[0].end_with?('.jar')
+
+in_pkg = ARGV[0]
+puts `unzip -p #{in_pkg} META-INF/CERT.RSA META-INF/ANDROIDD.RSA 2>/dev/null | keytool -printcert`

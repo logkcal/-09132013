@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+main_jar = "#{File.dirname(__FILE__)}/fernflower.jar"
+
+ARGV.each do |in_file|
+    out_dir = File.dirname(in_file)
+    if in_file.end_with? ".jar"
+        puts "java -jar '#{main_jar}' -dgs=1 -hdc=0 -das=0 '#{in_file}' /tmp/"
+        system "java -jar '#{main_jar}' -dgs=1 -hdc=0 -das=0 '#{in_file}' /tmp/"
+        basename = File.basename(in_file, ".jar")
+        system "mv '/tmp/#{basename}.jar' '#{out_dir}/#{basename}-sources.jar'"
+    else
+        puts "java -jar '#{main_jar}' -dgs=1 -hdc=0 -das=0 '#{in_file}' '#{out_dir}/'"
+        system "java -jar '#{main_jar}' -dgs=1 -hdc=0 -das=0 '#{in_file}' '#{out_dir}/'"
+    end
+end
+

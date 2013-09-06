@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+raise "`ARGV[0]` must end with .apk." if ARGV[0].nil? || !ARGV[0].end_with?('.apk')
+
+def to_cert_serial_no(in_pkg)
+  `unzip -p #{in_pkg} META-INF/CERT.RSA 2>/dev/null | keytool -printcert | awk '/Serial number: / {print $NF}'`
+end
+
+cert_lhs = to_cert_serial_no ARGV[0]
+Dir['**/*.apk'].each do |in_pkg|
+  puts in_pkg if cert_lhs.eql? to_cert_serial_no(in_pkg)
+end unless cert_lhs.nil? || cert_lhs.empty?

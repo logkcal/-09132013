@@ -1,0 +1,170 @@
+#!/bin/bash
+
+# xcode-select
+# Manages the path to the Xcode folder for Xcode BSD tools.
+#
+# Copyright (c) 2007-2012 Apple Inc. All Rights Reserved.
+#
+
+build_version="2308"
+
+command_name="xcode-select"
+
+# Environment variable XCODE_SELECT_PREFIX_DIR can be used to prefix the path for xcode-select's data.
+xcode_select_support_dir="${XCODE_SELECT_PREFIX_DIR}/usr/share/xcode-select"
+xcode_select_dirfile_name="xcode_dir_path"
+xcode_select_dirfile="$xcode_select_support_dir/$xcode_select_dirfile_name"
+
+# Backstop values - where Xcode is expected by default.
+xcode_default_location="/Applications/Xcode.app"
+xcode_default_location_old="/Developer"
+
+main()
+{
+    # Parse command line opts
+    case "$1" in
+        -help | --help | -h)
+            print_usage
+        ;;
+        -version | --version | -v)
+            print_version
+        ;;
+        -switch | --switch)
+            if [ $# -eq 2 ]; then
+                switch_to_path "$2"
+            else
+                print_error "argument missing from -switch option."
+                print_usage
+                exit 1
+            fi
+        ;;
+        -print-path | --print-path)
+            print_current_path
+        ;;
+        *)
+            print_usage
+            exit 1
+        ;;
+    esac
+    exit 0
+}
+
+print_usage()
+{
+    echo "Usage: $command_name -print-path
+   or: $command_name -switch <xcode_folder_path>
+   or: $command_name -version
+Arguments:
+   -print-path                     Prints the path of the current Xcode folder
+   -switch <xcode_folder_path>     Sets the path for the current Xcode folder
+   -version                        Prints xcode-select version information"
+}
+
+print_version()
+{
+    echo "$command_name version $build_version."
+}
+
+print_current_path()
+{
+    declare xcode_path
+    environment_override=0
+    
+    # DEVELOPER_DIR in the environment will override the Xcode folder path
+    # We don't check for DEVELOPER_USR_DIR because it can be overridden separately.
+    if [ -n "${DEVELOPER_DIR}" ]; then
+        xcode_path="${DEVELOPER_DIR}"
+        environment_override=1
+    else
+        # Read xcode_path from the $xcode_select_dirfile
+        if [ -f "$xcode_select_dirfile" ]; then
+            if [ ! -r "$xcode_select_dirfile" ]; then
+                exit_with_error "Incorrect permissions for $command_name data. Run $command_name -switch <xcode_folder_path> to reset the path to the Xcode folder."
+            fi
+            
+            read xcode_path <$xcode_select_dirfile
+        elif [ -d "$xcode_default_location" ]; then
+            # Fall back to xcode_default_location if present.
+            xcode_path="$xcode_default_location/Contents/Developer"
+        elif [ -d "$xcode_default_location_old" ]; then
+            # Fall back to xcode_default_location_old if present.
+            xcode_path="$xcode_default_location_old"
+        else
+            # Xcode can be installed somewhere else, but the user needs to say where.
+            exit_with_error "No Xcode is selected. Use $command_name -switch $xcode_default_location to select $xcode_default_location, or see the xcode-select manpage (man xcode-select) for further information."
+        fi
+    
+    fi
+
+    if [[ (-z "$xcode_path") || ("${xcode_path:0:1}" != "/") ]]; then
+        errstr="$command_name is not set to a valid directory."
+        if [ $environment_override ]; then
+            errstr="$errstr DEVELOPER_DIR is set in the environment to an invalid path."
+        else
+            errstr="$errstr Run $command_name -switch <xcode_folder_path> to set the path to the Xcode folder."
+        fi
+        exit_with_error "$errstr"
+    fi
+    strip_trailing_slashes "$xcode_path"
+    xcode_path="$strip_trailing_slashes_retval"
+    
+    # Print the currently selected Xcode folder path
+    echo "$xcode_path"
+}
+
+switch_to_path()
+{
+    strip_trailing_slashes "$1"
+    newpath="$strip_trailing_slashes_retval"
+    
+    if [ -d "$newpath/Contents/Developer" ]; then
+        newpath="$newpath/Contents/Developer"
+    fi
+    
+    if [ ! -d "$newpath" ]; then
+        exit_with_error "Path \"$newpath\" is not a directory."
+    fi
+    if [ $UID != 0 ]; then
+        exit_with_error "-switch must be run as root (e.g. sudo $command_name -switch <xcode_folder_path>)."
+    fi
+    
+    if [ ! -d "$xcode_select_support_dir" ]; then
+        mkdir -p "$xcode_select_support_dir" >& /dev/null
+        if [[ ( $? -ne 0 ) && ( ! -d "$xcode_select_support_dir" ) ]]; then
+            exit_with_error "Could not create data directory $xcode_select_support_dir."
+        fi
+    fi
+    
+    # Write the new xcode folder path
+    # No locking for now; if you switch the xcode folder while trying to read it at the same time, you may get an incorrect path, but you need to be robust against bad xcode folder paths anyway, as there's no enforcement that the path we return is (still) valid
+    echo "$newpath" > "$xcode_select_dirfile" 
+    
+    if [ $? -ne 0 ]; then
+        exit_with_error "Failed to write Xcode folder path."
+    fi
+}
+
+exit_with_error()
+{
+    print_error "$1"
+    exit 1
+}
+
+print_error()
+{
+    echo "$command_name: Error: $1" >&2
+}
+
+declare strip_trailing_slashes_retval
+strip_trailing_slashes()
+{
+    strip_trailing_slashes_retval=
+    
+    inpath="$1"
+    while [[ (${#inpath} -gt 1) && ("${inpath:${#inpath}-1:1}" == "/") ]]; do
+        inpath="${inpath:0:${#inpath}-1}"
+    done
+    strip_trailing_slashes_retval="$inpath"
+}
+
+main "$@"

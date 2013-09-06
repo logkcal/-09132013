@@ -1,0 +1,5 @@
+adb shell rm /data/system/accounts.db
+adb shell rm -r /data/data/com.facebook.katana/databases/*
+adb shell rm -r /data/data/com.facebook.katana/shared_prefs/*
+adb shell busybox killall com.facebook.katana
+# adb shell reboot

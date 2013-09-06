@@ -1,0 +1,69 @@
+##### 08/27/2013
+
+* unigram-100 # 37.8%
+  * -s 80 -md 40 -x 65 -ng 1 -ml 50 -a com.henry4j.text.CommTextAnalyzer # uses 14788 rows x 375 columns
+* bigram-201 # 30%
+  * -s 80 -md 40 -x 65 -ng 2 -ml 50 -a com.henry4j.text.CommTextAnalyzer # uses 14788 rows x 564 columns
+* bigram-202 # 32.8%
+  * -s 80 -md 40 -x 65 -ng 2 -ml 90 -a com.henry4j.text.CommTextAnalyzer # uses 14788 rows and 621 columns
+* bigram-203 # 39.4%
+  * -s 80 -md 40 -x 65 -ng 2 -ml 150 -a com.henry4j.text.CommTextAnalyzer # uses 14788 rows and 598 columns
+* bigram-204 # 36.1%
+  * -s 80 -md 40 -x 65 -ng 2 -ml 250 -a com.henry4j.text.CommTextAnalyzer # uses 14788 rows and 502 columns
+* bigram-ml-125 # uses 14788 rows and 540
+  * -ml 125
+
+```bash
+$ mahout seq2sparse --help
+Running on hadoop, using /usr/local/bin/hadoop and HADOOP_CONF_DIR=
+MAHOUT-JOB: /workspace/mahout/mahout-examples-0.8-job.jar
+Usage:                                                                          
+ [--minSupport <minSupport> --analyzerName <analyzerName> --chunkSize           
+<chunkSize> --output <output> --input <input> --minDF <minDF> --maxDFSigma      
+<maxDFSigma> --maxDFPercent <maxDFPercent> --weight <weight> --norm <norm>      
+--minLLR <minLLR> --numReducers <numReducers> --maxNGramSize <ngramSize>        
+--overwrite --help --sequentialAccessVector --namedVector --logNormalize]       
+Options                                                                         
+  --minSupport (-s) minSupport        (Optional) Minimum Support. Default Value: 2                                  
+  --analyzerName (-a) analyzerName    The class name of the analyzer            
+  --chunkSize (-chunk) chunkSize      The chunkSize in MegaBytes. 100-10000 MB  
+  --output (-o) output                The directory pathname for output.        
+  --input (-i) input                  Path to job input directory.              
+  --minDF (-md) minDF                 The minimum document frequency. Default is 1                                      
+  --maxDFSigma (-xs) maxDFSigma       What portion of the tf (tf-idf) vectors to be used, 
+                                      expressed in times the standard deviation (sigma) 
+                                      of the document frequencies of these vectors.
+                                      Can be used to remove really high frequency terms. 
+                                      Expressed as a double value. Good value to be specified is 3.0. 
+                                      In case the value is less than 0 no vectors will be filtered out. 
+                                      Default is -1.0.  Overrides maxDFPercent             
+  --maxDFPercent (-x) maxDFPercent    The max percentage of docs for the DF.    
+                                      Can be used to remove really high frequency terms. 
+                                      Expressed as an integer between 0 and 100. Default is 99.
+                                      If maxDFSigma is also set, it will override this value.                               
+  --weight (-wt) weight               The kind of weight to use. Currently TF or TFIDF                                  
+  --norm (-n) norm                    The norm to use, expressed as either a    
+                                      float or "INF" if you want to use the Infinite norm.
+                                      Must be greater or equal to 0.  The default is not to normalize    
+  --minLLR (-ml) minLLR               (Optional) The minimum Log Likelihood Ratio (Float)  Default is 1.0              
+  --numReducers (-nr) numReducers     (Optional) Number of reduce tasks. Default Value: 1                          
+  --maxNGramSize (-ng) ngramSize      (Optional) The maximum size of ngrams to create
+                                      (2 = bigrams, 3 = trigrams, etc) Default Value:1                           
+  --overwrite (-ow)                   If set, overwrite the output directory    
+  --sequentialAccessVector (-seq)     (Optional) Whether output vectors should  
+                                      be SequentialAccessVectors. If set true else false                                
+  --namedVector (-nv)                 (Optional) Whether output vectors should  
+                                      be NamedVectors. If set true else false   
+  --logNormalize (-lnorm)             (Optional) Whether output vectors should  
+                                      be logNormalize. If set true else false   
+```
+
+```bash
+$MAHOUT cvb \
+  -dict ${MAHOUT_WORK}/${WORK_ID}/dictionary.file-0 \
+  -i  ${MAHOUT_WORK}/${WORK_ID}/matrix \
+  -o  ${MAHOUT_WORK}/${WORK_ID}/model -ow \
+  -mt ${MAHOUT_WORK}/${WORK_ID}-modeling \
+  -dt ${MAHOUT_WORK}/${WORK_ID}/topics \
+  -k 20 -x 35 -cd 6e-4 -block 2 -tf 0.25 -seed 777 # 20 topics; 25 max iterations; test set fraction 25%.
+```

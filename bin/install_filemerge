@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[ ! -e /tmp/FileMerge.tar.gz ] && curl -o /tmp/FileMerge.tar.gz -kL http://dl.dropboxusercontent.com/u/47820156/bin/FileMerge.tar.gz
+[ ! -d /Applications/FileMerge ] && tar xvf /tmp/FileMerge.tar.gz -C /Applications/
+rm /usr/bin/opendiff; curl -o /usr/bin/opendiff -ksL http://raw.github.com/henry4j/-/master/bin/opendiff 
+rm /usr/bin/xcode-select; curl -o /usr/bin/xcode-select -ksL http://raw.github.com/henry4j/-/master/bin/xcode-select
+chmod +x /usr/bin/opendiff /usr/bin/xcode-select
+xcode-select -switch /Applications/FileMerge/Xcode-4.6.2

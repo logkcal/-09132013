@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+%w{optparse fileutils open-uri csv}.each { |e| require e }
+
+# Usage;
+# curl -o /tmp/corpus.csv -kL http://tiny/18czoddbd/s3amaztextresorrc_csv
+# prep-comm-text /tmp/corpus.csv -d ${WORK_DIR}/comm-text-ext
+
+$options = {}
+OptionParser.new do |p|
+  p.on('-s', '--skip-entries INTEGER', Integer, 'Skips processing as many entries as specified (default: 1).') { |v| $options[:skip_count] = v }
+  p.on('-n', '--max-entries INTEGER', Integer, 'Processes as many entries as specified.') { |v| $options[:max_entries] = v }
+  p.on('-d', '--out-dir PATH', String, 'Specifies an optional output directory path (default: /tmp/).') { |v| $options[:out_dir] = v }
+  p.on('-i', '--id-fields i,j,k', Array, 'Specifies required field indices to compose output file names.') { |v| $options[:id_fields] = v }
+  p.on('-f', '--fields i,j,k', Array, 'Specifies required field indices to put into output files.') { |v| $options[:fields] = v }
+  p.on('-x', '--stop-phrases PATH', String, 'Specifies optional file paths for stop-phrases.') { |v| $options[:stop_phrases] = v }
+end.parse!
+
+max_entries = $options[:max_entries]
+out_dir = $options[:out_dir] || '/tmp/'
+id_fields = ($options[:id_fields] || ['4']).map { |e| e.to_i - 1 }
+fields = ($options[:fields] || ['5', '12']).map { |e| e.to_i - 1 }
+stop_phrases = $options[:stop_phrases] || File.expand_path('../stop-comm-text', File.realpath(__FILE__))
+stop_phrases = File.exists?(stop_phrases) ? open(stop_phrases).readlines.reduce([]) { |a, l| l.start_with?('#') ? a : a << l.chomp } : nil
+stop_phrases = /#{stop_phrases.join('|')}/ if stop_phrases
+puts stop_phrases
+
+ARGV.each do |e|
+  open(e, 'r:windows-1250') do |f|
+    skip_count = $options[:skip_count] || 1
+    CSV.new(f).each do |l|
+      next if (skip_count -= 1) >= 0
+      break if max_entries && (max_entries -= 1) < 0
+      FileUtils.mkdir_p out_dir unless Dir.exists?(out_dir)
+      path = File.join(out_dir, id_fields.map { |f| l[f] }.join('-') + ".txt")
+      puts "WARN: will over-write '#{path}'!!!" if File.exists?(path)
+      open(path, 'w:UTF-8') do |w| 
+        fields.each do |f| 
+          begin
+            w.puts stop_phrases ? l[f].gsub(stop_phrases, '.') : l[f] if l[f]
+          rescue
+            raise 'Failed to process a line: %s.' % [l]
+          end
+        end
+      end
+      puts "INFO: done writing to '#{path}'."
+    end
+  end
+end

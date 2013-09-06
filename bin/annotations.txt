@@ -1,0 +1,63 @@
+apn_settings_policy	: This service provides APIs to create, update & remove APN settings on the device.
+application_policy : This service provides APIs to control application related functionality and restrictions.Installation & Uninstallation of applications as well as restricing installation & uninstallation, disabling & enabling the applications and querying the current state of an application.
+apppermission_control_policy : The service implements the policy to restrict permissions for each application. Samsung supports two level of restricting permission for the application. For the first level, all of application which are installed on the device have the same blacklist of permission. For example, 3G network permission could be added to the blacklist, and no apps can use 3G data. For the second level, IT can apply the blacklist of permissions to each applications with this implementation. For instance, 'A' application is restricted to use 3G networks and Bluetooth, and 'B' application can be restricted to use Bluetooth and Microphone. The applications 'A' and 'B' can have differetent policy for the restriction.
+AtCmdFwd : The purpose of this service is forwarding AT command from Modem to AP.
+bluetooth : This service provides bluetooth turn on & off fetaure
+bluetooth_a2dp : This service is related to bluetooth audio transfer activities(a2dp profile implementation)
+bluetooth_avrcp	: This service is related to avrcp profile implementation
+bluetooth_hid : This running service is working ONLY for supporting Bleutooth. Except for this case, the service is not affect with other service or app. So this running sevice is safe and appropriate.
+bluetooth_policy : This service provides APIs to control various settings related to Bluetooth. All the settings provided by this policy cannot be changed by user once disabled.
+browser_policy : This service provides APIs to control various settings related to Browser. All the settings provided by this policy cannot be changed by user once disabled.
+bt_fm_radio : This running service is working ONLY for supporting Bleutooth FM Radio feature. Except for this case, the service is not affect other service or app. So this running service is safe and appropriate
+calling_policy : This running service is working ONLY when MDM API can be called by its server. Except for this case, the service is not affect with other service or app. So this running service is safe and appropriate.
+clipboardEx	: Interface to Clipboard service, for placing and retrieving text in the global clipboard.
+com.lifevibes.ma.ipc : This running service is working ONLY for interface between MediaShare libarary and OMX. Except for this case, the service is not used. So this running service is safe and appropriate.
+datarouter : This running service is working ONLY when MDM API can be called by its server. Except for this case, the service is not affect with other service or app. So this running service is safe and appropriate.
+date_time_policy : This service provides APIs to control the various settings related to Device Date and Time settings.
+device_info	: This service provides APIs to retrieve the device inventory information.
+DirEncryptService : This service provides APIs tp control device encryption as well as provides APIs to create Master Key to encrypt the content of SD card. 
+drm.drmManager : This service is related to encryption. If we download any data thorugh internet if it is encryted using drmManager then we cannot forward that data.
+eas_account_policy : This service provides APIs to configure Exchange Account related settings, as well as creation and deletion of accounts.
+EDMProxy : EDMProxy is a part of MDM services which specifies the real implementation such as managing policy DB, and controling the device's behavior. As the functionalities increases, the number of methods in frameworks.jar exceeds the limitation. This causes build breaks and system unstability. Some modules which carry amount of methods like EDM (Enterprise Device Manager) are expected to move out from frameworks.jar to an individual library. To do this, the module being supposed to move should have the one-way reference to frameworks.jar, not cross reference. EDMProxy has to be designed to keep a part of APIs which has cross reference with frameworks.jar. And, EDMProxy Service specifies the real implementation of EDMProxy APIs. Other part can stay with the existing structure of services matching with APIs.
+email_policy : This policy group specifies the configuration of Email account (POP3 / IMAP) on the native Email app, such as creation, update, and deletion of email account.
+email_account_policy : This service provides APIs to control IMAP/POP Email Account related settings, as well as creation and deletion of accounts.
+encrypt : This running service is working ONLY for Device Encryption service. Except for this case, the service is not affect with other service or app. So this running service is safe and appropriate.
+enterprise_policy : Public interface for managing policies enforced on a device. Most clients of this class must have a receiver that the user has currently enabled.
+enterprise_vpn_policy : This service provides APIs to configue CISCO VPN related settings.
+firewall_policy	: This service provides a front-end to configure Firewall Rules on device using iptables.
+FMPlayer : To service FM radio
+gatesettings : This service is used for Gate settings specific to ATT.
+gateloggersettings : For stability testing, this service is connected with Gate system like above. There is nothing effect to end user.
+Hdmi : Provided by Qualcomm for display of Mirror UI on HDMI.
+kioskmode : This service has been added to support a feature to extremely lockdown the device such as HW keys, HOME key, task managers and more functions on the device. This feature can make the device a kiosk, menu board, or cachier for the user to have very restricted access on the device. And, another use case for this feature could be used to protect the device from the theft. Once MDM server issues the policy, the device looks like being bricked, but it is still alive. This mode is definitely useful to track the location of the thefted device.
+location_policy	: This service provides APIs to control various settings related to Location Services.
+mdm.remotedesktop : This service acts as admin for device encryption and various application policies including EAS, Roaming.
+media.yamahaplayer : This services provides the gain parametes to codec for playing any Audio via different hardware. It includes Call, Playback, VOIP etc.
+MhlRcp : Provided by Qualcomm/driver team for recieving events from the MHL drivers for recieving TV remote keys.
+mini_mode_app_manager : This service is used for miniapps like widgets.
+misc_policy : This service provides APIs to control device hardware capability.
+motion_recognition : This service is used for detecting the motion which is used by many apps,(like CallMotion in Phone, MotionDetector in Gallery and Calendar).
+nfc: This running service is working ONLY for NFC feature. Except for this case, the service is not used. So this running service is safe and appropriate.
+password_policy : This service provides APIs to control the settings realted to the device password.
+phone_restriction_policy : This service provides APIs to control the various settings related to Telephony Functionality.
+phoneext : This service is used for SIM(network) information.
+remoteinjection : This service is used for injecting touch event and key event.
+restriction_policy : This services is required for checking whether any particular app, feature is allowed or not.
+roaming_policy : This service provides APIs to conrol various settings related to Device Roaming.
+samsung.facedetection_service : Service for detecting face to unlock screen. 
+samsung.theme_service : This running service is working ONLY for Theme service. However the service is not activated. So this running service is safe and appropriate.
+SecTVOutService : This service is used for TvOut functionality.
+security_policy : This service is used for security perspective. Whether calling process is an active admin and has the given permission.
+shutdownlogger : This service is required for shutdown thread when we shut down the devcie.
+sip : Defined by Google[android.net.sip.ISipService]. It is being used for supporting SIP protocol.
+SYSSCOPE : It is to identify if the device is compromised or not.
+tvout : tvout is running in backgroung because it has to maintian the cable status, suspend status, rotation value , HDCP status. tvout service access to framebuffer and nodes , so it needs system level permissions and it is safe as it follows the standard android native service.
+tvoutservice : This service is used for TvOut functionality.
+TvoutService_C : tvout is running in backgroung because it has to maintian the cable status, suspend status, rotation value. tvout service access to framebuffer and nodes , so it needs system level permissions and it is safe as it follows the standard android native service.
+usb : This running service is working ONLY to use usb accessary. Except for this case, the service is not used. So this running service is safe and appropriate.
+usbstorage : This running service is working ONLY to use additional device. Except for this case, the service is not used. So this running service is safe and appropriate.
+voip : Defined by Google from ICS [android.os.IVoIPInterface]. It is being used for supporting VoIP
+vpn_policy : This service provides APIs to configure Android VPN related settings, as well as creation, updation, and deletion of different VPN profiles.
+wifi_policy : This service provides APIs to configure Wifi related settings, as well as creation, updation and deletion of different Wifi profiles.
+FMPlayer : To service FM radio
+wfd : This service is running for supporting WiFi Display funtionality. 'wfd' is one of WiFi P2P interaction service and this service is only used in WFD so it did not affect with other service and application.

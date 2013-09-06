@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+raise "`ARGV[0]` must end with .jks." if ARGV[0].nil? || !ARGV[0].end_with?('.jks')
+in_jks = ARGV[0] # ARGV.shift
+
+ARGV[1..-1].each do |in_pkg|
+  temp_d = in_pkg.chomp(File.extname(in_pkg)) # in_pkg[/.*(?=\..+$)/]
+  `mkdir -p #{temp_d}; pushd #{temp_d}; jar xvf #{File.expand_path in_pkg}; rm -rf META-INF/; popd`
+  `rm -f #{in_pkg}; pushd #{temp_d}; jar cvf #{File.expand_path in_pkg} .; popd` 
+  `echo 'android' | jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore #{in_jks} #{in_pkg} androiddebugkey`
+end 

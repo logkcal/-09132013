@@ -1,0 +1,1576 @@
+
+ <manifest
+sharedUserId="android.uid.system"
+versionCode="15"
+versionName="4.0.3-237985"
+sharedUserLabel="Android System"
+package="android"
+coreApp="true">
+  <uses-sdk
+minSdkVersion="15"
+targetSdkVersion="15">
+ </uses-sdk>
+  <eat-comment>
+ </eat-comment>
+  <protected-broadcast
+name="android.intent.action.SCREEN_OFF">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.SCREEN_ON">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.USER_PRESENT">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.TIME_TICK">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.TIMEZONE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.BOOT_COMPLETED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_INSTALL">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_ADDED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_REPLACED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.MY_PACKAGE_REPLACED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_REMOVED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_FULLY_REMOVED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_RESTARTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_DATA_CLEARED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_FIRST_LAUNCH">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PACKAGE_NEEDS_VERIFICATION">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.UID_REMOVED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.CONFIGURATION_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.LOCALE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.BATTERY_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.BATTERY_LOW">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.BATTERY_OKAY">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.ACTION_POWER_CONNECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.ACTION_POWER_DISCONNECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.ACTION_SHUTDOWN">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.DEVICE_STORAGE_LOW">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.DEVICE_STORAGE_OK">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.DEVICE_STORAGE_FULL">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.DEVICE_STORAGE_NOT_FULL">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.NEW_OUTGOING_CALL">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.REBOOT">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.DOCK_EVENT">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.MASTER_CLEAR_NOTIFICATION">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.app.action.ENTER_CAR_MODE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.app.action.EXIT_CAR_MODE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.app.action.ENTER_DESK_MODE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.app.action.EXIT_DESK_MODE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.backup.intent.RUN">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.backup.intent.CLEAR">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.backup.intent.INIT">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.SCAN_MODE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.DISCOVERY_STARTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.DISCOVERY_FINISHED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.LOCAL_NAME_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.FOUND">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.DISAPPEARED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.CLASS_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.ACL_CONNECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.ACL_DISCONNECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.NAME_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.BOND_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.NAME_FAILED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.PAIRING_REQUEST">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.PAIRING_CANCEL">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.device.action.CONNECTION_ACCESS_REPLY">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.headset.action.VENDOR_SPECIFIC_HEADSET_EVENT">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.a2dp.profile.action.PLAYING_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.bluetooth.pan.profile.action.CONNECTION_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.hardware.usb.action.USB_STATE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.hardware.usb.action.USB_DEVICE_ATTACHED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.hardware.usb.action.USB_DEVICE_DETACHED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.net.conn.CONNECTIVITY_CHANGE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.net.conn.CONNECTIVITY_CHANGE_IMMEDIATE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.nfc.action.LLCP_LINK_STATE_CHANGED">
+ </protected-broadcast>
+  <protected-broadcast
+name="com.android.nfc_extras.action.RF_FIELD_ON_DETECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="com.android.nfc_extras.action.RF_FIELD_OFF_DETECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="com.android.nfc_extras.action.AID_SELECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.nfc.action.TRANSACTION_DETECTED">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.CLEAR_DNS_CACHE">
+ </protected-broadcast>
+  <protected-broadcast
+name="android.intent.action.PROXY_CHANGE">
+ </protected-broadcast>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Services that cost you money"
+name="android.permission-group.COST_MONEY"
+description="Allow applications to do things that can cost you money.">
+ </permission-group>
+  <permission
+label="send SMS messages"
+name="android.permission.SEND_SMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.COST_MONEY"
+description="Allows application to send SMS messages. Malicious applications may cost you money by sending messages without your confirmation.">
+ </permission>
+  <permission
+label="send SMS messages with no confirmation"
+name="android.permission.SEND_SMS_NO_CONFIRMATION"
+protectionLevel="3"
+permissionGroup="android.permission-group.COST_MONEY"
+description="Allows application to send SMS messages. Malicious applications may cost you money by sending messages without your confirmation.">
+ </permission>
+  <permission
+label="directly call phone numbers"
+name="android.permission.CALL_PHONE"
+protectionLevel="1"
+permissionGroup="android.permission-group.COST_MONEY"
+description="Allows the application to call phone numbers without your intervention. Malicious applications may cause unexpected calls on your phone bill. Note that this does not allow the application to call emergency numbers.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Your messages"
+name="android.permission-group.MESSAGES"
+description="Read and write your SMS, e-mail, and other messages.">
+ </permission-group>
+  <permission
+label="receive SMS"
+name="android.permission.RECEIVE_SMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to receive and process SMS messages. Malicious applications may monitor your messages or delete them without showing them to you.">
+ </permission>
+  <permission
+label="receive MMS"
+name="android.permission.RECEIVE_MMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to receive and process MMS messages. Malicious applications may monitor your messages or delete them without showing them to you.">
+ </permission>
+  <permission
+label="receive emergency broadcasts"
+name="android.permission.RECEIVE_EMERGENCY_BROADCAST"
+protectionLevel="3"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to receive and process emergency broadcast messages. This permission is only available to system applications.">
+ </permission>
+  <permission
+label="read SMS or MMS"
+name="android.permission.READ_SMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to read SMS messages stored on your phone or SIM card. Malicious applications may read your confidential messages.">
+ </permission>
+  <permission
+label="edit SMS or MMS"
+name="android.permission.WRITE_SMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to write to SMS messages stored on your phone or SIM card. Malicious applications may delete your messages.">
+ </permission>
+  <permission
+label="receive WAP"
+name="android.permission.RECEIVE_WAP_PUSH"
+protectionLevel="1"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows application to receive and process WAP messages. Malicious applications may monitor your messages or delete them without showing them to you.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Your personal information"
+name="android.permission-group.PERSONAL_INFO"
+description="Direct access to your contacts and calendar stored on the phone.">
+ </permission-group>
+  <permission
+label="read contact data"
+name="android.permission.READ_CONTACTS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to read all of the contact (address) data stored on your phone. Malicious applications can use this to send your data to other people.">
+ </permission>
+  <permission
+label="write contact data"
+name="android.permission.WRITE_CONTACTS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to modify the contact (address) data stored on your phone. Malicious applications can use this to erase or modify your contact data.">
+ </permission>
+  <permission
+label="read your profile data"
+name="android.permission.READ_PROFILE"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to read personal profile information stored on your device, such as your name and contact information. This means the application can identify you and send your profile information to others.">
+ </permission>
+  <permission
+label="write to your profile data"
+name="android.permission.WRITE_PROFILE"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to change or add to personal profile information stored on your device, such as your name and contact information. This means other applications can identify you and send your profile information to others.">
+ </permission>
+  <permission
+label="read your social stream"
+name="android.permission.READ_SOCIAL_STREAM"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to access and sync social updates from you and your friends. Malicious apps can use this to read private communications between you and your friends on social networks.">
+ </permission>
+  <permission
+label="write to your social stream"
+name="android.permission.WRITE_SOCIAL_STREAM"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to display social updates from your friends. Malicious apps can use this to pretend to be a friend and trick you into revealing passwords or other confidential information.">
+ </permission>
+  <permission
+label="read calendar events plus confidential information"
+name="android.permission.READ_CALENDAR"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to read all calendar events stored on your phone, including those of friends or coworkers. A malicious application with this permission can extract personal information from these calendars without the owners' knowledge.">
+ </permission>
+  <permission
+label="add or modify calendar events and send email to guests without owners' knowledge"
+name="android.permission.WRITE_CALENDAR"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to send event invitations as the calendar owner and add, remove, change events that you can modify on your device, including those of friends or co-workers. A malicious application with this permission can send spam emails that appear to come from calendar owners, modify events without the owners' knowledge, or add fake events.">
+ </permission>
+  <permission
+label="read user defined dictionary"
+name="android.permission.READ_USER_DICTIONARY"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to read any private words, names and phrases that the user may have stored in the user dictionary.">
+ </permission>
+  <permission
+label="write to user defined dictionary"
+name="android.permission.WRITE_USER_DICTIONARY"
+protectionLevel="0"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to write new words into the user dictionary.">
+ </permission>
+  <permission
+label="read Browser's history and bookmarks"
+name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to read all the URLs that the Browser has visited, and all of the Browser's bookmarks.">
+ </permission>
+  <permission
+label="write Browser's history and bookmarks"
+name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to modify the Browser's history or bookmarks stored on your phone. Malicious applications can use this to erase or modify your Browser's data.">
+ </permission>
+  <permission
+label="set alarm in alarm clock"
+name="com.android.alarm.permission.SET_ALARM"
+protectionLevel="0"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to set an alarm in an installed alarm clock application. Some alarm clock applications may not implement this feature.">
+ </permission>
+  <permission
+label="add voicemail"
+name="com.android.voicemail.permission.ADD_VOICEMAIL"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to add messages to your voicemail inbox.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Your location"
+name="android.permission-group.LOCATION"
+description="Monitor your physical location">
+ </permission-group>
+  <permission
+label="fine (GPS) location"
+name="android.permission.ACCESS_FINE_LOCATION"
+protectionLevel="1"
+permissionGroup="android.permission-group.LOCATION"
+description="Access fine location sources such as the Global Positioning System on the phone, where available. Malicious applications can use this to determine where you are, and may consume additional battery power.">
+ </permission>
+  <permission
+label="coarse (network-based) location"
+name="android.permission.ACCESS_COARSE_LOCATION"
+protectionLevel="1"
+permissionGroup="android.permission-group.LOCATION"
+description="Access coarse location sources such as the cellular network database to determine an approximate phone location, where available. Malicious applications can use this to determine approximately where you are.">
+ </permission>
+  <permission
+label="mock location sources for testing"
+name="android.permission.ACCESS_MOCK_LOCATION"
+protectionLevel="1"
+permissionGroup="android.permission-group.LOCATION"
+description="Create mock location sources for testing. Malicious applications can use this to override the location and/or status returned by real location sources such as GPS or Network providers.">
+ </permission>
+  <permission
+label="access extra location provider commands"
+name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"
+protectionLevel="0"
+permissionGroup="android.permission-group.LOCATION"
+description="Access extra location provider commands. Malicious applications could use this to interfere with the operation of the GPS or other location sources.">
+ </permission>
+  <permission
+label="permission to install a location provider"
+name="android.permission.INSTALL_LOCATION_PROVIDER"
+protectionLevel="3"
+description="Create mock location sources for testing. Malicious applications can use this to override the location and/or status returned by real location sources such as GPS or Network providers or monitor and report your location to an external source.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Network communication"
+name="android.permission-group.NETWORK"
+description="Allow applications to access various network features.">
+ </permission-group>
+  <permission
+label="full Internet access"
+name="android.permission.INTERNET"
+protectionLevel="1"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to create network sockets.">
+ </permission>
+  <permission
+label="view network state"
+name="android.permission.ACCESS_NETWORK_STATE"
+protectionLevel="0"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to view the state of all networks.">
+ </permission>
+  <permission
+label="view Wi-Fi state"
+name="android.permission.ACCESS_WIFI_STATE"
+protectionLevel="0"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to view the information about the state of Wi-Fi.">
+ </permission>
+  <permission
+label="view WiMAX state"
+name="android.permission.ACCESS_WIMAX_STATE"
+protectionLevel="0"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to view the information about the state of WiMAX.">
+ </permission>
+  <permission
+label="create Bluetooth connections"
+name="android.permission.BLUETOOTH"
+protectionLevel="1"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to view configuration of the local Bluetooth phone, and to make and accept connections with paired devices.">
+ </permission>
+  <permission
+label="control Near Field Communication"
+name="android.permission.NFC"
+protectionLevel="1"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to communicate with Near Field Communication (NFC) tags, cards, and readers.">
+ </permission>
+  <permission
+label="make/receive Internet calls"
+name="android.permission.USE_SIP"
+protectionLevel="1"
+permissionGroup="android.permission-group.NETWORK"
+description="Allows an application to use the SIP service to make/receive Internet calls.">
+ </permission>
+  <permission
+label="act as the AccountManagerService"
+name="android.permission.ACCOUNT_MANAGER"
+protectionLevel="2"
+permissionGroup="android.permission-group.ACCOUNTS"
+description="Allows an application to make calls to AccountAuthenticators">
+ </permission>
+  <permission
+name="android.permission.CONNECTIVITY_INTERNAL"
+protectionLevel="3"
+permissionGroup="android.permission-group.NETWORK">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Your accounts"
+name="android.permission-group.ACCOUNTS"
+description="Access the available accounts.">
+ </permission-group>
+  <permission
+label="discover known accounts"
+name="android.permission.GET_ACCOUNTS"
+protectionLevel="0"
+permissionGroup="android.permission-group.ACCOUNTS"
+description="Allows an application to get the list of accounts known by the phone.">
+ </permission>
+  <permission
+label="act as an account authenticator"
+name="android.permission.AUTHENTICATE_ACCOUNTS"
+protectionLevel="1"
+permissionGroup="android.permission-group.ACCOUNTS"
+description="Allows an application to use the account authenticator capabilities of the AccountManager, including creating accounts and getting and setting their passwords.">
+ </permission>
+  <permission
+label="use the authentication credentials of an account"
+name="android.permission.USE_CREDENTIALS"
+protectionLevel="1"
+permissionGroup="android.permission-group.ACCOUNTS"
+description="Allows an application to request authentication tokens.">
+ </permission>
+  <permission
+label="manage the accounts list"
+name="android.permission.MANAGE_ACCOUNTS"
+protectionLevel="1"
+permissionGroup="android.permission-group.ACCOUNTS"
+description="Allows an application to perform operations like adding, and removing accounts and deleting their password.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Hardware controls"
+name="android.permission-group.HARDWARE_CONTROLS"
+description="Direct access to hardware on the handset.">
+ </permission-group>
+  <permission
+label="change your audio settings"
+name="android.permission.MODIFY_AUDIO_SETTINGS"
+protectionLevel="1"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows application to modify global audio settings such as volume and routing.">
+ </permission>
+  <permission
+label="record audio"
+name="android.permission.RECORD_AUDIO"
+protectionLevel="1"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows application to access the audio record path.">
+ </permission>
+  <permission
+label="take pictures and videos"
+name="android.permission.CAMERA"
+protectionLevel="1"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows application to take pictures and videos with the camera. This allows the application at any time to collect images the camera is seeing.">
+ </permission>
+  <permission
+label="control vibrator"
+name="android.permission.VIBRATE"
+protectionLevel="0"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows the application to control the vibrator.">
+ </permission>
+  <permission
+label="control flashlight"
+name="android.permission.FLASHLIGHT"
+protectionLevel="0"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows the application to control the flashlight.">
+ </permission>
+  <permission
+label="manage preferences and permissions for USB devices"
+name="android.permission.MANAGE_USB"
+protectionLevel="3"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows the application to manage preferences and permissions for USB devices.">
+ </permission>
+  <permission
+label="implement MTP protocol"
+name="android.permission.ACCESS_MTP"
+protectionLevel="3"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows access to the kernel MTP driver to implement the MTP USB protocol.">
+ </permission>
+  <permission
+label="test hardware"
+name="android.permission.HARDWARE_TEST"
+protectionLevel="2"
+permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+description="Allows the application to control various peripherals for the purpose of hardware testing.">
+ </permission>
+  <permission
+name="android.permission.NET_ADMIN"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Phone calls"
+name="android.permission-group.PHONE_CALLS"
+description="Monitor, record, and process phone calls.">
+ </permission-group>
+  <permission
+label="intercept outgoing calls"
+name="android.permission.PROCESS_OUTGOING_CALLS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PHONE_CALLS"
+description="Allows application to process outgoing calls and change the number to be dialed. Malicious applications may monitor, redirect, or prevent outgoing calls.">
+ </permission>
+  <permission
+label="modify phone state"
+name="android.permission.MODIFY_PHONE_STATE"
+protectionLevel="3"
+permissionGroup="android.permission-group.PHONE_CALLS"
+description="Allows the application to control the phone features of the device. An application with this permission can switch networks, turn the phone radio on and off and the like without ever notifying you.">
+ </permission>
+  <permission
+label="read phone state and identity"
+name="android.permission.READ_PHONE_STATE"
+protectionLevel="1"
+permissionGroup="android.permission-group.PHONE_CALLS"
+description="Allows the application to access the phone features of the device. An application with this permission can determine the phone number and serial number of this phone, whether a call is active, the number that call is connected to and the like.">
+ </permission>
+  <permission
+name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+protectionLevel="3"
+permissionGroup="android.permission-group.PHONE_CALLS">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Storage"
+name="android.permission-group.STORAGE"
+description="Access the SD card.">
+ </permission-group>
+  <permission
+label="modify/delete SD card contents"
+name="android.permission.WRITE_EXTERNAL_STORAGE"
+protectionLevel="1"
+permissionGroup="android.permission-group.STORAGE"
+description="Allows an application to write to the SD card.">
+ </permission>
+  <permission
+label="modify/delete internal media storage contents"
+name="android.permission.WRITE_MEDIA_STORAGE"
+protectionLevel="3"
+permissionGroup="android.permission-group.STORAGE"
+description="Allows an application to modify the contents of the internal media storage.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="System tools"
+name="android.permission-group.SYSTEM_TOOLS"
+description="Lower-level access and control of the system.">
+ </permission-group>
+  <permission
+label="modify global system settings"
+name="android.permission.WRITE_SETTINGS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to modify the system's settings data. Malicious applications can corrupt your system's configuration.">
+ </permission>
+  <permission
+label="modify secure system settings"
+name="android.permission.WRITE_SECURE_SETTINGS"
+protectionLevel="3"
+description="Allows an application to modify the system's secure settings data. Not for use by normal applications.">
+ </permission>
+  <permission
+label="modify the Google services map"
+name="android.permission.WRITE_GSERVICES"
+protectionLevel="3"
+description="Allows an application to modify the Google services map. Not for use by normal applications.">
+ </permission>
+  <permission
+label="expand/collapse status bar"
+name="android.permission.EXPAND_STATUS_BAR"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows application to expand or collapse the status bar.">
+ </permission>
+  <permission
+label="retrieve running applications"
+name="android.permission.GET_TASKS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows application to retrieve information about currently and recently running tasks. May allow malicious applications to discover private information about other applications.">
+ </permission>
+  <permission
+label="reorder running applications"
+name="android.permission.REORDER_TASKS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to move tasks to the foreground and background. Malicious applications can force themselves to the front without your control.">
+ </permission>
+  <permission
+label="stop running applications"
+name="android.permission.REMOVE_TASKS"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to remove tasks and kill their applications. Malicious applications can disrupt the behavior of other applications.">
+ </permission>
+  <permission
+label="change your UI settings"
+name="android.permission.CHANGE_CONFIGURATION"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change the current configuration, such as the locale or overall font size.">
+ </permission>
+  <permission
+label="kill background processes"
+name="android.permission.RESTART_PACKAGES"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to kill background processes of other applications, even if memory isn't low.">
+ </permission>
+  <permission
+label="kill background processes"
+name="android.permission.KILL_BACKGROUND_PROCESSES"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to kill background processes of other applications, even if memory isn't low.">
+ </permission>
+  <permission
+label="force stop other applications"
+name="android.permission.FORCE_STOP_PACKAGES"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to forcibly stop other applications.">
+ </permission>
+  <permission
+label="retrieve system internal state"
+name="android.permission.DUMP"
+protectionLevel="3"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows application to retrieve internal state of the system. Malicious applications may retrieve a wide variety of private and secure information that they should never normally need.">
+ </permission>
+  <permission
+label="retrieve screen content"
+name="android.permission.RETRIEVE_WINDOW_CONTENT"
+protectionLevel="3"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows application to retrieve the content of the active window. Malicious applications may retrieve the entire window content and examine all its text except passwords.">
+ </permission>
+  <permission
+label="display system-level alerts"
+name="android.permission.SYSTEM_ALERT_WINDOW"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to show system alert windows. Malicious applications can take over the entire screen.">
+ </permission>
+  <permission
+label="modify global animation speed"
+name="android.permission.SET_ANIMATION_SCALE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change the global animation speed (faster or slower animations) at any time.">
+ </permission>
+  <permission
+label="make application always run"
+name="android.permission.PERSISTENT_ACTIVITY"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to make parts of itself persistent, so the system can't use it for other applications.">
+ </permission>
+  <permission
+label="measure application storage space"
+name="android.permission.GET_PACKAGE_SIZE"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to retrieve its code, data, and cache sizes">
+ </permission>
+  <permission
+label="set preferred applications"
+name="android.permission.SET_PREFERRED_APPLICATIONS"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to modify your preferred applications. This can allow malicious applications to silently change the applications that are run, spoofing your existing applications to collect private data from you.">
+ </permission>
+  <permission
+label="automatically start at boot"
+name="android.permission.RECEIVE_BOOT_COMPLETED"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to have itself started as soon as the system has finished booting. This can make it take longer to start the phone and allow the application to slow down the overall phone by always running.">
+ </permission>
+  <permission
+label="send sticky broadcast"
+name="android.permission.BROADCAST_STICKY"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to send sticky broadcasts, which remain after the broadcast ends. Malicious applications can make the phone slow or unstable by causing it to use too much memory.">
+ </permission>
+  <permission
+label="prevent phone from sleeping"
+name="android.permission.WAKE_LOCK"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to prevent the phone from going to sleep.">
+ </permission>
+  <permission
+label="set wallpaper"
+name="android.permission.SET_WALLPAPER"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to set the system wallpaper.">
+ </permission>
+  <permission
+label="set wallpaper size hints"
+name="android.permission.SET_WALLPAPER_HINTS"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to set the system wallpaper size hints.">
+ </permission>
+  <permission
+label="set time"
+name="android.permission.SET_TIME"
+protectionLevel="3"
+description="Allows an application to change the phone's clock time.">
+ </permission>
+  <permission
+label="set time zone"
+name="android.permission.SET_TIME_ZONE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change the phone's time zone.">
+ </permission>
+  <permission
+label="mount and unmount filesystems"
+name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to mount and unmount filesystems for removable storage.">
+ </permission>
+  <permission
+label="format external storage"
+name="android.permission.MOUNT_FORMAT_FILESYSTEMS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to format removable storage.">
+ </permission>
+  <permission
+label="get information on internal storage"
+name="android.permission.ASEC_ACCESS"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to get information on internal storage.">
+ </permission>
+  <permission
+label="create internal storage"
+name="android.permission.ASEC_CREATE"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to create internal storage.">
+ </permission>
+  <permission
+label="destroy internal storage"
+name="android.permission.ASEC_DESTROY"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to destroy internal storage.">
+ </permission>
+  <permission
+label="mount / unmount internal storage"
+name="android.permission.ASEC_MOUNT_UNMOUNT"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to mount / unmount internal storage.">
+ </permission>
+  <permission
+label="rename internal storage"
+name="android.permission.ASEC_RENAME"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows the application to rename internal storage.">
+ </permission>
+  <permission
+label="disable keylock"
+name="android.permission.DISABLE_KEYGUARD"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to disable the keylock and any associated password security. A legitimate example of this is the phone disabling the keylock when receiving an incoming phone call, then re-enabling the keylock when the call is finished.">
+ </permission>
+  <permission
+label="read sync settings"
+name="android.permission.READ_SYNC_SETTINGS"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to read the sync settings, such as whether sync is enabled for Contacts.">
+ </permission>
+  <permission
+label="write sync settings"
+name="android.permission.WRITE_SYNC_SETTINGS"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to modify the sync settings, such as whether sync is enabled for Contacts.">
+ </permission>
+  <permission
+label="read sync statistics"
+name="android.permission.READ_SYNC_STATS"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to read the sync stats; e.g., the history of syncs that have occurred.">
+ </permission>
+  <permission
+label="change/intercept network settings and traffic"
+name="android.permission.WRITE_APN_SETTINGS"
+protectionLevel="3"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change network settings and to intercept and inspect all network traffic, for example to change the proxy and port of any APN. Malicious applications could monitor, redirect, or modify network packets without your knowledge.">
+ </permission>
+  <permission
+label="read subscribed feeds"
+name="android.permission.SUBSCRIBED_FEEDS_READ"
+protectionLevel="0"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to get details about the currently synced feeds.">
+ </permission>
+  <permission
+label="write subscribed feeds"
+name="android.permission.SUBSCRIBED_FEEDS_WRITE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to modify your currently synced feeds. This could allow a malicious application to change your synced feeds.">
+ </permission>
+  <permission
+label="change network connectivity"
+name="android.permission.CHANGE_NETWORK_STATE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change the state of network connectivity.">
+ </permission>
+  <permission
+label="change Wi-Fi state"
+name="android.permission.CHANGE_WIFI_STATE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to connect to and disconnect from Wi-Fi access points, and to make changes to configured Wi-Fi networks.">
+ </permission>
+  <permission
+label="change WiMAX state"
+name="android.permission.CHANGE_WIMAX_STATE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to connect to and disconnect from WiMAX network.">
+ </permission>
+  <permission
+label="allow Wi-Fi Multicast reception"
+name="android.permission.CHANGE_WIFI_MULTICAST_STATE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to receive packets not directly addressed to your device. This can be useful when discovering services offered near by. It uses more power than the non-multicast mode.">
+ </permission>
+  <permission
+label="bluetooth administration"
+name="android.permission.BLUETOOTH_ADMIN"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to configure the local Bluetooth phone, and to discover and pair with remote devices.">
+ </permission>
+  <permission
+label="delete all application cache data"
+name="android.permission.CLEAR_APP_CACHE"
+protectionLevel="1"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to free phone storage by deleting files in application cache directory. Access is very restricted usually to system process.">
+ </permission>
+  <permission
+label="read sensitive log data"
+name="android.permission.READ_LOGS"
+protectionLevel="1"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows an application to read from the system's various log files. This allows it to discover general information about what you are doing with the phone, potentially including personal or private information.">
+ </permission>
+  <permission
+label="use any media decoder for playback"
+name="android.permission.ALLOW_ANY_CODEC_FOR_PLAYBACK"
+protectionLevel="3"
+description="Allows an application to use any installed media decoder to decode for playback.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission-group
+label="Development tools"
+name="android.permission-group.DEVELOPMENT_TOOLS"
+description="Features only needed for application developers.">
+ </permission-group>
+  <permission
+label="enable application debugging"
+name="android.permission.SET_DEBUG_APP"
+protectionLevel="1"
+permissionGroup="android.permission-group.DEVELOPMENT_TOOLS"
+description="Allows an application to turn on debugging for another application. Malicious applications can use this to kill other applications.">
+ </permission>
+  <permission
+label="limit number of running processes"
+name="android.permission.SET_PROCESS_LIMIT"
+protectionLevel="1"
+permissionGroup="android.permission-group.DEVELOPMENT_TOOLS"
+description="Allows an application to control the maximum number of processes that will run. Never needed for normal applications.">
+ </permission>
+  <permission
+label="make all background applications close"
+name="android.permission.SET_ALWAYS_FINISH"
+protectionLevel="1"
+permissionGroup="android.permission-group.DEVELOPMENT_TOOLS"
+description="Allows an application to control whether activities are always finished as soon as they go to the background. Never needed for normal applications.">
+ </permission>
+  <permission
+label="send Linux signals to applications"
+name="android.permission.SIGNAL_PERSISTENT_PROCESSES"
+protectionLevel="1"
+permissionGroup="android.permission-group.DEVELOPMENT_TOOLS"
+description="Allows application to request that the supplied signal be sent to all persistent processes.">
+ </permission>
+  <eat-comment>
+ </eat-comment>
+  <permission
+label="read/write to resources owned by diag"
+name="android.permission.DIAGNOSTIC"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to read and write to any resource owned by the diag group; for example, files in /dev. This could potentially affect system stability and security. This should be ONLY be used for hardware-specific diagnostics by the manufacturer or operator.">
+ </permission>
+  <permission
+label="disable or modify status bar"
+name="android.permission.STATUS_BAR"
+protectionLevel="3"
+description="Allows application to disable the status bar or add and remove system icons.">
+ </permission>
+  <permission
+label="status bar"
+name="android.permission.STATUS_BAR_SERVICE"
+protectionLevel="2"
+description="Allows the application to be the status bar.">
+ </permission>
+  <permission
+label="force application to close"
+name="android.permission.FORCE_BACK"
+protectionLevel="2"
+description="Allows an application to force any activity that is in the foreground to close and go back. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="modify battery statistics"
+name="android.permission.UPDATE_DEVICE_STATS"
+protectionLevel="3"
+description="Allows the modification of collected battery statistics. Not for use by normal applications.">
+ </permission>
+  <permission
+label="display unauthorized windows"
+name="android.permission.INTERNAL_SYSTEM_WINDOW"
+protectionLevel="2"
+description="Allows the creation of windows that are intended to be used by the internal system user interface. Not for use by normal applications.">
+ </permission>
+  <permission
+label="manage application tokens"
+name="android.permission.MANAGE_APP_TOKENS"
+protectionLevel="2"
+description="Allows applications to create and manage their own tokens, bypassing their normal Z-ordering. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="press keys and control buttons"
+name="android.permission.INJECT_EVENTS"
+protectionLevel="2"
+description="Allows an application to deliver its own input events (key presses, etc.) to other applications. Malicious applications can use this to take over the phone.">
+ </permission>
+  <permission
+label="monitor and control all application launching"
+name="android.permission.SET_ACTIVITY_WATCHER"
+protectionLevel="2"
+description="Allows an application to monitor and control how the system launches activities. Malicious applications may completely compromise the system. This permission is only needed for development, never for normal use.">
+ </permission>
+  <permission
+label="partial shutdown"
+name="android.permission.SHUTDOWN"
+protectionLevel="3"
+description="Puts the activity manager into a shutdown state. Does not perform a complete shutdown.">
+ </permission>
+  <permission
+label="prevent app switches"
+name="android.permission.STOP_APP_SWITCHES"
+protectionLevel="3"
+description="Prevents the user from switching to another application.">
+ </permission>
+  <permission
+label="record what you type and actions you take"
+name="android.permission.READ_INPUT_STATE"
+protectionLevel="2"
+description="Allows applications to watch the keys you press even when interacting with another application (such as entering a password). Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="bind to an input method"
+name="android.permission.BIND_INPUT_METHOD"
+protectionLevel="2"
+description="Allows the holder to bind to the top-level interface of an input method. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="bind to a text service"
+name="android.permission.BIND_TEXT_SERVICE"
+protectionLevel="2"
+description="Allows the holder to bind to the top-level interface of a text service(e.g. SpellCheckerService). Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="bind to a VPN service"
+name="android.permission.BIND_VPN_SERVICE"
+protectionLevel="2"
+description="Allows the holder to bind to the top-level interface of a Vpn service. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="bind to a wallpaper"
+name="android.permission.BIND_WALLPAPER"
+protectionLevel="3"
+description="Allows the holder to bind to the top-level interface of a wallpaper. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="interact with a device admin"
+name="android.permission.BIND_DEVICE_ADMIN"
+protectionLevel="2"
+description="Allows the holder to send intents to a device administrator. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="change screen orientation"
+name="android.permission.SET_ORIENTATION"
+protectionLevel="2"
+description="Allows an application to change the rotation of the screen at any time. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="change pointer speed"
+name="android.permission.SET_POINTER_SPEED"
+protectionLevel="2"
+description="Allows an application to change the mouse or trackpad pointer speed at any time. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="directly install applications"
+name="android.permission.INSTALL_PACKAGES"
+protectionLevel="3"
+description="Allows an application to install new or updated Android packages. Malicious applications can use this to add new applications with arbitrarily powerful permissions.">
+ </permission>
+  <permission
+label="delete other applications' data"
+name="android.permission.CLEAR_APP_USER_DATA"
+protectionLevel="2"
+description="Allows an application to clear user data.">
+ </permission>
+  <permission
+label="delete other applications' caches"
+name="android.permission.DELETE_CACHE_FILES"
+protectionLevel="3"
+description="Allows an application to delete cache files.">
+ </permission>
+  <permission
+label="delete applications"
+name="android.permission.DELETE_PACKAGES"
+protectionLevel="3"
+description="Allows an application to delete Android packages. Malicious applications can use this to delete important applications.">
+ </permission>
+  <permission
+label="Move application resources"
+name="android.permission.MOVE_PACKAGE"
+protectionLevel="3"
+description="Allows an application to move application resources from internal to external media and vice versa.">
+ </permission>
+  <permission
+label="enable or disable application components"
+name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"
+protectionLevel="3"
+description="Allows an application to change whether a component of another application is enabled or not. Malicious applications can use this to disable important phone capabilities. Care must be used with this permission, as it is possible to get application components into an unusable, inconsistent, or unstable state.">
+ </permission>
+  <permission
+label="access SurfaceFlinger"
+name="android.permission.ACCESS_SURFACE_FLINGER"
+protectionLevel="2"
+description="Allows application to use SurfaceFlinger low-level features.">
+ </permission>
+  <permission
+label="read frame buffer"
+name="android.permission.READ_FRAME_BUFFER"
+protectionLevel="3"
+description="Allows application to read the content of the frame buffer.">
+ </permission>
+  <permission
+label="permanently disable phone"
+name="android.permission.BRICK"
+protectionLevel="2"
+description="Allows the application to disable the entire phone permanently. This is very dangerous.">
+ </permission>
+  <permission
+label="force phone reboot"
+name="android.permission.REBOOT"
+protectionLevel="3"
+description="Allows the application to force the phone to reboot.">
+ </permission>
+  <permission
+label="power phone on or off"
+name="android.permission.DEVICE_POWER"
+protectionLevel="2"
+description="Allows the application to turn the phone on or off.">
+ </permission>
+  <permission
+label="run in factory test mode"
+name="android.permission.FACTORY_TEST"
+protectionLevel="2"
+description="Run as a low-level manufacturer test, allowing complete access to the phone hardware. Only available when a phone is running in manufacturer test mode.">
+ </permission>
+  <permission
+label="send package removed broadcast"
+name="android.permission.BROADCAST_PACKAGE_REMOVED"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to broadcast a notification that an application package has been removed. Malicious applications may use this to kill any other running application.">
+ </permission>
+  <permission
+label="send SMS-received broadcast"
+name="android.permission.BROADCAST_SMS"
+protectionLevel="2"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows an application to broadcast a notification that an SMS message has been received. Malicious applications may use this to forge incoming SMS messages.">
+ </permission>
+  <permission
+label="send WAP-PUSH-received broadcast"
+name="android.permission.BROADCAST_WAP_PUSH"
+protectionLevel="2"
+permissionGroup="android.permission-group.MESSAGES"
+description="Allows an application to broadcast a notification that a WAP PUSH message has been received. Malicious applications may use this to forge MMS message receipt or to silently replace the content of any web page with malicious variants.">
+ </permission>
+  <permission
+label="reset system to factory defaults"
+name="android.permission.MASTER_CLEAR"
+protectionLevel="3"
+description="Allows an application to completely reset the system to its factory settings, erasing all data, configuration, and installed applications.">
+ </permission>
+  <permission
+label="directly call any phone numbers"
+name="android.permission.CALL_PRIVILEGED"
+protectionLevel="3"
+description="Allows the application to call any phone number, including emergency numbers, without your intervention. Malicious applications may place unnecessary and illegal calls to emergency services.">
+ </permission>
+  <permission
+label="directly start CDMA phone setup"
+name="android.permission.PERFORM_CDMA_PROVISIONING"
+protectionLevel="3"
+description="Allows the application to start CDMA provisioning. Malicious applications may unnecessarily start CDMA provisioning">
+ </permission>
+  <permission
+label="control location update notifications"
+name="android.permission.CONTROL_LOCATION_UPDATES"
+protectionLevel="3"
+description="Allows enabling/disabling location update notifications from the radio. Not for use by normal applications.">
+ </permission>
+  <permission
+label="access checkin properties"
+name="android.permission.ACCESS_CHECKIN_PROPERTIES"
+protectionLevel="3"
+description="Allows read/write access to properties uploaded by the checkin service. Not for use by normal applications.">
+ </permission>
+  <permission
+label="update component usage statistics"
+name="android.permission.PACKAGE_USAGE_STATS"
+protectionLevel="3"
+description="Allows the modification of collected component usage statistics. Not for use by normal applications.">
+ </permission>
+  <permission
+label="modify battery statistics"
+name="android.permission.BATTERY_STATS"
+protectionLevel="0"
+description="Allows the modification of collected battery statistics. Not for use by normal applications.">
+ </permission>
+  <permission
+label="control system backup and restore"
+name="android.permission.BACKUP"
+protectionLevel="3"
+description="Allows the application to control the system's backup and restore mechanism. Not for use by normal applications.">
+ </permission>
+  <permission
+label="confirm a full backup or restore operation"
+name="android.permission.CONFIRM_FULL_BACKUP"
+protectionLevel="2"
+description="Allows the application to launch the full backup confirmation UI. Not to be used by any application.">
+ </permission>
+  <permission
+label="bind to a widget service"
+name="android.permission.BIND_REMOTEVIEWS"
+protectionLevel="3"
+description="Allows the holder to bind to the top-level interface of a widget service. Should never be needed for normal applications.">
+ </permission>
+  <permission
+label="choose widgets"
+name="android.permission.BIND_APPWIDGET"
+protectionLevel="3"
+permissionGroup="android.permission-group.PERSONAL_INFO"
+description="Allows the application to tell the system which widgets can be used by which application. With this permission, applications can give access to personal data to other applications. Not for use by normal applications.">
+ </permission>
+  <permission
+label="change background data usage setting"
+name="android.permission.CHANGE_BACKGROUND_DATA_SETTING"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS"
+description="Allows an application to change the background data usage setting.">
+ </permission>
+  <permission
+name="android.permission.GLOBAL_SEARCH"
+protectionLevel="3"
+permissionGroup="android.permission-group.SYSTEM_TOOLS">
+ </permission>
+  <permission
+name="android.permission.GLOBAL_SEARCH_CONTROL"
+protectionLevel="2"
+permissionGroup="android.permission-group.SYSTEM_TOOLS">
+ </permission>
+  <permission
+name="android.permission.SET_WALLPAPER_COMPONENT"
+protectionLevel="3"
+permissionGroup="android.permission-group.SYSTEM_TOOLS">
+ </permission>
+  <permission
+label="access the cache filesystem"
+name="android.permission.ACCESS_CACHE_FILESYSTEM"
+protectionLevel="3"
+description="Allows an application to read and write the cache filesystem.">
+ </permission>
+  <permission
+label="Allows to invoke default container service to copy content. Not for use by normal applications."
+name="android.permission.COPY_PROTECTED_DATA"
+protectionLevel="2"
+description="Allows to invoke default container service to copy content. Not for use by normal applications.">
+ </permission>
+  <permission
+name="android.permission.CRYPT_KEEPER"
+protectionLevel="3">
+ </permission>
+  <permission
+label="read historical network usage"
+name="android.permission.READ_NETWORK_USAGE_HISTORY"
+protectionLevel="3"
+description="Allows an application to read historical network usage for specific networks and applications.">
+ </permission>
+  <permission
+label="manage network policy"
+name="android.permission.MANAGE_NETWORK_POLICY"
+protectionLevel="2"
+description="Allows an application to manage network policies and define application-specific rules.">
+ </permission>
+  <permission
+label="modify network usage accounting"
+name="android.permission.MODIFY_NETWORK_ACCOUNTING"
+protectionLevel="3"
+description="Allows modification of how network usage is accounted against applications. Not for use by normal applications.">
+ </permission>
+  <permission
+name="android.intent.category.MASTER_CLEAR.permission.C2D_MESSAGE"
+protectionLevel="2">
+ </permission>
+  <uses-permission
+name="android.intent.category.MASTER_CLEAR.permission.C2D_MESSAGE">
+ </uses-permission>
+  <permission
+label="verify packages"
+name="android.permission.PACKAGE_VERIFICATION_AGENT"
+protectionLevel="3"
+description="Allows the application to verify a package is installable.">
+ </permission>
+  <permission
+label="bind to a package verifier"
+name="android.permission.BIND_PACKAGE_VERIFIER"
+protectionLevel="2"
+description="Allows the holder to make requests of package verifiers. Should never be needed for normal applications.">
+ </permission>
+  <uses-permission
+name="android.permission.CONFIRM_FULL_BACKUP">
+ </uses-permission>
+  <application
+label="Android System"
+icon="res/drawable-mdpi/ic_launcher_android.png"
+allowClearUserData="false"
+hasCode="false"
+persistent="true"
+process="system"
+backupAgent="com.android.server.SystemBackupAgent"
+killAfterRestore="false">
+   <activity
+theme="@16974588"
+name="com.android.internal.app.ChooserActivity"
+multiprocess="true"
+excludeFromRecents="true"
+finishOnCloseSystemDialogs="true">
+    <intent-filter>
+     <action
+name="android.intent.action.CHOOSER">
+    </action>
+     <category
+name="android.intent.category.DEFAULT">
+    </category>
+   </intent-filter>
+  </activity>
+   <activity
+theme="@16973935"
+label="Switch applications?"
+name="com.android.internal.app.HeavyWeightSwitcherActivity"
+process=":ui"
+excludeFromRecents="true"
+finishOnCloseSystemDialogs="true">
+  </activity>
+   <activity
+theme="@16973920"
+name="com.android.internal.app.PlatLogoActivity"
+process=":ui">
+  </activity>
+   <activity
+theme="@16973909"
+name="com.android.internal.app.DisableCarModeActivity"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <activity
+theme="@16974588"
+name="com.android.internal.app.RingtonePickerActivity"
+process=":ui"
+multiprocess="true"
+excludeFromRecents="true">
+    <intent-filter>
+     <action
+name="android.intent.action.RINGTONE_PICKER">
+    </action>
+     <category
+name="android.intent.category.DEFAULT">
+    </category>
+   </intent-filter>
+  </activity>
+   <activity
+theme="@16973935"
+label="Select an account"
+name="android.accounts.ChooseAccountActivity"
+exported="true"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <activity
+theme="@16973944"
+label="Select an account"
+name="android.accounts.ChooseTypeAndAccountActivity"
+exported="true"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <activity
+theme="@16973944"
+label="Select an account"
+name="android.accounts.ChooseAccountTypeActivity"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <activity
+theme="@16973943"
+name="android.accounts.GrantCredentialsPermissionActivity"
+exported="true"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <activity
+theme="@16973935"
+label="Delete limit exceeded"
+name="android.content.SyncActivityTooManyDeletes"
+process=":ui">
+  </activity>
+   <activity
+name="com.android.server.ShutdownActivity"
+permission="android.permission.SHUTDOWN"
+excludeFromRecents="true">
+    <intent-filter>
+     <action
+name="android.intent.action.ACTION_REQUEST_SHUTDOWN">
+    </action>
+     <category
+name="android.intent.category.DEFAULT">
+    </category>
+   </intent-filter>
+    <intent-filter>
+     <action
+name="android.intent.action.REBOOT">
+    </action>
+     <category
+name="android.intent.category.DEFAULT">
+    </category>
+   </intent-filter>
+  </activity>
+   <activity
+theme="@16974588"
+name="com.android.internal.app.NetInitiatedActivity"
+process=":ui"
+excludeFromRecents="true">
+  </activity>
+   <receiver
+name="com.android.server.BootReceiver">
+    <intent-filter>
+     <action
+name="android.intent.action.BOOT_COMPLETED">
+    </action>
+   </intent-filter>
+  </receiver>
+   <receiver
+name="com.android.server.MasterClearReceiver"
+permission="android.permission.MASTER_CLEAR"
+priority="100">
+    <intent-filter>
+     <action
+name="android.intent.action.MASTER_CLEAR">
+    </action>
+     <action
+name="com.google.android.c2dm.intent.RECEIVE">
+    </action>
+     <category
+name="android.intent.category.MASTER_CLEAR">
+    </category>
+   </intent-filter>
+  </receiver>
+   <service
+name="com.android.internal.os.storage.ExternalStorageFormatter"
+permission="android.permission.MASTER_CLEAR"
+exported="true">
+  </service>
+ </application>
+</manifest>

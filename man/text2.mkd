@@ -1,0 +1,34 @@
+#### Bigram
+
+* o/a/mahout/vectorizer/SparseVectorsFromSequenceFiles.java
+  * DocumentProcessor.tokenizeDocuments(inputDir, analyzerClass, tokenizedPath, conf);
+  * DictionaryVectorizer.createTermFrequencyVectors(tokenizedPath, outputDir, ...)
+     * INFO vectorizer.DictionaryVectorizer: Creating dictionary from .../tokenized-documents and saving at .../wordcount
+     * CollocDriver.generateAllGrams(input, dictionaryJobPath, baseConf, maxNGramSize, ...)
+         * ngramCount = generateCollocations(i, o, b, true /* emit unigrams */, maxNGramSize, reduceTasks, minSupport);
+         * computeNGramsPruneByLLR(output, baseConf, ngramCount, true, minLLRValue, reduceTasks);
+     * dictionaryChunks = createDictionaryChunks(...);
+  * TFIDFConverter.calculateDF(new Path(outputDir, tfDirName), outputDir, conf, chunkSize);
+* CollocMapper, CollocReducer
+
+##### CVB params
+
+* 8K documents, 
+* typically for English, reasonable topics b/w 20 and 200 (tending toward the lower-end unless there are very many documents).
+  * 20 topics'll yield very generic things, 100 is pretty nice, a lot of the time, but 200+ can lead to really niche things.
+* 20 - 30 iterations tend to be always be enough, but check for perplexity; doc-topic distribution's plateaued, as perplexity's.
+  * In practice, Jake M. never needed more than 30 iterations; less the larger the corpus is.
+* for smoothing doc-topic and topic-term distribution, do a grid search over (α, β) = {0.001, 0.01, 0.1} x {0.001, 0.01, 0.1}.
+
+##### mahout seq2sparse --help
+
+* -x 70 (default 99, also called --maxDFPercent) -- excludes that occur in 70+% documents.
+
+###### (maybe)
+
+* -md 1 (default: 1, also called --minDF)
+* -xs -1 (default: -1, also called --maxDFSigma) -- a good value to be 3.0.
+* -wt (default: tfidf, also called --weight) -- tf or tfidf.
+* -n (default: -1, also called --norm)
+* -ml (1.0, also called --minLLR) - minimum log likelihood ratio.
+* -lnorm (default: false, also called --logNormalize)

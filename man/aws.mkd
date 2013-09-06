@@ -1,0 +1,214 @@
+[ [AWS SDK](http://docs.amazonwebservices.com/AWSJavaSDK/latest/javadoc/allclasses-noframe.html) | ]
+
+#### Amazon S3
+
+* [GetObject using Java](http://docs.aws.amazon.com/AmazonS3/latest/dev/RetrievingObjectUsingJava.html)
+* [GetObject over SOAP](http://docs.aws.amazon.com/AmazonS3/latest/API/SOAPGetObject.html)
+* S3 Developer Guide http://awsdocs.s3.amazonaws.com/S3/latest/s3-dg.pdf
+
+#### [Amazon DynamoDB OPM](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/JavaSDKHighLevel.html)
+
+* olv? 
+
+#### Amazon DynamoDB
+
+* [Developer Guide](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/Introduction.html): 
+  [PutItem](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/LowLevelJavaItemCRUD.html#PutLowLevelAPIJava),
+  [DeleteItem](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/LowLevelJavaItemCRUD.html#DeleteMidLevelJava),
+  [Query](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/LowLevelJavaQuerying.html),
+  [BatchGet](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/LowLevelJavaItemCRUD.html#LowLevelJavaBatchGetItem)
+* [API Reference](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/operationlist.html): 
+  [PutItem](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_PutItem.html),
+  [DeleteItem](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_DeleteItem.html),
+  [Query](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_Query.html),
+  [BatchGet](http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/API_BatchGetItems.html),
+* http://aws.typepad.com/aws/2012/09/optimizing-provisioned-throughput-in-amazon-dynamodb.html
+* [2012 EE Day 1 - Building Scalable Applications with DynamoDB](http://tiny/1g745ljao/broaamazvide7097)
+* [Webinar: Amazon Dynamo DB](http://www.youtube.com/watch?v=meBjA68DeIU)
+  * Best practice: well-balanced, fine-grained hash keys. e.g. Customer, order, item, etc. rather than store_id.
+  * Conditional writes
+  * Atomic increment/decrement: tables['books'].items['0980576830'].attributes.add[:view => 1]
+  * auto-scaling via SNS
+
+<table>
+  <thead>
+    <tr>
+      <th>asin</th>
+      <th>title</th>
+      <th>pages</th>
+      <th>list-price</th>
+      <th>views</th>
+      <th>tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">0980576830</th>
+      <td>Host Your Website on EC2</td>
+      <td>364</td>
+      <td>$31.49</td>
+      <td>145</td>
+      <td>['php', 'aws']</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>asin</th>
+      <th>subject</th>
+      <th>contents</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">0980576830</th>
+      <th bgcolor="LightYellow">Very informative</th>
+      <td>This is a first class book...</td>
+      <td>Matt Wood</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>timestamp</th>
+      <th>contents</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">0980576830:very-informative</th>
+      <th bgcolor="LightYellow">20120320</th>
+      <td>I agree!</td>
+      <td>Werner Vogels</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Profile Doc/Data Model
+
+##### when set at the rooted content
+
+<table>
+  <thead>
+    <tr>
+      <th>doc_id</th>
+      <th>contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">10101010</th>
+      <td>'{ "customerId" : 10101010, "customerStatus" : "Normal/Active", "registrationStartDate" : 1303084801234, "gmsttm" : 12345.0 }'</td>
+    </tr>
+  </tbody>
+</table>
+
+##### when appended as multi- doclets
+
+<table>
+  <thead>
+    <tr>
+      <th>doc_id:doclet_kind</th>
+      <th>timestamp</th>
+      <th>doc_id:doclet_kind:doclet_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">100251400:disbursementEvents</th>
+      <th bgcolor="LightYellow">201211181950</th>
+      <td>100251400:disbursementEvents:1333152042055</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>doc_id:doclet_kind:doclet_id</th>
+      <th>contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">201211181950</th>
+      <td>'{"amount":9000.0}, "postedDate": 1330736441831, "eventCategory": "DisbursementCreation"'</td>
+    </tr>
+  </tbody>
+</table>
+
+##### when set as single- doclet
+
+<table>
+  <thead>
+    <tr>
+      <th>doc_id:doclet_kind</th>
+      <th>contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th bgcolor="LightYellow">100251400:disbursements</th>
+      <td>[ { "camStatus" : 625, "disbursementDate" : 1332547241831, "disbursementId" : "1001", "disbursementAmount" : 123.45, "disbursementAmountUnitCode" : "USD" }, { "camStatus" : 625, "disbursementDate" : 1331341241831, "disbursementId" : "1002", "disbursementAmount" : 345.67, "disbursementAmountUnitCode" : "USD" } ]</td>
+    </tr>
+  </tbody>
+</table>
+
+
+#### ElastiCache
+
+#### Amazon SQS --- requires to be idempotent !!!
+
+* [Getting Started Guide](http://awsdocs.s3.amazonaws.com/SQS/latest/sqs-gsg.pdf), and [Developer Guide](http://awsdocs.s3.amazonaws.com/SQS/latest/sqs-dg.pdf)
+* [API Reference](http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/APIReference/Welcome.html): [List of Actions](http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/APIReference/ApiReferenceArticle.html), [ReceiveMessage](http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/APIReference/Query_QueryReceiveMessage.html), and [DeleteMessage](http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/APIReference/Query_QueryDeleteMessage.html)
+
+```xml
+<ReceiveMessageResponse>
+  <ReceiveMessageResult>
+    <Message>
+      <MessageId>
+        5fea7756-0ea4-451a-a703-a558b933e274
+      </MessageId>
+      <ReceiptHandle>
+        MbZj6wDWli+JvwwJaBV+3dcjk2YW2vA3+STFFljTM8tJJg6HRG6PYSasuWXPJB+Cw
+        Lj1FjgXUv1uSj1gUPAWV66FU/WeR4mq2OKpEGYWbnLmpRCJVAyeMjeU5ZBdtcQ+QE
+        auMZc8ZRv37sIW2iJKq3M9MFx1YvV11A2x/KSbkJ0=
+      </ReceiptHandle>
+      <MD5OfBody>
+        fafb00f5732ab283681e124bf8747ed1
+      </MD5OfBody>
+      <Body>This is a test message</Body>
+      <Attribute>
+        <Name>SenderId</Name>
+        <Value>195004372649</Value>
+      </Attribute>
+      <Attribute>
+        <Name>SentTimestamp</Name>
+        <Value>1238099229000</Value>
+      </Attribute>
+      <Attribute>
+        <Name>ApproximateReceiveCount</Name>
+        <Value>5</Value>
+      </Attribute>
+      <Attribute>
+        <Name>ApproximateFirstReceiveTimestamp</Name>
+        <Value>1250700979248</Value>
+      </Attribute>
+    </Message>
+  </ReceiveMessageResult>
+  <ResponseMetadata>
+    <RequestId>
+      b6633655-283d-45b4-aee4-4e84e0ae6afa
+    </RequestId>
+  </ResponseMetadata>
+</ReceiveMessageResponse>
+```
+
+* It is possible you will receive a message even after you have deleted it. This might happen on rare occasions if one of the servers storing a copy of the message is unavailable when you request to delete the message. The copy remains on the server and might be returned to you again on a subsequent receive request. You should create your system to be idempotent so that receiving a particular message more than once is not a problem.

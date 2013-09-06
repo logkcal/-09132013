@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# removes old ruby gems
+rm /usr/local/bin/fernflower
+rm /usr/local/bin/apk2eclipse
+
+# install [apktool](http://code.google.com/p/android-apktool/) to reverse APK resources
+wget -P /tmp/ http://android-apktool.googlecode.com/files/apktool1.4.3.tar.bz2
+wget -P /tmp/ http://android-apktool.googlecode.com/files/apktool-install-macosx-r04-brut1.tar.bz2
+tar xvf /tmp/apktool1.4.3.tar.bz2 -C /usr/local/bin/
+tar xvf /tmp/apktool-install-macosx-r04-brut1.tar.bz2 -C /usr/local/bin/
+
+# install [dex2jar](http://code.google.com/p/dex2jar/downloads/list) to reverse Dalvik bytecode
+wget -P /tmp/ http://dl.dropbox.com/u/47820156/dex2jar-0.0.9.8.tar.gz
+tar xvf /tmp/dex2jar-0.0.9.8.tar.gz -C /usr/local/share/
+ln -s /usr/local/share/dex2jar-0.0.9.8 /usr/local/share/dex2jar
+ln -s /usr/local/share/dex2jar/dex2jar.sh /usr/local/bin/dex2jar
+chmod +x /usr/local/share/dex2jar/dex2jar.sh
+
+# install [fernflower](http://www.reversed-java.com/fernflower/) to reverse Java bytecode
+wget -P /usr/local/bin/ https://github.com/henry4j/-/raw/master/bin/fernflower.jar
+wget -P /usr/local/bin/ https://github.com/henry4j/-/raw/master/bin/fernflower
+chmod +x /usr/local/bin/fernflower
+
+# install apk2eclipse to reverse APK using apktool, dex2jar, and fernflower
+wget -P /usr/local/bin/ https://raw.github.com/henry4j/-/master/bin/apk2eclipse
+chmod +x /usr/local/bin/apk2eclipse
+

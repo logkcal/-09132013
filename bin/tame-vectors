@@ -1,0 +1,24 @@
+#!/bin/bash
+if [ -z $2 ]; then export MAX_NGRAM='1'; else export MAX_NGRAM=$2; fi
+if [ -z $1 ]; then export WORK_ID='unigram-k'; else export WORK_ID=$1; fi
+
+export HADOOP_CLASSPATH=${MAHOUT_BASE}/lib/text-1.0-SNAPSHOT.jar:${MAHOUT_BASE}/lib/lucene-analyzers-common-4.3.0.jar:${MAHOUT_BASE}/lib/lucene-core-4.3.0.jar
+$HADOOP dfs -rmr ${MAHOUT_WORK}/${WORK_ID}*
+$MAHOUT seq2sparse \
+  -i ${MAHOUT_WORK}/comm-text-seq/ \
+  -o ${MAHOUT_WORK}/${WORK_ID} -ow \
+  -a com.henry4j.text.CommTextAnalyzer \
+  -s 0 -ml 0 \
+  -ng ${MAX_NGRAM} --namedVector # -s 80 -x 70 # excludes terms of 80- DF & 70+ DF%
+  # -a com.henry4j.text.CommTextAnalyzer \
+  # -a org.apache.mahout.text.MailArchivesClusteringAnalyzer \
+  # -a org.apache.lucene.analysis.en.EnglishAnalyzer \
+  # -a org.apache.lucene.analysis.standard.StandardAnalyzer \
+
+for e in ngrams subgrams; do resplit ${MAHOUT_WORK}/${WORK_ID}/wordcount/$e; done
+for e in ngrams subgrams; do $HADOOP dfs -mv ${MAHOUT_WORK}/${WORK_ID}/wordcount/$e-0 ${MAHOUT_WORK}/${WORK_ID}/; done
+for e in df-count tokenized-documents tf-vectors tfidf-vectors wordcount; do resplit ${MAHOUT_WORK}/${WORK_ID}/$e; done
+
+$HADOOP dfs -get ${MAHOUT_WORK}/${WORK_ID} ${MAHOUT_WORK}/${WORK_ID}
+s3cmd put -r ${MAHOUT_WORK}/${WORK_ID} s3://text-taming
+s3cmd setacl -r --acl-public s3://text-taming/${WORK_ID}

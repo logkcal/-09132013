@@ -1,0 +1,4 @@
+#!/bin/bash
+tame-hadoop $@
+tame-corpus $@
+tame-topics $@

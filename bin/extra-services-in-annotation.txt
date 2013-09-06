@@ -1,0 +1,38 @@
+apn_settings_policy	: This service provides APIs to create, update & remove APN settings on the device.
+application_policy : This service provides APIs to control application related functionality and restrictions.Installation & Uninstallation of applications as well as restricing installation & uninstallation, disabling & enabling the applications and querying the current state of an application.
+AtCmdFwd : The purpose of this service is forwarding AT command from Modem to AP.
+bluetooth : This service provides bluetooth turn on & off fetaure
+bluetooth_a2dp : This service is related to bluetooth audio transfer activities(a2dp profile implementation)
+bluetooth_avrcp	: This service is related to avrcp profile implementation
+bluetooth_policy : This service provides APIs to control various settings related to Bluetooth. All the settings provided by this policy cannot be changed by user once disabled.
+browser_policy : This service provides APIs to control various settings related to Browser. All the settings provided by this policy cannot be changed by user once disabled.
+clipboardEx	: Interface to Clipboard service, for placing and retrieving text in the global clipboard.
+date_time_policy : This service provides APIs to control the various settings related to Device Date and Time settings.
+device_info	: This service provides APIs to retrieve the device inventory information.
+DirEncryptService : This service provides APIs tp control device encryption as well as provides APIs to create Master Key to encrypt the content of SD card. 
+drm.drmManager : This service is related to encryption. If we download any data thorugh internet if it is encryted using drmManager then we cannot forward that data.
+eas_account_policy : This service provides APIs to configure Exchange Account related settings, as well as creation and deletion of accounts.
+email_account_policy : This service provides APIs to control IMAP/POP Email Account related settings, as well as creation and deletion of accounts.
+enterprise_policy : Public interface for managing policies enforced on a device. Most clients of this class must have a receiver that the user has currently enabled.
+enterprise_vpn_policy : This service provides APIs to configue CISCO VPN related settings.
+firewall_policy	: This service provides a front-end to configure Firewall Rules on device using iptables.
+gatesettings : This service is used for Gate settings specific to ATT.
+location_policy	: This service provides APIs to control various settings related to Location Services.
+mini_mode_app_manager : This service is used for miniapps like widgets.
+misc_policy : This service provides APIs to control device hardware capability.
+motion_recognition : This service is used for detecting the motion which is used by many apps,(like CallMotion in Phone, MotionDetector in Gallery and Calendar).
+nfc: This running service is working ONLY for NFC feature. Except for this case, the service is not used. So this running service is safe and appropriate.
+password_policy : This service provides APIs to control the settings realted to the device password.
+phone_restriction_policy : This service provides APIs to control the various settings related to Telephony Functionality.
+phoneext : This service is used for SIM(network) information.
+remoteinjection : This service is used for injecting touch event and key event.
+restriction_policy : This services is required for checking whether any particular app, feature is allowed or not.
+roaming_policy : This service provides APIs to conrol various settings related to Device Roaming.
+security_policy : This service is used for security perspective. Whether calling process is an active admin and has the given permission.
+shutdownlogger : This service is required for shutdown thread when we shut down the devcie.
+sip : Defined by Google[android.net.sip.ISipService]. It is being used for supporting SIP protocol.
+tvoutservice : This service is used for TvOut functionality.
+TvoutService_C : tvout is running in backgroung because it has to maintian the cable status, suspend status, rotation value. tvout service access to framebuffer and nodes , so it needs system level permissions and it is safe as it follows the standard android native service.
+voip : Defined by Google from ICS [android.os.IVoIPInterface]. It is being used for supporting VoIP
+vpn_policy : This service provides APIs to configure Android VPN related settings, as well as creation, updation, and deletion of different VPN profiles.
+wifi_policy : This service provides APIs to configure Wifi related settings, as well as creation, updation and deletion of different Wifi profiles.
