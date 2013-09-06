@@ -44,10 +44,4 @@ Job-Specific Options:
   --num_reduce_tasks num_reduce_tasks                                        # of reducers to use during model estimation
   --labeled_only (-ol) labeled_only                                          only use docs with non-null doc/topic priors
   --backfill_perplexity                                                      enable back-filling of missing perplexity values
-  --help (-h)                                                                Print out help
-  --tempDir tempDir                                                          Intermediate output directory
-  --startPhase startPhase                                                    First phase to run
-  --endPhase endPhase                                                        Last phase to run
-Specify HDFS directories while running on hadoop; else specify local file system directories
-13/09/05 20:45:41 INFO driver.MahoutDriver: Program took 210 ms (Minutes: 0.0035)
 ```
