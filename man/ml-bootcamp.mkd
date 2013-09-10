@@ -370,6 +370,65 @@ mvn eclipse:eclipse # [spawns](http://www.spawn.com/comics/series.aspx?series_id
 * Enter `/workspace/gits/text/sources/text` for root directory
 * Refresh | Finish
 
+### Intro to Bayesian Classifier
+
+```java
+public static class Classifier {
+    Map<String, Category> categories = new HashMap<String, Category>();
+    int totalNumDocuments = 0;
+
+    public void train(String document) {
+        String[] split = StringUtils.split(document);
+        String categoryId = split[0]; // e.g. "SPAM", or "HAM"
+        Category category = categories.get(categoryId);
+        if (null == category) {
+            categories.put(categoryId, category = new Category(categoryId));
+        }
+        category.train(Arrays.copyOfRange(split, 1, split.length));
+        totalNumDocuments++;
+    }
+
+    public void classify(String document) {
+        String[] words = StringUtils.split(document);
+        for (Category c : categories.values()) {
+            double p = 1.0;
+            for (String word : words) {
+                p *= c.wordProbability(word);
+            }
+            System.out.print(format("Probability of document '%s' for category '%s' is %f.", document, c, p * c.categoryProbability(totalNumDocuments)));
+        }
+    }
+}
+
+@RequiredArgsConstructor
+public static class Category {
+    final String id;
+    int numDocuments;
+    double categoryProbability;
+    Map<String, MutableInt> features = new HashMap<String, MutableInt>();
+
+    void train(String[] words) {
+        numDocuments++;
+        for (String w : words) {
+            MutableInt c = features.get(w);
+            if (null == c) {
+                features.put(w, new MutableInt(1));
+            } else {
+                c.increment();
+            }
+        }
+    }
+
+    double wordProbability(String word) {
+        MutableInt i = features.get(word);
+        return null == i ? 0.1 : i.doubleValue() / numDocuments;
+    }
+
+    double categoryProbability(int totalNumDocuments) {
+        return numDocuments / (double)totalNumDocuments;
+    }
+}
+```
 
 ### Intro to Clustering & Analyzer -- [Mahout algorithms](https://cwiki.apache.org/confluence/display/MAHOUT/Algorithms)
 
