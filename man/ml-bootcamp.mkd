@@ -343,7 +343,7 @@ sudo java -jar "$HOME/.m2/repository/org/projectlombok/lombok/0.12.0/lombok-0.12
 ```bash
 curl -o "$HOME/.m2/settings.xml" -ksL https://raw.github.com/henry4j/-/master/bin/.m2-settings.xml
 
-bash < <(/usr/bin/curl -ksL http://raw.github.com/henry4j/-/master/bin/install_p4merge)
+bash < <(curl -ksL http://raw.github.com/henry4j/-/master/bin/install_p4merge)
 
 git config --global user.name  henry4j # your name instead
 git config --global user.email henry4js@gmail.com # your email address instead
