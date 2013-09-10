@@ -60,7 +60,7 @@ jj z2qf_max
 puts '### Frequency sum keyed by topic: '
 jj z2qf_sum
 
-puts '### Frequency sum keyed by FAQ: '
+puts "### Frequency sum keyed by FAQ: (#{q2cc.values.map { |cc| cc.size }.reduce(:+)} communications/#{q2cc.keys.size} questions)"
 jj q2cc.reduce({}) { |h, (l, cc)| h[l] = cc.size; h }
 
 puts '### Overall topic modeling accuracy: '
