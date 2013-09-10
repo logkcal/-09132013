@@ -4,8 +4,8 @@ import static java.lang.Math.round;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 
 import lombok.SneakyThrows;
@@ -35,32 +35,25 @@ public class TopicModelingTest {
     TopicModeling topicModelingTF;
 
     public TopicModelingTest() {
-        this.topicModeling = new TopicModeling(asFileIS("/tmp/dictionary.file-0"), asFileIS("/tmp/model-0"), "com.henry4j.text.CommTextAnalyzer", asFileIS("/tmp/df-count-0"));
-        this.topicModelingTF = new TopicModeling(asFileIS("/tmp/dictionary.file-0"), asFileIS("/tmp/model-0"), "com.henry4j.text.CommTextAnalyzer");
+        this.topicModeling = new TopicModeling(asFileIS("/dictionary-0"), asFileIS("/model-0"), "com.henry4j.text.CommTextAnalyzer", asFileIS("/df-count-0"));
+        this.topicModelingTF = new TopicModeling(asFileIS("/dictionary-0"), asFileIS("/model-0"), "com.henry4j.text.CommTextAnalyzer");
     }
 
     @Test
     public void testFindPTopic() {
-        val d78382351 = "Other non-order question\n--------------- 11/30/12 21:57:45 Your Name: Kitty Singletary Other info:I need to cancel my seller inventory.   Comments:My husband suffered a massive stroke in January of 2010.  I am his only caregiver and do not have time to maintain my listing invento";
-        val docTopics = topicModeling.getPTopic(d78382351);
-        assertThat(round(100 * docTopics[19]), equalTo(47L)); // this doc belongs to topic 19 with 47%.
-        assertThat(round(100 * docTopics[13]), equalTo(39L));
-        assertThat(round(100 * docTopics[11]), equalTo(14L));
-    }
-
-    @Test
-    public void testVectorizeDoc() {
-        val d78382351 = "Other non-order question\n--------------- 11/30/12 21:57:45 Your Name: Kitty Singletary Other info:I need to cancel my seller inventory.   Comments:My husband suffered a massive stroke in January of 2010.  I am his only caregiver and do not have time to maintain my listing invento";
-        val doc2 = topicModeling.vectorize(d78382351);
-        val doc1 = TopicModeling.readVector(asFileIS("/tmp/tfidf-vectors-0"), new Configuration(), 0);
-        assertThat(doc1.equals(doc2), equalTo(true));
+        val d66227241 = "Seller contacted us with a concern about a refund that needs to issued; however the buyer no longer has the card that was used; advised seller to have the buyer contact CS to advise them on how to receive the refund on to a different card";
+        val docTopics = topicModeling.getPTopic(d66227241);
+        assertThat(round(100 * docTopics[17]), equalTo(40L)); // this doc belongs to topic 19 with 47%.
+        assertThat(round(100 * docTopics[13]), equalTo(32L));
+        assertThat(round(100 * docTopics[2]), equalTo(17L));
+        assertThat(round(100 * docTopics[16]), equalTo(11L));
     }
 
     @Test
     public void testTokenization() throws IOException {
-        val d90746711 = "Re: Your Amazon.com selling privileges have been reinstated\n<html><HEAD><LINK rel=stylesheet type=text/css href=/webmail/static/deg/css/wysiwyg-3933289048.css\" media=all> <META name=GENERATOR content=\"MSHTML 9.00.8112.16470\"></HEAD> <BODY><BR>I am still unable to access that account.<BR><BR>Mar 20; 2013 02:18:40 PM; seller-performance+C316OXWICMO107-T3K8YCZV0LFU9Q@amazon.com wrote:<BR> <BLOCKQUOTE style=\"BORDER-LEFT: rgb(102;153;204) 3px solid\">Hello from Amazon.com.<BR><BR>Thank you for writing regarding your Amazon.com selling account. We have reviewed this situation and have reactivated your account.<BR><BR>We apologize for any inconvenience this has caused. In our efforts to protect our community; we sometimes err on the side of caution. <BR><BR>We appreciate your interest and wish you the best of luck selling on Amazon.com.<BR><BR>Regards;<BR><BR>Seller Performance Team<BR>Amazon.com<BR>http://www.amazon.com<BR></BLOCKQUOTE></BODY></html>\"";
+        val d90746711 = "Re: Your selling privileges have been reinstated\n<html><HEAD><LINK rel=stylesheet type=text/css href=/webmail/static/deg/css/wysiwyg-3933289048.css\" media=all> <META name=GENERATOR content=\"MSHTML 9.00.8112.16470\"></HEAD> <BODY><BR>I am still unable to access that account.<BR><BR>Mar 20; 2013 02:18:40 PM; seller-performance+C316OXWICMO107-T3K8YCZV0LFU9Q@amazon.com wrote:<BR> <BLOCKQUOTE style=\"BORDER-LEFT: rgb(102;153;204) 3px solid\">Hello from Amazon.com.<BR><BR>Thank you for writing regarding your Amazon.com selling account. We have reviewed this situation and have reactivated your account.<BR><BR>We apologize for any inconvenience this has caused. In our efforts to protect our community; we sometimes err on the side of caution. <BR><BR>We appreciate your interest and wish you the best of luck selling on Amazon.com.<BR><BR>Regards;<BR><BR>Seller Performance Team<BR>Amazon.com<BR>http://www.amazon.com<BR></BLOCKQUOTE></BODY></html>\"";
         val reader = new HTMLStripCharFilter(new StringReader(d90746711));
-        assertThat(CharStreams.toString(reader), equalTo("Re: Your Amazon.com selling privileges have been reinstated\n\n\n\n \n\n \n\nI am still unable to access that account.\n\nMar 20; 2013 02:18:40 PM; seller-performance+C316OXWICMO107-T3K8YCZV0LFU9Q@amazon.com wrote:\n \nHello from Amazon.com.\n\nThank you for writing regarding your Amazon.com selling account. We have reviewed this situation and have reactivated your account.\n\nWe apologize for any inconvenience this has caused. In our efforts to protect our community; we sometimes err on the side of caution. \n\nWe appreciate your interest and wish you the best of luck selling on Amazon.com.\n\nRegards;\n\nSeller Performance Team\nAmazon.com\nhttp://www.amazon.com\n\n\n\n\""));
+        assertThat(CharStreams.toString(reader), equalTo("Re: Your selling privileges have been reinstated\n\n\n\n \n\n \n\nI am still unable to access that account.\n\nMar 20; 2013 02:18:40 PM; seller-performance+C316OXWICMO107-T3K8YCZV0LFU9Q@amazon.com wrote:\n \nHello from Amazon.com.\n\nThank you for writing regarding your Amazon.com selling account. We have reviewed this situation and have reactivated your account.\n\nWe apologize for any inconvenience this has caused. In our efforts to protect our community; we sometimes err on the side of caution. \n\nWe appreciate your interest and wish you the best of luck selling on Amazon.com.\n\nRegards;\n\nSeller Performance Team\nAmazon.com\nhttp://www.amazon.com\n\n\n\n\""));
 
         @SuppressWarnings("resource")
         TokenStream stream = new CommTextAnalyzer().createComponents("{field-name}", new StringReader(d90746711)).getTokenStream();
@@ -76,8 +69,7 @@ public class TopicModelingTest {
         assertThat(Joiner.on(", ").join(tokens.build()), equalTo("sell, privileg, reinstat, unabl, access, account, pm, seller, perform, c316oxwicmo107, t3k8yczv0lfu9q, wrote, write, sell, account, review, situat, reactiv, account, apolog, inconveni, caus, effort, protect, commun, err, side, caution, interest, luck, sell, seller, perform, team, http"));
     }
 
-    @SneakyThrows({ IOException.class })
-    private static FileInputStream asFileIS(String path) {
-        return new FileInputStream(path);
+    private static InputStream asFileIS(String path) {
+        return TopicModelingTest.class.getResourceAsStream(path);
     }
 }

@@ -62,7 +62,7 @@ public class TopicModeling {
 
     @SneakyThrows({ ClassNotFoundException.class, NoSuchFieldException.class })
     public TopicModeling(InputStream dictionaryIS, InputStream modelIS, String analyzerName, InputStream dfIS) {
-        val d = readDictionary(dictionaryIS, conf);
+        String[] d = readDictionary(dictionaryIS, conf);
         maxNGram = d[d.length - 1].split(" ").length;
         analyzer = AnalyzerUtils.createAnalyzer(analyzerName);
         model = readModel(d, modelIS, conf);
