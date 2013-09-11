@@ -1,1 +1,18 @@
-### 
+### Key Elements of Machine Learning Problem
+
+Machine learning (ML) problems have three main elements: observation, feature, and label.
+
+##### Observation
+
+An observation (example, or instance) is the object or entity that is being learned from and predicted on.
+When detecting fraudulent orders placed on retail sites, orders are the entities which need 
+to be determined as fraud or non-fraud, and each order constitutes a single observation for the problem. 
+When classifying products into appropriate categories, each individual product is 
+the object being trained on and scored, and constitutes an observation for that problem.
+
+##### Feature
+
+Usually, an observation is described by a set of features, also known as attributes or variables.
+e.g., the features of an order include the date/time, the product, the cost, the buyer, the shipping cost, and so on.
+The features of a product are its title, description, price, brand, model #, average # of glance views per day, # of reviews, etc.
+Features can have different data types: numeric (real valued), binary (two values), categorical (multiple values) or unstructured text.
