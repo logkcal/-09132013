@@ -45,8 +45,7 @@ Such a process has fixed, predetermined steps which can be programmed without an
 The value or decision to be predicted has a complex relationship with a number of data elements, and these relationships are impossible to derive manually or program directly.
 Tasks like handwriting or speech recognition that are learned by humans are difficult to specify algorithmically – ML approaches based on recognizing patterns are a lot more effective.
 When these tasks need to be done repeatedly at scale, humans are no longer a viable option and automation using ML is the only option.
-Automated pattern recognition based on learning techniques is also required if patterns are hidden in large amounts of data, or patterns change in time dynamically, or the number of patterns is extremely large
-- for example, when personalization is needed, a separate pattern needs to be learned for each user.
+Automated pattern recognition based on learning techniques is also required if patterns are hidden in large amounts of data, or patterns change in time dynamically, or the number of patterns is extremely large, e.g., when personalization is needed, a separate pattern needs to be learned for each user.
 
 To summarize, the following are guidelines and examples of use cases where you would want to consider using ML methods for solving a given problem:
 
