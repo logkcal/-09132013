@@ -545,6 +545,13 @@ opendiff /workspace/mahout-tag-0.8/core/src/main/java/org/apache/mahout/clusteri
   /workspace/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb  
 ```
 
+##### R
+
+```bash
+curl -o /tmp/income_train_data_10.csv -ksL http://dl.dropboxusercontent.com/u/47820156/r/income_train_data_10.csv
+
+```
+
 ### References
 
 * [Mahout on Amazon EMR: Elastic MapReduce](https://cwiki.apache.org/confluence/display/MAHOUT/Mahout+on+Elastic+MapReduce)
