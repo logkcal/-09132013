@@ -553,7 +553,7 @@ curl -o /tmp/income_train_data_10.csv -ksL http://dl.dropboxusercontent.com/u/47
 
 ```bash
 R
-install.packages('ggplot2')
+install.packages('ggplot2') # qplot() for quick plots; ggplot() for fine, granular control for everything.
 install.packages('ROCR')
 ```
 
