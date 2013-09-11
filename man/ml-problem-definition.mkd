@@ -16,3 +16,17 @@ Usually, an observation is described by a set of features, also known as attribu
 e.g., the features of an order include the date/time, the product, the cost, the buyer, the shipping cost, and so on.
 The features of a product are its title, description, price, brand, model #, average # of glance views per day, # of reviews, etc.
 Features can have different data types: numeric (real valued), binary (two values), categorical (multiple values) or unstructured text.
+
+##### Label
+
+The label (or target variable) is the value that we are trying to predict. Labels are a special requirement for Supervised Learning, 
+because we learn from the values in the historical data.
+
+In order fraudulent detection problem, the labels would be binary indicators in the historical data,
+which indicate whether an order was determined to be fraudulent or not.
+In product classification problem, the training data would contain products which have been categorized using rules or manual review.
+The assigned category for each product would then constitute the label for this problem.
+
+Note that labels must be assigned to observations in the historical data which is used for training and testing a model.
+The training algorithm tries to learn the best model that can accurately predict the (known) label for maximum number of observations during the testing phase. When using the model for predictions, we only need observations with corresponding features without the labels. The model will then predict the label based on the learned parameters.
+
