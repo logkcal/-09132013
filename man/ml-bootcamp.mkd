@@ -549,6 +549,18 @@ opendiff /workspace/mahout-tag-0.8/core/src/main/java/org/apache/mahout/clusteri
 
 ```bash
 curl -o /tmp/income_train_data_10.csv -ksL http://dl.dropboxusercontent.com/u/47820156/r/income_train_data_10.csv
+```
+
+```bash
+R
+install.packages('ggplot2')
+install.packages('ROCR')
+```
+
+```bash
+R
+income <- read.csv('/tmp/income_train_data_10.csv', header=T, strip.white=TRUE)
+income$class <- as.factor(income$class)
 
 ```
 
