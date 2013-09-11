@@ -561,7 +561,11 @@ install.packages('ROCR')
 R
 income <- read.csv('/tmp/income_train_data_10.csv', header=T, strip.white=TRUE)
 income$class <- as.factor(income$class)
-
+? read.csv
+summary(income)
+str(income)
+library('ggplot2')
+qplot(data=income, x=age,main="Histogram of Age",binwidth=3)
 ```
 
 ### References
