@@ -74,10 +74,10 @@ The training algorithm tries to learn the best model that can accurately predict
 
 ##### Is it an ML problem? 
 
-It is important to remember that ML is not a silver bullet. There are certain use cases where simple, robust solutions can be developed without using ML techniques.
-For example, ML is not needed when the target value to be determined can be obtained using simple mappings, computations or rules which are relatively static.
+It is important to remember that ML is not a silver bullet. There are certain use cases where simple solutions can be developed without using ML techniques.
+For example, ML is not needed when the target property value to be determined can be obtained using simple mappings, rules, or computation which are relatively static.
 For example, obtaining the address or phone number of a customer, calculating order volume or GMS value for each customer, or determining if a customer has a new account.
-Similarly, ML is not required to model processes that are highly deterministic, such as the workflow of a customer placing an order on retail sites.
+Similarly, ML is not required to model processes that are highly deterministic, such as the workflow of a customer of placing an order on retail sites.
 Such a process has fixed, predetermined steps which can be programmed without any data-driven learning needed.
 
 ##### Best Use Cases
