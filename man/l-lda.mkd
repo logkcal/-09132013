@@ -18,22 +18,28 @@
 if [ ! -d /workspace/gits/mahout-l-lda ]; then
   git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
   svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/gits/mahout-l-lda
-  find /workspace/gits/mahout-l-lda -type d -name '.svn' | xargs rm -rf
+  find /workspace/gits/mahout-l-lda -type d -name .svn | xargs rm -rf
+  cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'mahout-0.8'
 end
 ```
 
 ```bash
-opendiff /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
-  /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+opendiff /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+```
+
+```bash
+cp -R /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/ \
+  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb/ \
+  /workspace/gits/mahout-l-lda/core/src/test/java/org/apache/mahout/clustering/lda/cvb
+cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'applies a patch of L-LDA from https://github.com/twitter/mahout/'
 ```
 
 ##### 
 
 ```bash
-cp /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/* \
-   /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb
-cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb \
-  /workspace/gits/mahout-0.8/core/src/test/java/org/apache/mahout/clustering/lda/cvb
+
 ```
 
 ```bash
