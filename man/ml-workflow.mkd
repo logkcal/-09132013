@@ -7,6 +7,7 @@ Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/conf
 
 ### Supervised ML workflow (also called classification)
 
+ML is programming by relationships or patterns in data. ML algorithms discovers patterns in data using mathmatical models.
 
 
 .
