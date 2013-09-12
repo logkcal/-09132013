@@ -5,7 +5,7 @@ Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/conf
 * 3C (collaborative filtering, classification, and clustering)
   * recommender, supervised learning, and unsupervised learning.
 
-### ML intro.
+### Machine Learning
 
 ML is programming by relationships or patterns in data.
 ML algorithms constructs mathematical models of data to discover patterns.
