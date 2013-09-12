@@ -78,7 +78,7 @@ The training algorithm tries to learn the best model that can accurately predict
 ##### Income Classification Problem
 
 Let's categorize high-income individuals in census data - predict whether the income for an individual exceeds $50K annually based on census data.
-This is a standard dataset made available by UCI machine learning repository (originally from 1994 US Census), and used extensively by ML community to experiment different algorithms. See more details at http://archive.ics.uci.edu/ml/datasets/Adult.
+This is a standard dataset made available by UCI machine learning repository (originally from 1994 US Census), and used extensively by ML community to experiment different algorithms. See more details at http://goo.gl/sEUK3J.
 
 Below are the features with their data types:
 
