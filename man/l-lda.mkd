@@ -1,35 +1,45 @@
-##### [Labeled LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant in http://github.com/twitter/mahout
+#### ["true" Labeled-LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant at http://github.com/twitter/mahout
 
-* In 0.7, we can specify for training a seed model to start with (i.e. a matrix of latent topic to term counts);  
-  we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or a random one if unspecified. 
+* Since 0.7, for training, we can specify a seed model to start with (i.e. a matrix of latent topic to term counts);  
+  we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or it starts random if unspecified. 
 * This twitter fork http://github.com/twitter/mahout allows you to specify priors on the document/topic distribution:  
   you take your set of input documents, and if each one has some known set of labels associated with it;  
   you take as a prior for p(topic) for this document to be not random (or uniform across all topics) but uniform across the known labels.
   * L-LDA futher constraints that while training it forces p(topic | doc(i)) = 0 for all topics outside the labeled set for doc(i),  
     whereas this fork allows drifting freely after the initial prior is applied, which leads to an intermediate algorithm between regular LDA and L-LDA.
-* TODO to get "true" L-LDA: 
-  * modify [CVB0PriorMapper.java](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java).
-  * before the train() is called (line 108), you'd want to keep a copy of the docTopicPrior vector, 
-  * keeping note of which topics had zero probability, and then 
-  * before the final line in the map() method, you'd want to zero-out the entries
-  * in the updated docTopicPrior vector that should be zero and renormalize it before emitting.
+* To get "true" L-LDA: 
+  * Before [trainDocTopicModel() at line 108](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java), we'd keep a copy of the docTopicPrior vector or note which topics used to have 0 (zero) probabilities.
+    Following trainDocTopicModel(), we'd zero-out entries in the mutated docTopicPrior vector of which used to be 0 and renormalize it before emission.
+
+##### Cut a Mahout L-LDA fork
 
 ```bash
-svn checkout http://svn.apache.org/repos/asf/mahout/trunk /workspace/mahout-trunk
-svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/mahout-tags/0.8
-git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
-git clone git@github.com:henry4j/mahout-0.8.git /workspace/gits/mahout-0.8
-
+[ ! -d /workspace/gits/mahout-twitter ] && git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
+if [ ! -d /workspace/gits/mahout-l-lda ]; then
+  git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
+  svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/gits/mahout-l-lda
+  find /workspace/gits/mahout-l-lda -type d -name .svn | xargs rm -rf
+  cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'mahout-0.8'
+end
 ```
 
 ```bash
-opendiff /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
-  /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+opendiff /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
 ```
 
 ```bash
-cp /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/* \
-   /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb/
+cp -R /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/ \
+  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb/ \
+  /workspace/gits/mahout-l-lda/core/src/test/java/org/apache/mahout/clustering/lda/cvb
+cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'L-LDA from https://github.com/twitter/mahout/'
+```
+
+##### 
+
+```bash
+
 ```
 
 ```bash
