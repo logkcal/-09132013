@@ -80,13 +80,15 @@ git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
 ##### mvn install -DskipTests
 
 ```bash
-cd /workspace/gits/mahout-l-lda/core
-mvn install -DskipTests # skips running tests
-cd /workspace/gits/mahout-l-lda/examples
-mvn install -DskipTests # skips running tests, or mvn install -Dmaven.test.skip=true # skips compiling tests
+for e in core-0.8   core-0.8-job   examples-0.8   examples-0.8-job;
+  do mv $MAHOUT_BASE/mahout-$e.jar $MAHOUT_BASE/mahout-$e.jar.bak;
+done
 ```
 
 ```bash
+cd /workspace/gits/mahout-l-lda/core;     mvn install -DskipTests
+cd /workspace/gits/mahout-l-lda/examples; mvn install -DskipTests # or mvn install -Dmaven.test.skip=true # skips compiling tests
+
 cp $HOME/.m2/repository/com/henry4j/mahout/mahout-core/0.8.1/mahout-core-0.8.1.jar $MAHOUT_BASE
 cp $HOME/.m2/repository/com/henry4j/mahout/mahout-core/0.8.1/mahout-core-0.8.1-job.jar $MAHOUT_BASE
 cp $HOME/.m2/repository/com/henry4j/mahout/mahout-examples/0.8.1/mahout-examples-0.8.1.jar $MAHOUT_BASE
@@ -96,10 +98,6 @@ cp $HOME/.m2/repository/com/henry4j/mahout/mahout-examples/0.8.1/mahout-examples
 Or,
 
 ```bash
-for e in core-0.8   core-0.8-job   examples-0.8   examples-0.8-job;
-  do mv $MAHOUT_BASE/mahout-$e.jar $MAHOUT_BASE/mahout-$e.jar.bak;
-done
-
 for e in core-0.8.1 core-0.8.1-job examples-0.8.1 examples-0.8.1-job; 
   do curl -o "$MAHOUT_BASE/mahout-$e.jar" -kL "http://dl.dropboxusercontent.com/u/47820156/mahout/l-lda/mahout-$e.jar"; 
 done
