@@ -141,7 +141,7 @@ awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s
 sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
 sed '1 i\
 class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
-' > $MAHOUT_WORK/income-test-data-0.csv
+' > "$MAHOUT_WORK/income-test-data-0.csv"
 ```
 
 ##### Imputation (substituting missing data) -- <sub>http://en.wikipedia.org/wiki/Imputation_(statistics)</sub>
@@ -162,7 +162,7 @@ You can randomly shuffle the order of examples in the training set to improve th
 To randomly order the training examples, the following command adds a random number to each example in the first column (excluding the header, which is assigned -1), sorts the examples based on the column value and then strips off the column.
 
 ```bash
-awk {printf "%s,%s\n", rand(), $0} income-train-data-0.csv | sort --key 1 --numeric-sort | sed 's/^[^,]*,//'
+awk {printf "%s,%s\n", rand(), $0} "$MAHOUT_WORK/income-train-data-0.csv" | sort --key 1 --numeric-sort | sed 's/^[^,]*,//' > "$MAHOUT_WORK/income-train-data.csv"
 ```
 
 ##### Additional Notes
