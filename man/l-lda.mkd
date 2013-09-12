@@ -1,14 +1,14 @@
-##### [Labeled LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant in http://github.com/twitter/mahout
+##### [Labeled LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant at http://github.com/twitter/mahout
 
-* In 0.7, we can specify for training a seed model to start with (i.e. a matrix of latent topic to term counts);  
-  we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or a random one if unspecified. 
+* Since 0.7, for training, we can specify a seed model to start with (i.e. a matrix of latent topic to term counts);  
+  we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or it starts random if unspecified. 
 * This twitter fork http://github.com/twitter/mahout allows you to specify priors on the document/topic distribution:  
   you take your set of input documents, and if each one has some known set of labels associated with it;  
   you take as a prior for p(topic) for this document to be not random (or uniform across all topics) but uniform across the known labels.
   * L-LDA futher constraints that while training it forces p(topic | doc(i)) = 0 for all topics outside the labeled set for doc(i),  
     whereas this fork allows drifting freely after the initial prior is applied, which leads to an intermediate algorithm between regular LDA and L-LDA.
-* TODO to get "true" L-LDA: 
-  * modify [CVB0PriorMapper.java](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java).
+* To get "true" L-LDA: 
+  * modify [o/a/m/clustering/lda/cvb/CVB0PriorMapper.java](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java).
   * before the train() is called (line 108), you'd want to keep a copy of the docTopicPrior vector, 
   * keeping note of which topics had zero probability, and then 
   * before the final line in the map() method, you'd want to zero-out the entries
