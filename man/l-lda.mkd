@@ -33,7 +33,7 @@ cp -R /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/cluste
   /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
 cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb/ \
   /workspace/gits/mahout-l-lda/core/src/test/java/org/apache/mahout/clustering/lda/cvb
-cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'applies a patch of L-LDA from https://github.com/twitter/mahout/'
+cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'L-LDA from https://github.com/twitter/mahout/'
 ```
 
 ##### 
