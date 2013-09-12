@@ -100,7 +100,14 @@ awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s
 sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
 sed '1 i\
 class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
-' > $MAHOUT_WORK/adult.csv
+' > $MAHOUT_WORK/income-train.csv
+
+head -n 10 $MAHOUT_WORK/adult.test |
+awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s", $i; printf "\n"}' |
+sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
+sed '1 i\
+class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
+' > $MAHOUT_WORK/income-test.csv
 ```
 
 ##### Adding Missing Data
