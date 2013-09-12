@@ -144,7 +144,7 @@ class,age,workclass,education,education-num,marital-status,occupation,relationsh
 ' > $MAHOUT_WORK/income-test.csv
 ```
 
-##### Adding Missing Data
+##### Imputation (substituting missing data) -- <sub>http://en.wikipedia.org/wiki/Imputation_(statistics)</sub>
 
 Attribute values for some instances might be missing from the training and test data files. There are several strategies for handling missing values - these include:
 
@@ -153,7 +153,7 @@ Attribute values for some instances might be missing from the training and test 
 * Using the attribute values of the nearest neighbors.
 * Employing regression-based imputation.
 
-NOTE: The missing value script computes the mean (for numeric features), and mode (for categorical features), based only on examples in the training file. These values are then used to fill in missing values in both the training and the test data. The above strategy for dealing with missing values may not be appropriate for all applications and you should choose an appropriate strategy based on the specific application needs.
+Note the missing value script computes the mean (for numeric features), and mode (for categorical features), based only on examples in the training file. These values are then used to fill in missing values in both the training and the test data. The above strategy for dealing with missing values may not be appropriate for all applications and you should choose an appropriate strategy based on the specific application needs.
 
 ##### Randomly Shuffle Training Data
 
