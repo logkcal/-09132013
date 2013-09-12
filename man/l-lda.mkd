@@ -70,7 +70,7 @@ diff -wr -x .svn \
   /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
 ```
 
-Then, we are ready to implement "true" L-LDA suggestion. See commits at git@github.com:henry4j/mahout-l-lda.git.
+Then, we are ready to implement "true" L-LDA suggestion. See commits http://github.com/henry4j/mahout-l-lda/commits/master.
 
 ```bash
 rm -rf /workspace/gits/mahout-l-lda
