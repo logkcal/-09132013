@@ -7,10 +7,13 @@ Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/conf
 
 ### Supervised ML workflow (also called classification)
 
-ML is programming by relationships or patterns in data. ML algorithms discovers patterns in data using mathmatical models.
+ML is programming by relationships or patterns in data.
+ML algorithms constructs mathematical models of data to discover patterns.
+ML models are subsequently used to make decisions or predictions on unseen data.
+e.g. we use ML models out of purchase, browsing, and search histories to predict if a buyer will purchase a product.
 
-
-.
+Why ML? handwriting & speech recognizations cannot be adequately solved by rule-based algorithms.
+ML by patterns in data is much more effective/scalable when data/patterns are personalized, large in volume, or changing in time, 
 .
 .
 .
