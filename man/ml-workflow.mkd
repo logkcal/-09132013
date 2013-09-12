@@ -103,7 +103,7 @@ native-country | Individual's native country. | Categorical { US, ... }
 Below are two observations from the data set:
 
 Label	| Age	| Work class	| Education	| Years of education	| Marital status	| Occupation	| Relationship	| Race	| Sex	| Capital gain	| Capital loss	| Hours per week	| Native country
---- | ---
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
 <50K	| 39	| State-gov	| Bachelors	| 13	| Never-married	| Adm-clerical	| Not-in-family	| White	| Male	| 2174	| 0	| 40	| United-States
 >=50K	| 31	| Private	| Masters | 13	| Married	| Prof-specialty	| Not-in-family	| White	| Female	| 14084	| 0	| 50	| United-States
 
