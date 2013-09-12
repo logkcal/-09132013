@@ -59,10 +59,10 @@ Features can have different data types: numeric (real valued), binary (two value
 
 ##### Label
 
-The label (or target variable) is the value that we are trying to predict. Labels are a special requirement for Supervised Learning, 
-because we learn from the values in the historical data.
+Label (or target property variable) is the value that we are trying to predict. Labels are a special requirement for Supervised ML, 
+as we learn from the values in the historical data.
 
-In order fraudulent detection problem, the labels would be binary indicators in the historical data,
+In fraud detection problem, the labels would be binary indicators in the historical data,
 which indicate whether an order was determined to be fraudulent or not.
 In product classification problem, the training data would contain products which have been categorized using rules or manual review.
 The assigned category for each product would then constitute the label for this problem.
