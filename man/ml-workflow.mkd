@@ -83,9 +83,49 @@ Such a process has fixed, predetermined steps which can be programmed without an
 * income classification data sets for training & test from UCI machine learning repository
 
 ```bash
-curl -o '/tmp/#1' -kL 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/{adult.data,adult.test}'
+[ ! -e "$MAHOUT_WORK/adult.data" ] curl -o "$MAHOUT_WORK/adult.data" -kL http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
+[ ! -e "$MAHOUT_WORK/adult.data" ] curl -o "$MAHOUT_WORK/adult.text" -kL http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test
 ```
 
 #### Data Preparation
 
-* 
+##### Clean Ups
+
+```
+head -n 10 $MAHOUT_WORK/adult.data |
+awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s", $i; printf "\n"}' |
+sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
+sed '1 i\
+class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
+' > $MAHOUT_WORK/adult.csv
+```
+
+##### Adding Missing Data
+
+Attribute values for some instances might be missing from the training and test data files. There are several strategies for handling missing values - these include:
+
+* Replacing each missing value with a fixed constant.
+* Substituting missing values with the mean of observed values for numeric attributes and the mode (most frequently occurring value) for categorical attributes.
+* Using the attribute values of the nearest neighbors.
+* Employing regression-based imputation.
+
+NOTE: The missing value script computes the mean (for numeric features), and mode (for categorical features), based only on examples in the training file. These values are then used to fill in missing values in both the training and the test data. The above strategy for dealing with missing values may not be appropriate for all applications and you should choose an appropriate strategy based on the specific application needs.
+
+##### Randomly Shuffle Training Data
+
+You can randomly shuffle the order of examples in the training set to improve the prediction accuracy of models. This is true, especially for algorithms that learn from one observation at a time (EML's online learning algorithm), rather than algorithms that learn from the entire batch of training examples.
+
+To randomly order the training examples, the following command adds a random number to each example in the first column (excluding the header, which is assigned -1), sorts the examples based on the column value and then strips off the column.
+
+Note that since the test set is only used to evaluate the model, the order of examples does not matter. Also, randomly reordering training examples is useful only for online learning algorithms that examine one example at a time. You don't need to reorder training examples for batch learning or learning algorithms that make decisions based on the entire training set.
+
+##### Additional Notes
+
+Here are four additional data preparation and cleansing operations that you can apply to datasets:
+
+* Outliers: Outliers are values that are dissimilar from the rest of the data and can adversely impact model performance. You can detect outliers by looking at histograms and box plots (see the next lab). The decision to remove outliers is subjective - before you remove them, you should consider if they are genuine or erroneous. Some algorithms like those based on decision trees are, in general, more resilient to outliers. You may decide to remove the particular instance, or change the particular value using any of the strategies for missing data (mentioned above).
+* Feature Scaling: Feature scaling is widely used to normalize attribute values in machine learning algorithms. For a numeric attribute, feature scaling is implemented by subtracting the attribute mean from each attribute value and then dividing the result by the standard deviation: feature scaling rescales attribute values so that they have zero-mean and unit-variance, and fall in similar ranges – this ensures faster convergence of gradient descent-based learning algorithms.
+* Downsampling: To handle extremely large datasets, certain ML algorithms train models on random samples that are much smaller in size. Here, you can preserve class proportions in the sample using techniques such as stratified sampling. In many applications (e.g. online advertising), the class distribution is imbalanced with skewed occurrence of one class (e.g. no-clicks). In such cases, the model training algorithm may give more importance to the majority class and ignore the minority class when learning model parameters. One strategy to deal with imbalanced classes is to downsample the dominant class. Here, we create a new training dataset that retains all examples belonging to the minority class and a sample containing an equal number of examples from the majority class. We then train a predictive model against the new training dataset with a balanced class distribution.
+* Importance Weights: Instead of downsampling the majority class, a different strategy is to assign an importance weight to each example from the minority class – to ensure a balanced class distribution, the importance weight is selected as the ratio of the majority and minority classes. Thus, importance weights are a useful mechanism for correcting class imbalance without adding or removing examples from the training data. In addition to balancing class distributions, importance weights are also a useful tool for meeting specific application requirements. For instance, in some applications like adult content detection, there is a significant cost associated with misclassifying a positive example and so one can penalize misclassification of positive examples by assigning them higher importance weights.
+
+
