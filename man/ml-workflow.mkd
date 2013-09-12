@@ -1,6 +1,6 @@
 ### TOC
 
-* [X](#X)
+* [X](#x)
 * [ML workflow](#ML workflow)
 
 ### ML workflow
@@ -48,4 +48,4 @@ x
 
 ..
 
-#### <a id="X">X</a>
+#### <a id="x">X</a>
