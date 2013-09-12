@@ -1,4 +1,4 @@
-Keywords: ML, observations, classification, [SGC (logistic regression)](http://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression).
+Keywords: ML, observations, classification, [SGD (logistic regression)](http://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression).
 
 ### TOC
 
