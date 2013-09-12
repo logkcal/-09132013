@@ -43,7 +43,7 @@ svn diff -r r1338501
 ##### Fork a Mahout L-LDA
 
 ```bash
-[ ! -d /workspace/gits/mahout-twitter ] && git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
+[ ! -d /workspace/gits/mahout-twitter ] && git clone https://github.com/twitter/mahout.git /workspace/gits/mahout-twitter
 if [ ! -d /workspace/gits/mahout-l-lda ]; then
   git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
   svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/gits/mahout-l-lda
