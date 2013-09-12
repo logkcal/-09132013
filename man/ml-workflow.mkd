@@ -2,12 +2,11 @@ Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/conf
 
 ### TOC
 
-* ML & 3C (collaborative filtering, classification, and clustering)
-  * recommender, supervised learning, and unsupervised learning.
-* [Supervised ML](#supervised-ml)
+* [ML introduction](#ml-introduction)
 * [Modeling WF](#modeling-wf)
+  * [Problem definition](#ml-problem-definition)
 
-### Machine Learning
+### ML introduction
 
 ML is programming by relationships or patterns in data.
 ML algorithms constructs mathematical models of data to discover patterns.
@@ -17,12 +16,14 @@ e.g. we use ML models out of purchase, browsing, and search histories to predict
 Why ML? handwriting & speech recognizations cannot be adequately solved by rule-based algorithms.
 ML by patterns in data is much more effective/scalable when data/patterns are personalized, large in volume, or changing in time, 
 
-### Supervised ML
+Note Mahout has algorithms on 3C: collaborative filtering, classification, and clustering that are also called recommender, supervised learning, and unsupervised learning.
+
+#### Supervised ML
 
 We can formulate many of ML problems in terms of prediction of a desired target property of an object, e.g. if a website is e-commerce or not, given other known properties of the object (e.g. text, hyperlinks).
 Supervised ML approach consists of two key phases - (1) training, and (2) prediction -- training or model building involves learning a model or patterns from historical data (e.g. postive & negative examples of e-commerce sites), and prediction uses the learned model to determine the target property.  
 
-#### Classification vs. Regression
+##### Classification vs. Regression
 
 In classification problems, the target property takes discrete values (e.g., whether a website is e-commerce or not),  
 while in regression problems, the target property is continuous (e.g., the demand forecast for a product). 
