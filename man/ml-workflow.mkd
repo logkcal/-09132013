@@ -75,6 +75,11 @@ The assigned category for each product would then constitute the label for this 
 Note that labels must be assigned to observations in the historical data which is used for training and testing a model.
 The training algorithm tries to learn the best model that can accurately predict the (known) label for maximum number of observations during the testing phase. When using the model for predictions, we only need observations with corresponding features without the labels. The model will then predict the label based on the learned parameters.
 
+##### Income Classification Problem
+
+Categorize High-Income Individuals in Census Data: predict whether the income for an individual exceeds $50K annually based on census data.
+This is a standard dataset made available by UCI ML repository (1994 US Census), and used extensively by ML community to experiment different algorithms. See more details at http://archive.ics.uci.edu/ml/datasets/Adult.
+
 Feature | Description | Data Type
 --- | --- | ---
 income class id (Label) | Whether income is greater or less than $50,000. | Binary {"<50K" or ">=50K"}
