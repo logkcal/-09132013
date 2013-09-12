@@ -45,10 +45,9 @@ svn diff -r r1338501
 ```bash
 [ ! -d /workspace/gits/mahout-twitter ] && git clone https://github.com/twitter/mahout.git /workspace/gits/mahout-twitter
 if [ ! -d /workspace/gits/mahout-l-lda ]; then
-  git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
   svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/gits/mahout-l-lda
   find /workspace/gits/mahout-l-lda -type d -name .svn | xargs rm -rf
-  cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'mahout-0.8'
+  cd /workspace/gits/mahout-l-lda; git init; git add -f .; git commit -m 'mahout-0.8'
 end
 ```
 
@@ -71,7 +70,12 @@ diff -wr -x .svn \
   /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
 ```
 
-Then, we are ready to implement "true" L-LDA suggestion by Jake Mannix.
+Then, we are ready to implement "true" L-LDA suggestion. See commits at git@github.com:henry4j/mahout-l-lda.git.
+
+```bash
+rm -rf /workspace/gits/mahout-l-lda
+git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
+```
 
 ##### mvn install -DskipTests
 
