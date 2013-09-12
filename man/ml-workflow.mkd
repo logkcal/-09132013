@@ -78,7 +78,9 @@ For example, obtaining the address or phone number of a customer, calculating or
 Similarly, ML is not required to model processes that are highly deterministic, such as the workflow of a customer of placing an order on retail sites.
 Such a process has fixed, predetermined steps which can be programmed without any data-driven learning needed.
 
-#### Data collection & integration
+#### Data collection
+
+* income classification data sets for training & test from UCI machine learning repository
 
 ```bash
 curl -o '/tmp/#1' -kL 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/{adult.data,adult.test}'
