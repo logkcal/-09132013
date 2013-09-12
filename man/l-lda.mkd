@@ -17,7 +17,7 @@
 svn checkout http://svn.apache.org/repos/asf/mahout/trunk /workspace/mahout-trunk
 svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/mahout-tags/0.8
 git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
-git clone git@github.com:henry4j/mahout-0.8.git /workspace/gits/mahout-0.8
+git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
 ```
 
 ```bash
