@@ -75,11 +75,23 @@ The assigned category for each product would then constitute the label for this 
 Note that labels must be assigned to observations in the historical data which is used for training and testing a model.
 The training algorithm tries to learn the best model that can accurately predict the (known) label for maximum number of observations during the testing phase. When using the model for predictions, we only need observations with corresponding features without the labels. The model will then predict the label based on the learned parameters.
 
-Markdown | Less | Pretty
+Feature | Description | Data Type
 --- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-1 | 2 | 3
+income class id (Label) | Whether income is greater or less than $50,000. | Binary {"<50K" or ">=50K"}
+age	| Age of the individual. |	Numeric
+workclass | Working class of the individual. |	Categorical {Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked}
+final-weight | Weighted estimate across different socio-economic characteristics. |	Numeric
+education | Education level of the individual. |	Categorical {Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool}
+education-num | Number of years of education of the individual. |	Numeric
+marital-status | Marital status of the individual. |	Categorical {Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse}
+occupation | Occupation of the individual. | Categorical {Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces}
+relationship | Relationship. |	Categorical {Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried}
+race | Race of the individual. |	Categorical {White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black}
+gender	| Gender of the individual. |	Categorical {Female, Male}
+capital-gain | Capital gain.	| Numeric
+capital-loss | Capital loss. |	Numeric
+hours-per-week | Number of hours worked per week. |	Numeric
+native-country | Individual's native country. | Categorical
 
 ##### Sidebar: Is it an ML problem? 
 
