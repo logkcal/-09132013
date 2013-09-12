@@ -1,9 +1,12 @@
-.gitignore
 *.class
 *.jar
 *.p4config
 *.prefs
 .DS_Store
+.checkstyle
+.gitignore
+.pmd
+.ruleset
 .settings/
 apollo-overrides/
 bin/
