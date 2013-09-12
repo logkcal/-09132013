@@ -162,10 +162,8 @@ You can randomly shuffle the order of examples in the training set to improve th
 To randomly order the training examples, the following command adds a random number to each example in the first column (excluding the header, which is assigned -1), sorts the examples based on the column value and then strips off the column.
 
 ```bash
-
-awk '{printf "%s,%s\n", NR==1 ? -1 : rand(), $0}' "$MAHOUT_WORK/income-train-data-0.csv" | 
-sort --key 1 --numeric-sort | sed 's/^[^,]*,//' | 
-tee "$MAHOUT_WORK/income-train-data.csv"
+awk '{printf "%s,%s\n", (NR==1 ? -1 : rand()), $0}' "$MAHOUT_WORK/income-train-data-0.csv" |
+sort --key 1 --numeric-sort | sed 's/^[^,]*,//' | tee "$MAHOUT_WORK/income-train-data.csv"
 ```
 
 ##### Additional Notes
