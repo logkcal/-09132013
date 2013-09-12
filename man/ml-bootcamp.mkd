@@ -1,4 +1,4 @@
-<sup>[L-LDA](https://github.com/henry4j/-/blob/master/man/l-lda.mkd), [SGD bootcamp](http://tiny/4b1766v4/wamazindeMach), [ML-workflow](https://github.com/henry4j/-/blob/master/man/ml-workflow.mkd)</sup>
+<sup>[L-LDA](https://github.com/henry4j/-/blob/master/man/l-lda.mkd), [SGD bootcamp](http://tiny/4b1766v4/wamazindeMach), [ML-workflow](ml-workflow.mkd)</sup>
 
 ### Table of Contents, Machine Learning SDE
 
