@@ -80,7 +80,9 @@ Such a process has fixed, predetermined steps which can be programmed without an
 
 #### Data collection & integration
 
+```bash
 curl -o '/tmp/#1' -ksL 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/{adult.data,adult.test}'
+```
 
 ..
 
