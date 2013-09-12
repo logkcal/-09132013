@@ -5,6 +5,8 @@ Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/conf
 * [ML introduction](#ml-introduction)
 * [Modeling WF](#modeling-wf)
   * [Problem definition](#ml-problem-definition)
+  * [Data Collection & Integration](#data-collection)
+  * [Data Preparation & Clean up](#data-preparation)
 
 ### ML introduction
 
