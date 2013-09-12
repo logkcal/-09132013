@@ -1,3 +1,5 @@
+Keywords: ML, observations, classification, [SGC (logistic regression)](http://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression).
+
 ### TOC
 
 * 3C (collaborative filtering, classification, and clustering)
