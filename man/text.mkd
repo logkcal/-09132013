@@ -1,11 +1,3 @@
-##### Keywords
-
-* LDA topic-probability distribution per document (p(z|d))
-
-##### Hadoop on Mac OS X - [ [Ubuntu](http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/) | [Mac OS X](http://wiki.apache.org/hadoop/Running_Hadoop_On_OS_X_10.5_64-bit_\(Single-Node_Cluster\)) ]
-
-***
-
 ***
 
 ###### Deep Dive into Output
