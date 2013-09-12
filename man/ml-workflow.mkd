@@ -77,8 +77,10 @@ The training algorithm tries to learn the best model that can accurately predict
 
 ##### Income Classification Problem
 
-Categorize High-Income Individuals in Census Data: predict whether the income for an individual exceeds $50K annually based on census data.
-This is a standard dataset made available by UCI ML repository (1994 US Census), and used extensively by ML community to experiment different algorithms. See more details at http://archive.ics.uci.edu/ml/datasets/Adult.
+Let's categorize high-income individuals in census data - predict whether the income for an individual exceeds $50K annually based on census data.
+This is a standard dataset made available by UCI machine learning repository (originally from 1994 US Census), and used extensively by ML community to experiment different algorithms. See more details at http://archive.ics.uci.edu/ml/datasets/Adult.
+
+Below are the features with their data types:
 
 Feature | Description | Data Type
 --- | --- | ---
@@ -96,7 +98,15 @@ gender	| Gender of the individual. |	Categorical {Female, Male}
 capital-gain | Capital gain.	| Numeric
 capital-loss | Capital loss. |	Numeric
 hours-per-week | Number of hours worked per week. |	Numeric
-native-country | Individual's native country. | Categorical
+native-country | Individual's native country. | Categorical { US, ... }
+
+Below are two observations from the data set:
+
+Label	| Age	| Work class	| Education	| Years of education	| Marital status	| Occupation	| Relationship	| Race	| Sex	| Capital gain	| Capital loss	| Hours per week	| Native country
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+<50K	| 39	| State-gov	| Bachelors	| 13	| Never-married	| Adm-clerical	| Not-in-family	| White	| Male	| 2174	| 0	| 40	| United-States
+>=50K	| 31	| Private	| Masters | 13	| Married	| Prof-specialty	| Not-in-family	| White	| Female	| 14084	| 0	| 50	| United-States
+
 
 ##### Sidebar: Is it an ML problem? 
 
