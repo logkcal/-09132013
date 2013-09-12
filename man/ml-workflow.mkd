@@ -75,7 +75,12 @@ The assigned category for each product would then constitute the label for this 
 Note that labels must be assigned to observations in the historical data which is used for training and testing a model.
 The training algorithm tries to learn the best model that can accurately predict the (known) label for maximum number of observations during the testing phase. When using the model for predictions, we only need observations with corresponding features without the labels. The model will then predict the label based on the learned parameters.
 
-##### Is it an ML problem? 
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
+##### Sidebar: Is it an ML problem? 
 
 It is important to remember that ML is not a silver bullet. There are certain use cases where simple solutions can be developed without using ML techniques.
 For example, ML is not needed when the target property value to be determined can be obtained using simple mappings, rules, or computation which are relatively static.
