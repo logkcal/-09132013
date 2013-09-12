@@ -162,7 +162,8 @@ To randomly order the training examples, the following command adds a random num
 
 ```bash
 awk {printf "%s,%s\n", rand(), $0} "$MAHOUT_WORK/income-train-data-0.csv" | 
-sort --key 1 --numeric-sort | sed 's/^[^,]*,//' | tee "$MAHOUT_WORK/income-train-data.csv"
+sort --key 1 --numeric-sort | sed 's/^[^,]*,//' | 
+tee "$MAHOUT_WORK/income-train-data.csv"
 ```
 
 ##### Additional Notes
