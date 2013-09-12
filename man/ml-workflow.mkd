@@ -1,7 +1,7 @@
 ### TOC
 
 * [X](#x)
-* [X](#y)
+* [y](#y)
 * [ML workflow](#ML workflow)
 
 ### ML workflow
