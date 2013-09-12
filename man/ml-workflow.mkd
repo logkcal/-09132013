@@ -86,6 +86,6 @@ Such a process has fixed, predetermined steps which can be programmed without an
 curl -o '/tmp/#1' -kL 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/{adult.data,adult.test}'
 ```
 
-#### <a id="x">X</a>
-#### y
-## ABC
+#### Data Preparation
+
+* 
