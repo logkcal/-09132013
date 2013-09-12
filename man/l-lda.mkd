@@ -86,11 +86,21 @@ cd /workspace/gits/mahout-l-lda/examples
 mvn install -DskipTests # skips running tests, or mvn install -Dmaven.test.skip=true # skips compiling tests
 ```
 
-##### Patch Mahout Core w/ Labeled LDA
+```bash
+cp $HOME/.m2/repository/com/henry4j/mahout/mahout-core/0.8.1/mahout-core-0.8.1.jar $MAHOUT_BASE
+cp $HOME/.m2/repository/com/henry4j/mahout/mahout-core/0.8.1/mahout-core-0.8.1-job.jar $MAHOUT_BASE
+cp $HOME/.m2/repository/com/henry4j/mahout/mahout-examples/0.8.1/mahout-examples-0.8.1.jar $MAHOUT_BASE
+cp $HOME/.m2/repository/com/henry4j/mahout/mahout-examples/0.8.1/mahout-examples-0.8.1-job.jar $MAHOUT_BASE
+```
+
+Or,
 
 ```bash
-for e in core-0.8-job core-0.8 examples-0.8-job; do mv $MAHOUT_BASE/mahout-$e.jar $MAHOUT_BASE/mahout-$e.jar.bak; done
-curl -o $MAHOUT_BASE/mahout-core-0.8.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-core-0.8-patched.jar
-curl -o $MAHOUT_BASE/mahout-core-0.8-job.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-core-0.8-patched-job.jar
-curl -o $MAHOUT_BASE/mahout-examples-0.8-job.jar -kL https://dl.dropboxusercontent.com/u/47820156/mahout/patches/mahout-examples-0.8-patched-job.jar
+for e in core-0.8   core-0.8-job   examples-0.8   examples-0.8-job;
+  do mv $MAHOUT_BASE/mahout-$e.jar $MAHOUT_BASE/mahout-$e.jar.bak;
+done
+
+for e in core-0.8.1 core-0.8.1-job examples-0.8.1 examples-0.8.1-job; 
+  curl -o $MAHOUT_BASE/mahout-$e.jar -kL http://dl.dropboxusercontent.com/u/47820156/mahout/l-lda/mahout-$e.jar; 
+done
 ```
