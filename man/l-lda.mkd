@@ -11,7 +11,25 @@
   * Before [trainDocTopicModel() at line 108](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java), we'd keep a copy of the docTopicPrior vector or note which topics used to have 0 (zero) probabilities.
     Following trainDocTopicModel(), we'd zero-out entries in the mutated docTopicPrior vector of which used to be 0 and renormalize it before emission.
 
-##### Cut a Mahout L-LDA fork
+##### ~~Dive into Mahout change log~~
+
+```bash
+# MAHOUT-971 Use FileSystem.get(URI, Configuration) across the board to make it (more likely to) work with S3
+git checkout e34ea29 .
+svn update -r r1241649
+```
+
+```bash
+git log --after={2012-02-08} # 24 commits
+svn log -r HEAD:{2012-02-08} # 19 commits
+```
+
+```bash
+git diff 16ea0f3^!
+svn diff -r r1338501
+```
+
+##### Fork a Mahout L-LDA
 
 ```bash
 [ ! -d /workspace/gits/mahout-twitter ] && git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
@@ -36,40 +54,24 @@ cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/cluste
 cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'L-LDA from https://github.com/twitter/mahout/'
 ```
 
+```bash
+diff -wr -x .svn \
+  /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+```
+
+Then, we are ready to implement "true" L-LDA suggestion by Jake Mannix.
+
 ##### 
 
 ```bash
-
+cd /workspace/gits/mahout-l-lda/core
+mvn install -DskipTests # skips running tests
+cd /workspace/gits/mahout-l-lda/examples
+mvn install -DskipTests # skips running tests, or mvn install -Dmaven.test.skip=true # skips compiling tests
 ```
 
-```bash
-# no difference 09/04/2013
-diff -wr -x .svn \
-  /workspace/mahout-tags/0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
-  /workspace/mahout-trunk/core/src/main/java/org/apache/mahout/clustering/lda/cvb
-```
 
-```bash
-cd /workspace/mahout-tags/0.8
-mvn install -DskipTests # skips running tests, or
-# mvn install -Dmaven.test.skip=true # skips compiling tests
-```
-
-```bash
-# MAHOUT-971 Use FileSystem.get(URI, Configuration) across the board to make it (more likely to) work with S3
-git checkout e34ea29 .
-svn update -r r1241649
-```
-
-```bash
-git log --after={2012-02-08} # 24 commits
-svn log -r HEAD:{2012-02-08} # 19 commits
-```
-
-```bash
-git diff 16ea0f3^!
-svn diff -r r1338501
-```
 
 * CVB0Driver.java - /workspace/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb 
   * added
