@@ -1,4 +1,4 @@
-##### [Labeled LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant at http://github.com/twitter/mahout
+#### ["true" Labeled-LDA](http://markmail.org/message/cm2a6rnxblj5azuh) -- not published, but a close variant at http://github.com/twitter/mahout
 
 * Since 0.7, for training, we can specify a seed model to start with (i.e. a matrix of latent topic to term counts);  
   we are welcome to build up a matrix of "informed priors" on term distributions on each topic, or it starts random if unspecified. 
@@ -11,14 +11,13 @@
   * Before [trainDocTopicModel() at line 108](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java), we'd keep a copy of the docTopicPrior vector or note which topics used to have 0 (zero) probabilities.
     Following trainDocTopicModel(), we'd zero-out entries in the mutated docTopicPrior vector of which used to be 0 and renormalize it before emission.
 
-
+##### Mahout forks
 
 ```bash
 svn checkout http://svn.apache.org/repos/asf/mahout/trunk /workspace/mahout-trunk
 svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/mahout-tags/0.8
 git clone git@github.com:henry4j/mahout-twitter.git /workspace/gits/mahout-twitter
 git clone git@github.com:henry4j/mahout-0.8.git /workspace/gits/mahout-0.8
-
 ```
 
 ```bash
@@ -26,9 +25,13 @@ opendiff /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/cluster
   /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb
 ```
 
+##### 
+
 ```bash
 cp /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/* \
-   /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb/
+   /workspace/gits/mahout-0.8/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb \
+  /workspace/gits/mahout-0.8/core/src/test/java/org/apache/mahout/clustering/lda/cvb
 ```
 
 ```bash
