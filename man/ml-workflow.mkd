@@ -186,8 +186,9 @@ install.packages('ggplot2')
 install.packages('ROCR')
 
 ? read.csv
-income <- read.csv('income_train_data.csv', header=T, strip.white=TRUE)
+income <- read.csv('/workspace/mahout-work/income_train_data.csv', header=T, strip.white=T) # 
 income$class <- as.factor(income$class)
+
 summary(income) # shows the statistic summary on the entire dataset.
 str(income) # shows the structure of the data object.
 
