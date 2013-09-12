@@ -15,7 +15,7 @@ e.g. we use ML models out of purchase, browsing, and search histories to predict
 Why ML? handwriting & speech recognizations cannot be adequately solved by rule-based algorithms.
 ML by patterns in data is much more effective/scalable when data/patterns are personalized, large in volume, or changing in time, 
 
-### Supervised ML intro.
+### Supervised ML
 
 We can formulate many of ML problems in terms of prediction of a desired target property of an object, e.g. if a website is e-commerce or not, given other known properties of the object (e.g. text, hyperlinks).
 Supervised ML approach consists of two key phases - (1) training, and (2) prediction -- training or model building involves learning a model or patterns from historical data (e.g. postive & negative examples of e-commerce sites), and prediction uses the learned model to determine the target property.  
@@ -25,43 +25,18 @@ Supervised ML approach consists of two key phases - (1) training, and (2) predic
 In classification problems, the target property takes discrete values (e.g., whether a website is e-commerce or not),  
 while in regression problems, the target property is continuous (e.g., the demand forecast for a product). 
 
-.
-.
-.
-.
-.
-.
+### Modeling WF
 
+1. ML problem defintion
+2. Data collection & integration
+3. Data preparation & cleaning
+4. Data visualization & analysis
+5. Feature engineering
+6. Model training & parameter tuning
+7. Model evaluation
+8. Model deployment
 
-
-a
-
-
-b
-
-d
-
-d
-
-
-c
-
-
-d
-
-
-e
-
-x
-
-
-..
-
-
-
-
-
-
+#### ML problem definition
 
 
 
