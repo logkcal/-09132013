@@ -134,14 +134,14 @@ awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s
 sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
 sed '1 i\
 class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
-' > "$MAHOUT_WORK/income-train.csv"
+' > "$MAHOUT_WORK/income-train-data-0.csv"
 
 head -n 10 $MAHOUT_WORK/adult.test |
 awk 'BEGIN { FS=", " } {printf $NF; for (i=1; i<NF; i++) if (i != 3) printf ",%s", $i; printf "\n"}' |
 sed -e "s/^\s*<=50K/0/" -e "s/^\s*>50K/1/" |
 sed '1 i\
 class,age,workclass,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country\
-' > $MAHOUT_WORK/income-test.csv
+' > $MAHOUT_WORK/income-test-data-0.csv
 ```
 
 ##### Imputation (substituting missing data) -- <sub>http://en.wikipedia.org/wiki/Imputation_(statistics)</sub>
@@ -155,13 +155,15 @@ Attribute values for some instances might be missing from the training and test 
 
 Note the missing value script computes the mean (for numeric features), and mode (for categorical features), based only on examples in the training file. These values are then used to fill in missing values in both the training and the test data. The above strategy for dealing with missing values may not be appropriate for all applications and you should choose an appropriate strategy based on the specific application needs.
 
-##### Randomly Shuffle Training Data
+##### Randomly Shuffle Training Data Set
 
-You can randomly shuffle the order of examples in the training set to improve the prediction accuracy of models. This is true, especially for algorithms that learn from one observation at a time (EML's online learning algorithm), rather than algorithms that learn from the entire batch of training examples.
+You can randomly shuffle the order of examples in the training set to improve the prediction accuracy of models. This is true, especially for algorithms that learn from one observation at a time (e.g. SGD in online learning), rather than algorithms that learn from the entire batch of training examples.
 
 To randomly order the training examples, the following command adds a random number to each example in the first column (excluding the header, which is assigned -1), sorts the examples based on the column value and then strips off the column.
 
-Note that since the test set is only used to evaluate the model, the order of examples does not matter. Also, randomly reordering training examples is useful only for online learning algorithms that examine one example at a time. You don't need to reorder training examples for batch learning or learning algorithms that make decisions based on the entire training set.
+```bash
+awk {printf "%s,%s\n", rand(), $0} income-train-data-0.csv | sort --key 1 --numeric-sort | ...
+```
 
 ##### Additional Notes
 
