@@ -1,11 +1,13 @@
-Keywords: ML, observations, classification, [SGD (logistic regression)](http://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression).
+Keywords: observations, [SGD (logistic regression)](http://cwiki.apache.org/confluence/display/MAHOUT/Logistic+Regression), loss function, inference, ...
 
 ### TOC
 
 * 3C (collaborative filtering, classification, and clustering)
   * recommender, supervised learning, and unsupervised learning.
 
-### ML workflow
+### Supervised ML workflow (also called classification)
+
+
 
 .
 .
