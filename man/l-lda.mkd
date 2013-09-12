@@ -9,7 +9,7 @@
     whereas this fork allows drifting freely after the initial prior is applied, which leads to an intermediate algorithm between regular LDA and L-LDA.
 * To get "true" L-LDA: 
   * Before [trainDocTopicModel() at line 108](http://github.com/twitter/mahout/blob/master/core/src/main/java/org/apache/mahout/clustering/lda/cvb/CVB0PriorMapper.java), we'd keep a copy of the docTopicPrior vector or note which topics used to have 0 (zero) probabilities.
-  * Following trainDocTopicModel(), we'd zero-out entries in the mutated docTopicPrior vector of which used to be 0 and renormalize it before emission.
+    Following trainDocTopicModel(), we'd zero-out entries in the mutated docTopicPrior vector of which used to be 0 and renormalize it before emission.
 
 
 
