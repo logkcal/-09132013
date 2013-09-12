@@ -1,4 +1,4 @@
-<sup>[L-LDA](https://github.com/henry4j/-/blob/master/man/l-lda.mkd), [eml bootcamp](http://tiny/4b1766v4/wamazindeMach)</sup>
+<sup>[L-LDA](https://github.com/henry4j/-/blob/master/man/l-lda.mkd), [SGD bootcamp](http://tiny/4b1766v4/wamazindeMach)</sup>
 
 ### Table of Contents, Machine Learning SDE
 
