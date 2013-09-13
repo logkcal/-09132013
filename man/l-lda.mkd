@@ -143,3 +143,23 @@ INFO: 2.034720670366602 = perplexity
 INFO: 0.0 = fractionalChange
 INFO: Converged! fractional error change: 0.000000, error 2.034721
 ```
+
+###### TODO
+
+```java
+sampledCorpus.numRows();
+Matrix sampledCorpusPriors = new DenseMatrix(sampledCorpus.numRows(), numGeneratingTopics);
+for(int docId = 0; docId < sampledCorpus.numRows(); docId++) {
+   Vector doc = sampledCorpus.viewRow(docId);
+   int term = mostProminentFeature(doc);
+   Vector prior = new DenseVector(numGeneratingTopics);
+   prior.assign(1.0/numGeneratingTopics);
+   if(term % (numTerms / numGeneratingTopics) == 0) {
+       int topic = expectedTopicForTerm(matrix, term);
+       //prior.set(numGeneratingTopics - (term/numGeneratingTopics) - 1, 1);
+       prior.set(topic, 1);
+       prior = prior.normalize(1);
+   }
+   sampledCorpusPriors.assignRow(docId, prior);
+}
+```
