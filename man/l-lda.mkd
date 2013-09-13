@@ -144,13 +144,14 @@ INFO: 0.0 = fractionalChange
 INFO: Converged! fractional error change: 0.000000, error 2.034721
 ```
 
-###### TODO
+###### TODO: implement remaining part of Jake Mannix's suggestion in JRuby
 
 * This twitter fork http://github.com/twitter/mahout allows you to specify priors on the document/topic distribution:  
   you take your set of input documents, and if each one has some known set of labels associated with it;  
   you take as a prior for p(topic) for this document to be not random (or uniform across all topics) but uniform across the known labels.
 
 ```java
+# something like this but with an useful set of command line options.
 sampledCorpus.numRows();
 Matrix sampledCorpusPriors = new DenseMatrix(sampledCorpus.numRows(), numGeneratingTopics);
 for(int docId = 0; docId < sampledCorpus.numRows(); docId++) {
