@@ -102,6 +102,6 @@ for e in core-0.8.1 core-0.8.1-job examples-0.8.1 examples-0.8.1-job;
 done
 ```
 
-##### [TestCVBModelTrainer.java](https://github.com/henry4j/mahout-l-lda/blob/master/core/src/test/java/org/apache/mahout/clustering/lda/cvb/TestCVBModelTrainer.java)
+##### [@Test in TestCVBModelTrainer](https://github.com/henry4j/mahout-l-lda/blob/master/core/src/test/java/org/apache/mahout/clustering/lda/cvb/TestCVBModelTrainer.java)
 
 *
