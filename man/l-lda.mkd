@@ -134,4 +134,5 @@ sampleCorpusPath | Path | `/tmp/mahout-TestCVBModelTrainer-6999986663745124352/c
 name | structure | value
 --- | --- | ---
 matrix | 3 topics x 26 terms in DenseMatrix |
+sampledCorpus | 100 docs x 26 terms in SparseRowMatrix |
 
