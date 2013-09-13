@@ -1,6 +1,6 @@
 #!/bin/bash # called `tame-corpus`
-[ ! -e ${MAHOUT_WORK}/corpus.csv ] && curl -o ${MAHOUT_WORK}/corpus.csv -kL http://tiny/18czoddbd/s3amaztextresorrc_csv # rrc_pro_22110
-# [ ! -e ${MAHOUT_WORK}/corpus.csv ] && curl -o ${MAHOUT_WORK}/corpus.csv -kL http://tiny/148k8mzy0/s3amaztextresorrc_csv # rrc_ind_31771
+[ ! -e ${MAHOUT_WORK}/corpus.csv ] && s3cmd get s3://${S3_BUCKET}-private/resources/rrc_pro_22110.csv ${MAHOUT_WORK}/corpus.csv
+# [ ! -e ${MAHOUT_WORK}/corpus.csv ] && s3cmd get s3://${S3_BUCKET}-private/resources/rrc_ind_31771.csv ${MAHOUT_WORK}/corpus.csv
 
 rm -rf ${MAHOUT_WORK}/comm-text-ext
 prep-comm-text $3 ${MAHOUT_WORK}/corpus.csv -d ${MAHOUT_WORK}/comm-text-ext
