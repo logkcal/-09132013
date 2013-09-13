@@ -1,5 +1,17 @@
 <sup>[L-LDA](https://github.com/henry4j/-/blob/master/man/l-lda.mkd), [VW](http://en.wikipedia.org/wiki/Vowpal_Wabbit). [SGD bootcamp](http://tiny/4b1766v4/wamazindeMach), [ML-workflow](ml-workflow.mkd)</sup>
 
+### ML SDE requirement -- <sub>[1](http://www.amazon.com/gp/jobs/232194/), [2](http://www.amazon.com/gp/jobs/180727/), [3](https://jobs.groupon.com/careers/engineering/software-development-engineer-senior-goods-seattle-wa-united-states/), [4](https://twitter.com/jobs/positions?jvi=oSAqXfwz,Job), [5](https://twitter.com/jobs/positions?jvi=oTAqXfwA,Job), [6](http://www.linkedin.com/jobs?viewJob=&jobId=6907673), [7](http://www.linkedin.com/jobs?viewJob=&jobId=6865716)</sub>
+
+* Hadoop/<sub>Map Reduce/HDFS/Pig/Hive</sub>, Mahout/<sub>Machine Learning/R</sub>, Lucene/<sub>Solr/Search</sub>, ZooKeeper/<sub>Distributed Coordination</sub>, ...
+* ML concepts: Supervised vs Unsupervised learning, Collaborative filtering, TF/TFIDF, n-gram, tokenizer, vectorizer, ...
+* Amazon EMR, SWF, SQS, DynamoDB, S3, ORM/noSQL, Barrier/AQS/PQ, Leader Election/Paxos, ...
+* Misc. scripting/open source tools: GIT/Subversion, Maven/POM/Eclipse, awk/sed, Shell/Ruby/Python, ...
+* How to formulate ML problems? How to parallelize ML algorithms? How to select or reduce features? For your reading:  
+![x](http://www.manning.com/holmes/holmes_cover150.jpg)
+![x](http://www.manning.com/ingersoll/ingersoll_cover150.jpg)
+![x](http://www.manning.com/owen/owen_cover150.jpg)
+![x](http://www.manning.com/pharrington/pharrington_cover150.jpg)
+
 ### Table of Contents, Machine Learning SDE
 
 * Set up machine learning SDE environment (Hadoop & Mahout)
@@ -7,9 +19,6 @@
 * Test and evaluate LDA models for topic matching
 * Under Construction - to be wired
 * Discussions
-* Catch up w/ ML SDE/Data Analytics Architect requirement, [1](https://jobs.groupon.com/careers/engineering/software-development-engineer-senior-goods-seattle-wa-united-states/), [2](https://twitter.com/jobs/positions?jvi=oSAqXfwz,Job), [3](https://twitter.com/jobs/positions?jvi=oTAqXfwA,Job), [4](http://www.linkedin.com/jobs?viewJob=&jobId=6907673), [5](http://www.linkedin.com/jobs?viewJob=&jobId=6865716)
-  * Hadoop/Map Reduce/Pig/Hive/R, Mahout/Machine Learning, Lucene/Search, ZooKeeper/Distributed Coordination, ...
-  * Amazon EMR, Amazon Simple Workflow, Amazon SNS/SQS, Amazon Dynamo DB/noSQL, Amazon S3, ...
 
 ### Set up ML SDE environment on Mac OSX <sub>(forked from [Android bootcamp](https://github.com/henry4j/-/blob/master/man/android-bootcamp.mkd))</sub>
 
@@ -572,7 +581,3 @@ qplot(data=income, x=age,main="Histogram of Age",binwidth=3)
 
 * [Mahout on Amazon EMR: Elastic MapReduce](https://cwiki.apache.org/confluence/display/MAHOUT/Mahout+on+Elastic+MapReduce)
 * [Yahoo Dev. Network - Hadoop Tutorial](http://developer.yahoo.com/hadoop/tutorial/)
-
-![x](http://www.manning.com/holmes/holmes_cover150.jpg)
-![x](http://www.manning.com/ingersoll/ingersoll_cover150.jpg)
-![x](http://www.manning.com/owen/owen_cover150.jpg)
