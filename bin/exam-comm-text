@@ -18,9 +18,8 @@ model_id = $options[:model_id] || 'unigram-rrc-pro-22k'
 docs = ARGV
 if docs.empty?
   docs = ["#{ENV['MAHOUT_WORK']}/test-set-2285-labeled_typos.csv"]
-  # system "curl -o #{docs[0]} -kL http://tiny/171x9677u/s3amaztextresorrc_csv" unless File.exists?(docs[0]) # rrc_pro_1241_labeled
-  # system "curl -o #{docs[0]} -kL http://tiny/4onnbu8p/s3amaztextresorrc_csv" unless File.exists?(docs[0]) # rrc_pro_2285_labeled
-  system "curl -o #{docs[0]} -kL http://tiny/rtncrfxw/s3amaztextresorrc_csv" unless File.exists?(docs[0]) # rrc_pro_2285_labeled_typos
+  system "s3cmd get 's3://#{ENV['S3_BUCKET']}-private/resources/rrc_pro_2285_labeled_typos.csv' '#{docs[0]}'" unless File.exists?(docs[0]) # rrc_pro_2285_labeled_typos
+  # s3cmd get "s3://#{ENV['S3_BUCKET']}-private/resources/rrc_pro_1241_labeled.csv" "#{docs[0]}" unless File.exists?(docs[0]) # rrc_pro_2285_labeled_typos
 end
 
 q2cc = docs.reduce({}) do |h, e| # comm. texts keyed by FAQ.
