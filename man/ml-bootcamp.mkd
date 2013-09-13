@@ -5,8 +5,7 @@
 * Hadoop/<sub>Map Reduce/HDFS/Pig/Hive</sub>, Mahout/<sub>Machine Learning/R</sub>, Lucene/<sub>Solr/Search</sub>, ZooKeeper/<sub>Distributed Coordination</sub>, ...
 * ML concepts: Supervised vs Unsupervised learning, Collaborative filtering, TF/TFIDF, n-gram, tokenizer, vectorizer, ...
 * Amazon EMR, SWF, SQS, DynamoDB, S3, Ruby/Python, ORM/noSQL, Barrier/AQS/PQ, Leader Election/Paxos, ...
-* How to formulate ML problems? How to parallelize ML algorithms? How to select or reduce features?
-
+* How to formulate ML problems? How to parallelize ML algorithms? How to select or reduce features? For your reading:  
 ![x](http://www.manning.com/holmes/holmes_cover150.jpg)
 ![x](http://www.manning.com/ingersoll/ingersoll_cover150.jpg)
 ![x](http://www.manning.com/owen/owen_cover150.jpg)
