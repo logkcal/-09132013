@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 %w{optparse fileutils open-uri csv}.each { |e| require e }
 
-# Usage;
-# curl -o /tmp/corpus.csv -kL http://tiny/18czoddbd/s3amaztextresorrc_csv
-# prep-comm-text /tmp/corpus.csv -d ${WORK_DIR}/comm-text-ext
-
 $options = {}
 OptionParser.new do |p|
   p.on('-s', '--skip-entries INTEGER', Integer, 'Skips processing as many entries as specified (default: 1).') { |v| $options[:skip_count] = v }
