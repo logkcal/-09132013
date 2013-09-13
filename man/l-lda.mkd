@@ -48,23 +48,19 @@ if [ ! -d /workspace/gits/mahout-l-lda ]; then
   svn checkout http://svn.apache.org/repos/asf/mahout/tags/mahout-0.8 /workspace/gits/mahout-l-lda
   find /workspace/gits/mahout-l-lda -type d -name .svn | xargs rm -rf
   cd /workspace/gits/mahout-l-lda; git init; git add -f .; git commit -m 'mahout-0.8'
+
+  cp -R /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/ \
+    /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
+  cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb/ \
+    /workspace/gits/mahout-l-lda/core/src/test/java/org/apache/mahout/clustering/lda/cvb
+  cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'L-LDA from https://github.com/twitter/mahout/'
 end
 ```
 
 ```bash
 opendiff /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
   /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
-```
 
-```bash
-cp -R /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb/ \
-  /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
-cp -R /workspace/gits/mahout-twitter/core/src/test/java/org/apache/mahout/clustering/lda/cvb/ \
-  /workspace/gits/mahout-l-lda/core/src/test/java/org/apache/mahout/clustering/lda/cvb
-cd /workspace/gits/mahout-l-lda; git add -f .; git commit -m 'L-LDA from https://github.com/twitter/mahout/'
-```
-
-```bash
 diff -wr -x .svn \
   /workspace/gits/mahout-twitter/core/src/main/java/org/apache/mahout/clustering/lda/cvb \
   /workspace/gits/mahout-l-lda/core/src/main/java/org/apache/mahout/clustering/lda/cvb
@@ -73,8 +69,8 @@ diff -wr -x .svn \
 Then, we are ready to implement "true" L-LDA suggestion. See commits http://github.com/henry4j/mahout-l-lda/commits/master.
 
 ```bash
-rm -rf /workspace/gits/mahout-l-lda
-git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
+# implement "true" L-LDA or clone this git repo.
+rm -rf /workspace/gits/mahout-l-lda; git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
 ```
 
 ##### mvn install -DskipTests
