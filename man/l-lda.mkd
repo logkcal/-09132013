@@ -146,6 +146,10 @@ INFO: Converged! fractional error change: 0.000000, error 2.034721
 
 ###### TODO
 
+* This twitter fork http://github.com/twitter/mahout allows you to specify priors on the document/topic distribution:  
+  you take your set of input documents, and if each one has some known set of labels associated with it;  
+  you take as a prior for p(topic) for this document to be not random (or uniform across all topics) but uniform across the known labels.
+
 ```java
 sampledCorpus.numRows();
 Matrix sampledCorpusPriors = new DenseMatrix(sampledCorpus.numRows(), numGeneratingTopics);
