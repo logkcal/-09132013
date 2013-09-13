@@ -69,7 +69,7 @@ diff -wr -x .svn \
 Then, we are ready to implement "true" L-LDA suggestion. See commits http://github.com/henry4j/mahout-l-lda/commits/master.
 
 ```bash
-# implement "true" L-LDA or clone this git repo.
+# implement "true" L-LDA on your own, or clone this git repo.
 rm -rf /workspace/gits/mahout-l-lda; git clone git@github.com:henry4j/mahout-l-lda.git /workspace/gits/mahout-l-lda
 ```
 
