@@ -7,8 +7,9 @@
 * Test and evaluate LDA models for topic matching
 * Under Construction - to be wired
 * Discussions
-* Catch up w/ ML SDE/Data Analytics Architect requirement, [1](https://jobs.groupon.com/careers/engineering/software-development-engineer-senior-goods-seattle-wa-united-states/), [2](https://twitter.com/jobs/positions?jvi=oSAqXfwz,Job), [3](https://twitter.com/jobs/positions?jvi=oTAqXfwA,Job), [4](http://www.linkedin.com/jobs?viewJob=&jobId=6907673), [5](http://www.linkedin.com/jobs?viewJob=&jobId=6865716)
+* ML SDE requirement, [1](https://jobs.groupon.com/careers/engineering/software-development-engineer-senior-goods-seattle-wa-united-states/), [2](https://twitter.com/jobs/positions?jvi=oSAqXfwz,Job), [3](https://twitter.com/jobs/positions?jvi=oTAqXfwA,Job), [4](http://www.linkedin.com/jobs?viewJob=&jobId=6907673), [5](http://www.linkedin.com/jobs?viewJob=&jobId=6865716)
   * Hadoop/Map Reduce/Pig/Hive/R, Mahout/Machine Learning, Lucene/Search, ZooKeeper/Distributed Coordination, ...
+  * Machine Learning techniques: Supervised learning, Unsupervised learning, Collaborative filtering, TF, TFIDF, ...
   * Amazon EMR, Amazon Simple Workflow, Amazon SNS/SQS, Amazon Dynamo DB/noSQL, Amazon S3, ...
 
 ### Set up ML SDE environment on Mac OSX <sub>(forked from [Android bootcamp](https://github.com/henry4j/-/blob/master/man/android-bootcamp.mkd))</sub>
