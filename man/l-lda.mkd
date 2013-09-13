@@ -128,3 +128,10 @@ sampleCorpusPath | Path | `/tmp/mahout-TestCVBModelTrainer-6999986663745124352/c
   ...
 }
 ```
+
+###### testInMemoryCVB0
+
+name | structure | value
+--- | --- | ---
+matrix | 3 topics x 26 terms in DenseMatrix |
+
