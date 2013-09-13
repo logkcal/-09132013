@@ -108,7 +108,7 @@ name | structure | value
 --- | --- | ---
 matrix | 5 topics x 30 terms in DenseMatrix |
 sampledCorpus | 500 docs x 30 terms in SparseRowMatrix |
-sampleCorpusPath | Path | file:/tmp/mahout-TestCVBModelTrainer-6999986663745124352/corpus
+sampleCorpusPath | Path | `/tmp/mahout-TestCVBModelTrainer-6999986663745124352/corpus`
 
 ```java
 {
